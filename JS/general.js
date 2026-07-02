@@ -51,8 +51,10 @@ function nextQuestion(questionArray, selectedOption) {
     answer.push({
 
         part: questionArray[currentQuestion].part,
-
-        ...selectedOption
+        name: selectedOption.name,
+        risk: selectedOption.risk,
+        problems: selectedOption.problems
+        //...selectedOption
 
     });
 
