@@ -1,11 +1,4 @@
-// ===============================
-// Risk Score
-// ===============================
-const riskScore = {
-    Low: 0,
-    Medium: 1,
-    High: 2
-};
+const currentAnimal = localStorage.getItem("animal");
 
 // ===============================
 // Variables
@@ -72,7 +65,7 @@ function nextQuestion(questionArray, selectedOption) {
             JSON.stringify(answer)
         );
 
-        window.location.href = "result.html";
+        window.location.href = "../html/result.html";
     }
 
 }

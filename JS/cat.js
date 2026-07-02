@@ -1,10 +1,10 @@
-const currentAnimal = "cat";
+//const currentAnimal = "cat";
 
 //Array of questions for the cat 
 const catQuestion = [
     {
         part: "Body",
-        title: "Question 1",
+        title: "🐱Question 1",
         question: "What is Body Shape of your cat?",
         options: [
             // Question 1 - Body Shape
@@ -47,7 +47,7 @@ const catQuestion = [
 
     {
         part: "Eyes",
-        title: "Question 2",
+        title: "🐱Question 2",
         question: "What is Eye Shape of your cat?",
         options: [
             // Question 2 - Eye Shape
@@ -62,8 +62,8 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Watery eyes",
-                    "Dry eyes",
+                    "Increased eye exposure",
+                    "Tear film imbalance risk",
                     "Eye irritation"
                 ]
             },
@@ -91,7 +91,7 @@ const catQuestion = [
 
     {
         part: "Ears",
-        title: "Question 3",
+        title: "🐱Question 3",
         question: "What is Ear Shape of your cat?",
         options: [
             // Question 3 - Ear Shape
@@ -103,11 +103,9 @@ const catQuestion = [
             },
             {
                 name: "Large Upright Ears",
-                risk: "Medium",
-                //score: 1,
-                problems: [
-                    "Ear mites"
-                ]
+                risk: "Low",
+                //score: 0,
+                problems: []
             },
             {
                 name: "Small / Low-set Ears",
@@ -123,6 +121,7 @@ const catQuestion = [
                 risk: "High",
                 //score: 2,
                 problems: [
+                    "Osteochondrodysplasia (genetic bone disease)",
                     "Joint pain",
                     "Stiff joints",
                     "Difficulty moving"
@@ -133,7 +132,7 @@ const catQuestion = [
 
     {
         part: "Tail",
-        title: "Question 4",
+        title: "🐱Question 4",
         question: "What is Tail of your cat?",
         options: [
             // Question 4 - Tail
@@ -156,7 +155,7 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Tail stiffness"
+                    "Tail mobility limitation (mild)"
                 ]
             },
             {
@@ -166,7 +165,7 @@ const catQuestion = [
                 problems: [
                     "Spinal problems",
                     "Weak back legs",
-                    "Toilet control issues"
+                    "Possible nerve issues"
                 ]
             }
         ]

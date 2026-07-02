@@ -13,3 +13,55 @@ td {
 tr:nth-child(even) {
     background-color: #d3d3d3;
 } */
+
+#card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 50px;
+    margin: 0px 0px 100px 0px;
+    /*top right bottom left*/
+    gap: 100px;
+}
+
+/* 
+//===============================
+// result-card
+//=============================== */
+.result-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.result-card .card-front,
+.result-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.result-card .card-front {
+    background-color: rgb(255, 190, 241);
+}
+
+.result-card .card-back {
+    background-color: rgb(203, 150, 255);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.result-card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.result-card:hover .card-back {
+    transform: rotateY(0deg);
+}

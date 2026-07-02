@@ -1,10 +1,10 @@
-const currentAnimal = "dog";
+//const currentAnimal = "dog";
 
 //Array of questions for the dog 
 const dogQuestion = [
     {
         part: "Body",
-        title: "Question 1",
+        title: "🐶Question 1",
         question: "What is Body Shape of your dog?",
         options: [
             // Question 1 - Body
@@ -37,8 +37,8 @@ const dogQuestion = [
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Breathing problems",
-                    "Heat sensitivity",
+                    "reduced airway space",
+                    "overheating risk",
                     "Back problems"
                 ]
             }
@@ -47,7 +47,7 @@ const dogQuestion = [
 
     {
         part: "Eyes",
-        title: "Question 2",
+        title: "🐶Question 2",
         question: "What is Eye Shape of your dog?",
         options: [
             // Question 2 - Eye Shape
@@ -59,30 +59,29 @@ const dogQuestion = [
             },
             {
                 name: "Round Eyes",
-                risk: "Medium",
-                //score: 1,
-                problems: [
-                    "Dry eyes",
-                    "Eye irritation",
-                    "Watery eyes"
-                ]
+                risk: "Low",
+                //score: 0,
+                problems: []
             },
             {
                 name: "Triangular Eyes",
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Eyelid problems",
-                    "Eye irritation"
+                    "Dry eyes risk",
+                    "Eye irritation",
+                    "Mild entropion risk"
                 ]
             },
             {
-                name: "Slanted Eyes",
-                risk: "Medium",
+                name: "Protruding Eyes",
+                risk: "High",
                 //score: 1,
                 problems: [
-                    "Eye irritation",
-                    "Eyelid problems"
+                    "Corneal injury",
+                    "Dry eyes",
+                    "Eye trauma risk",
+                    //"incomplete blinking"
                 ]
             }
         ]
@@ -90,7 +89,7 @@ const dogQuestion = [
 
     {
         part: "Ears",
-        title: "Question 3",
+        title: "🐶Question 3",
         question: "What is Ear Shape of your dog?",
         options: [
             // Question 3 - Ears
@@ -109,6 +108,15 @@ const dogQuestion = [
                 ]
             },
             {
+                name: "Folded Ears",
+                risk: "High",
+                //score: 2,
+                problems: [
+                    "Poor airflow",
+                    "Ear infection"
+                ]
+            },
+            {
                 name: "Drop Ears",
                 risk: "High",
                 //score: 2,
@@ -117,22 +125,13 @@ const dogQuestion = [
                     "Ear mites",
                     "Wax build-up"
                 ]
-            },
-            {
-                name: "Folded Ears",
-                risk: "Medium",
-                //score: 1,
-                problems: [
-                    "Poor airflow",
-                    "Ear infection"
-                ]
             }
         ]
     },
 
     {
         part: "Tail",
-        title: "Question 4",
+        title: "🐶Question 4",
         question: "What is Tail of your dog?",
         options: [
             // Question 4 - Tail
@@ -155,9 +154,8 @@ const dogQuestion = [
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Back problems",
-                    "Tail pain",
-                    "Skin infection"
+                    "Spinal problems",
+                    "Tail pain"
                 ]
             },
             {
@@ -165,9 +163,9 @@ const dogQuestion = [
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Back problems",
-                    "Nerve problems",
-                    "Weak back legs"
+                    "Spinal problems",
+                    "Nerve issues",
+                    "Mobility issues"
                 ]
             }
         ]
