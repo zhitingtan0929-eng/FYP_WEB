@@ -1,8 +1,4 @@
-const riskScore = {
-    Low: 0,
-    Medium: 1,
-    High: 2
-}
+const currentAnimal = "dog";
 
 //Array of questions for the dog 
 const dogQuestion = [
@@ -178,31 +174,12 @@ const dogQuestion = [
     }
 ]
 
-//variable to keep track of the current question
-let currentQuestion = 0;
+window.onload = function () {
+    loadQuestion(dogQuestion);
 
-let answer = [];
+    backBtn.onclick = function () {
+        previousQuestion(dogQuestion);
+    };
 
-//link to the HTML elements
-function loadDogQuestion() {
-
-    document.getElementById("title").innerHTML =
-        dogQuestion[currentQuestion].title;
-
-    document.getElementById("question").innerHTML =
-        dogQuestion[currentQuestion].question;
-
-    document.getElementById("btn0").innerHTML =
-        dogQuestion[currentQuestion].options[0].name;
-
-    document.getElementById("btn1").innerHTML =
-        dogQuestion[currentQuestion].options[1].name;
-
-    document.getElementById("btn2").innerHTML =
-        dogQuestion[currentQuestion].options[2].name;
-
-    document.getElementById("btn3").innerHTML =
-        dogQuestion[currentQuestion].options[3].name;
-}
-
-loadDogQuestion()
+    homeBtn.onclick = goHome;
+};

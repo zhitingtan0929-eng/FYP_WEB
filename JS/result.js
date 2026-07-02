@@ -1,9 +1,3 @@
-const riskScore = {
-    Low: 0,
-    Medium: 1,
-    High: 2
-}
-
 const answer =
     JSON.parse(localStorage.getItem("catAnswer"));
 

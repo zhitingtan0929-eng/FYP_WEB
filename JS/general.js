@@ -1,16 +1,109 @@
-homeBtn.onclick = function () {
-    answer = [];
-    currentQuestion = 0;
-    localStorage.removeItem("catAnswer");
-    window.location.href = "index.html";
+// ===============================
+// Risk Score
+// ===============================
+const riskScore = {
+    Low: 0,
+    Medium: 1,
+    High: 2
+};
+
+// ===============================
+// Variables
+// ===============================
+let currentQuestion = 0;
+let answer = [];
+
+// ===============================
+// Load Question
+// ===============================
+function loadQuestion(questionArray) {
+
+    document.getElementById("title").innerHTML =
+        questionArray[currentQuestion].title;
+
+    document.getElementById("question").innerHTML =
+        questionArray[currentQuestion].question;
+
+    // Display options
+    for (let i = 0; i < questionArray[currentQuestion].options.length; i++) {
+
+        const button = document.getElementById("btn" + i);
+
+        button.innerHTML =
+            questionArray[currentQuestion].options[i].name;
+
+        button.onclick = function () {
+
+            nextQuestion(
+                questionArray,
+                questionArray[currentQuestion].options[i]
+            );
+
+        };
+    }
 }
 
+// ===============================
+// Next Question
+// ===============================
+function nextQuestion(questionArray, selectedOption) {
 
-//Back button functionality
-function previousQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        answer.pop(); // Remove the last answer when going back
-        loadCatQuestion();
+    answer.push({
+
+        part: questionArray[currentQuestion].part,
+
+        ...selectedOption
+
+    });
+
+    currentQuestion++;
+
+    if (currentQuestion < questionArray.length) {
+
+        loadQuestion(questionArray);
+
     }
+    else {
+
+        localStorage.setItem(
+            currentAnimal + "Answer",
+            JSON.stringify(answer)
+        );
+
+        window.location.href = "result.html";
+    }
+
+}
+
+// ===============================
+// Previous Question
+// ===============================
+function previousQuestion(questionArray) {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        answer.pop();
+
+        loadQuestion(questionArray);
+
+    }
+
+}
+
+// ===============================
+// Home
+// ===============================
+function goHome() {
+
+    answer = [];
+
+    currentQuestion = 0;
+
+    localStorage.removeItem("catAnswer");
+    localStorage.removeItem("dogAnswer");
+
+    window.location.href = "choose_animal.html";
+
 }

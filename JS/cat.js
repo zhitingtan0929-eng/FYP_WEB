@@ -1,3 +1,5 @@
+const currentAnimal = "cat";
+
 //Array of questions for the cat 
 const catQuestion = [
     {
@@ -169,64 +171,18 @@ const catQuestion = [
             }
         ]
     }
-]
+];
 
-//variable to keep track of the current question
-let currentQuestion = 0;
+window.onload = function () {
 
-//variable to keep answers selected by the user
-let answer = [];
+    loadQuestion(catQuestion);
 
-//link to the HTML elements
-function loadCatQuestion() {
-    // Display the current question and options
-    document.getElementById("title").innerHTML =
-        catQuestion[currentQuestion].title;
-
-    document.getElementById("question").innerHTML =
-        catQuestion[currentQuestion].question;
-
-    // document.getElementById("btn0").innerHTML =
-    //     catQuestion[currentQuestion].options[0].name;
-    for (let i = 0; i < catQuestion.length; i++) {
-        document.getElementById("btn" + i).innerHTML = catQuestion[currentQuestion].options[i].name;
-    }
-
-    // Add event listeners to the buttons
-    /* btn0.onclick = function () {
-        nextQuestion(catQuestion[currentQuestion].options[0]);
-    }; */
-    for (let i = 0; i < catQuestion.length; i++) {
-        document.getElementById("btn" + i).onclick = function () {
-            nextQuestion(catQuestion[currentQuestion].options[i]);
-        }
-    }
-
-    // Add event listener to the back button
     backBtn.onclick = function () {
-        previousQuestion();
-    }
-}
 
-loadCatQuestion()
+        previousQuestion(catQuestion);
 
-//function to handle the next question
-// parameter: selectedOption - the selected option by the user
-function nextQuestion(selectedOption) {
-    answer.push({
-        part: catQuestion[currentQuestion].part,
-        name: selectedOption.name,
-        risk: selectedOption.risk,
-        problems: selectedOption.problems
-    })
+    };
 
-    currentQuestion++;
+    homeBtn.onclick = goHome;
 
-    if (currentQuestion < catQuestion.length) {
-
-        loadCatQuestion();
-    } else {
-        localStorage.setItem("catAnswer", JSON.stringify(answer));
-        window.location.href = "result.html";
-    }
-}
+};
