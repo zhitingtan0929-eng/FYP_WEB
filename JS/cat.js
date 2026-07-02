@@ -1,9 +1,3 @@
-const riskScore = {
-    Low: 0,
-    Medium: 1,
-    High: 2
-}
-
 //Array of questions for the cat 
 const catQuestion = [
     {
@@ -192,31 +186,21 @@ function loadCatQuestion() {
     document.getElementById("question").innerHTML =
         catQuestion[currentQuestion].question;
 
-    document.getElementById("btn0").innerHTML =
-        catQuestion[currentQuestion].options[0].name;
-
-    document.getElementById("btn1").innerHTML =
-        catQuestion[currentQuestion].options[1].name;
-
-    document.getElementById("btn2").innerHTML =
-        catQuestion[currentQuestion].options[2].name;
-
-    document.getElementById("btn3").innerHTML =
-        catQuestion[currentQuestion].options[3].name;
+    // document.getElementById("btn0").innerHTML =
+    //     catQuestion[currentQuestion].options[0].name;
+    for (let i = 0; i < catQuestion.length; i++) {
+        document.getElementById("btn" + i).innerHTML = catQuestion[currentQuestion].options[i].name;
+    }
 
     // Add event listeners to the buttons
-    btn0.onclick = function () {
+    /* btn0.onclick = function () {
         nextQuestion(catQuestion[currentQuestion].options[0]);
-    };
-    btn1.onclick = function () {
-        nextQuestion(catQuestion[currentQuestion].options[1]);
-    };
-    btn2.onclick = function () {
-        nextQuestion(catQuestion[currentQuestion].options[2]);
-    };
-    btn3.onclick = function () {
-        nextQuestion(catQuestion[currentQuestion].options[3]);
-    };
+    }; */
+    for (let i = 0; i < catQuestion.length; i++) {
+        document.getElementById("btn" + i).onclick = function () {
+            nextQuestion(catQuestion[currentQuestion].options[i]);
+        }
+    }
 
     // Add event listener to the back button
     backBtn.onclick = function () {
