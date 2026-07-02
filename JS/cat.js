@@ -185,7 +185,7 @@ let answer = [];
 
 //link to the HTML elements
 function loadCatQuestion() {
-
+    // Display the current question and options
     document.getElementById("title").innerHTML =
         catQuestion[currentQuestion].title;
 
@@ -219,36 +219,19 @@ function loadCatQuestion() {
     };
 
     // Add event listener to the back button
-    backbtn.onclick = function () {
+    backBtn.onclick = function () {
         previousQuestion();
+    }
+
+    homeBtn.onclick = function () {
+        answer = [];
+        currentQuestion = 0;
+        localStorage.removeItem("catAnswer");
+        window.location.href = "index.html";
     }
 }
 
 loadCatQuestion()
-
-//variable to keep track of the total score
-let totalScore = 0;
-//variable to keep track of the overall risk level
-let overallRisk = "";
-
-//calculate the total score based on the selected answers
-for (let i = 0; i < answer.length; i++) {
-    //totalScore += answer[i].score;
-    totalScore += riskScore[selectedOption.risk];
-}
-
-
-//determine the overall risk level based on the total score
-if (totalScore <= 2) {
-    overallRisk = "Low";
-}
-else if (totalScore <= 5) {
-    overallRisk = "Medium";
-}
-else {
-    overallRisk = "High"
-}
-
 
 //function to handle the next question
 // parameter: selectedOption - the selected option by the user
@@ -274,3 +257,4 @@ function previousQuestion() {
         loadCatQuestion();
     }
 }
+
