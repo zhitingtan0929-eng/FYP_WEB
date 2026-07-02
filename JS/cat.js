@@ -192,6 +192,20 @@ function loadCatQuestion() {
 
     document.getElementById("btn3").innerHTML =
         catQuestion[currentQuestion].options[3].name;
+
+    // Add event listeners to the buttons
+    btn0.onclick = function () {
+        nextQuestion(catQuestion[currentQuestion].options[0]);
+    };
+    btn1.onclick = function () {
+        nextQuestion(catQuestion[currentQuestion].options[1]);
+    };
+    btn2.onclick = function () {
+        nextQuestion(catQuestion[currentQuestion].options[2]);
+    };
+    btn3.onclick = function () {
+        nextQuestion(catQuestion[currentQuestion].options[3]);
+    };
 }
 
 loadCatQuestion()
