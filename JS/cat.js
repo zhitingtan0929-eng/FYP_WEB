@@ -1,6 +1,13 @@
+const riskScore = {
+    Low: 0,
+    Medium: 1,
+    High: 2
+}
+
 //Array of questions for the cat 
 const catQuestion = [
     {
+        part: "Body",
         title: "Question 1",
         question: "What is Body Shape of your cat?",
         options: [
@@ -8,13 +15,13 @@ const catQuestion = [
             {
                 name: "Slender Body",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Cobby Body",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Weight gain",
                     "Joint stress"
@@ -23,7 +30,7 @@ const catQuestion = [
             {
                 name: "Heavy Boned",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Weight gain",
                     "Joint pain"
@@ -32,7 +39,7 @@ const catQuestion = [
             {
                 name: "Dwarf / Short-legged",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Back problems",
                     "Joint pain",
@@ -43,6 +50,7 @@ const catQuestion = [
     },
 
     {
+        part: "Eyes",
         title: "Question 2",
         question: "What is Eye Shape of your cat?",
         options: [
@@ -50,13 +58,13 @@ const catQuestion = [
             {
                 name: "Round / Almond Eyes",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Large Round Eyes",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Watery eyes",
                     "Dry eyes",
@@ -66,7 +74,7 @@ const catQuestion = [
             {
                 name: "Deep-set Eyes",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Eyelid irritation",
                     "Eye discomfort"
@@ -75,7 +83,7 @@ const catQuestion = [
             {
                 name: "Protruding Eyes",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Eye injury",
                     "Eye infection",
@@ -86,6 +94,7 @@ const catQuestion = [
     },
 
     {
+        part: "Ears",
         title: "Question 3",
         question: "What is Ear Shape of your cat?",
         options: [
@@ -93,13 +102,13 @@ const catQuestion = [
             {
                 name: "Straight Ears",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Large Upright Ears",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Ear mites"
                 ]
@@ -107,7 +116,7 @@ const catQuestion = [
             {
                 name: "Small / Low-set Ears",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Ear infection",
                     "Wax build-up"
@@ -116,7 +125,7 @@ const catQuestion = [
             {
                 name: "Folded Ears",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Joint pain",
                     "Stiff joints",
@@ -127,6 +136,7 @@ const catQuestion = [
     },
 
     {
+        part: "Tail",
         title: "Question 4",
         question: "What is Tail of your cat?",
         options: [
@@ -134,13 +144,13 @@ const catQuestion = [
             {
                 name: "Long Tail",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Short Tail",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Spinal issues"
                 ]
@@ -148,7 +158,7 @@ const catQuestion = [
             {
                 name: "Curled Tail",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Tail stiffness"
                 ]
@@ -156,7 +166,7 @@ const catQuestion = [
             {
                 name: "Tailless / Stub Tail",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Spinal problems",
                     "Weak back legs",
@@ -207,18 +217,28 @@ function loadCatQuestion() {
     btn3.onclick = function () {
         nextQuestion(catQuestion[currentQuestion].options[3]);
     };
+
+    // Add event listener to the back button
+    backbtn.onclick = function () {
+        previousQuestion();
+    }
 }
 
 loadCatQuestion()
 
 //variable to keep track of the total score
 let totalScore = 0;
-let overallRisk = ""; //variable to keep track of the overall risk level
+//variable to keep track of the overall risk level
+let overallRisk = "";
 
+//calculate the total score based on the selected answers
 for (let i = 0; i < answer.length; i++) {
-    totalScore += answer[i].score;
+    //totalScore += answer[i].score;
+    totalScore += riskScore[selectedOption.risk];
 }
 
+
+//determine the overall risk level based on the total score
 if (totalScore <= 2) {
     overallRisk = "Low";
 }
@@ -243,5 +263,14 @@ function nextQuestion(selectedOption) {
     } else {
         localStorage.setItem("catAnswer", JSON.stringify(answer));
         window.location.href = "result.html";
+    }
+}
+
+//Back button functionality
+function previousQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        answer.pop(); // Remove the last answer when going back
+        loadCatQuestion();
     }
 }

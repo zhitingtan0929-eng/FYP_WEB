@@ -1,6 +1,13 @@
+const riskScore = {
+    Low: 0,
+    Medium: 1,
+    High: 2
+}
+
 //Array of questions for the dog 
 const dogQuestion = [
     {
+        part: "Body",
         title: "Question 1",
         question: "What is Body Shape of your dog?",
         options: [
@@ -8,13 +15,13 @@ const dogQuestion = [
             {
                 name: "Slim Build",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Square Build",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Joint stress"
                 ]
@@ -22,7 +29,7 @@ const dogQuestion = [
             {
                 name: "Stocky Build",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Weight gain",
                     "Hip problems",
@@ -32,7 +39,7 @@ const dogQuestion = [
             {
                 name: "Compact Build",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Breathing problems",
                     "Heat sensitivity",
@@ -43,6 +50,7 @@ const dogQuestion = [
     },
 
     {
+        part: "Eyes",
         title: "Question 2",
         question: "What is Eye Shape of your dog?",
         options: [
@@ -50,13 +58,13 @@ const dogQuestion = [
             {
                 name: "Almond-shaped Eyes",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Round Eyes",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Dry eyes",
                     "Eye irritation",
@@ -66,7 +74,7 @@ const dogQuestion = [
             {
                 name: "Triangular Eyes",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Eyelid problems",
                     "Eye irritation"
@@ -75,7 +83,7 @@ const dogQuestion = [
             {
                 name: "Slanted Eyes",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Eye irritation",
                     "Eyelid problems"
@@ -85,6 +93,7 @@ const dogQuestion = [
     },
 
     {
+        part: "Ears",
         title: "Question 3",
         question: "What is Ear Shape of your dog?",
         options: [
@@ -92,13 +101,13 @@ const dogQuestion = [
             {
                 name: "Prick Ears",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Semi-Prick Ears",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Ear infection"
                 ]
@@ -106,7 +115,7 @@ const dogQuestion = [
             {
                 name: "Drop Ears",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Ear infection",
                     "Ear mites",
@@ -116,7 +125,7 @@ const dogQuestion = [
             {
                 name: "Folded Ears",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Poor airflow",
                     "Ear infection"
@@ -126,6 +135,7 @@ const dogQuestion = [
     },
 
     {
+        part: "Tail",
         title: "Question 4",
         question: "What is Tail of your dog?",
         options: [
@@ -133,13 +143,13 @@ const dogQuestion = [
             {
                 name: "Otter Tail",
                 risk: "Low",
-                score: 0,
+                //score: 0,
                 problems: []
             },
             {
                 name: "Curled Tail",
                 risk: "Medium",
-                score: 1,
+                //score: 1,
                 problems: [
                     "Tail stiffness"
                 ]
@@ -147,7 +157,7 @@ const dogQuestion = [
             {
                 name: "Screw Tail",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Back problems",
                     "Tail pain",
@@ -157,7 +167,7 @@ const dogQuestion = [
             {
                 name: "Bobtail / Tailless",
                 risk: "High",
-                score: 2,
+                //score: 2,
                 problems: [
                     "Back problems",
                     "Nerve problems",
