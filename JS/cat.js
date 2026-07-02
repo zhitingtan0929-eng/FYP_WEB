@@ -170,6 +170,7 @@ const catQuestion = [
 //variable to keep track of the current question
 let currentQuestion = 0;
 
+//variable to keep answers selected by the user
 let answer = [];
 
 //link to the HTML elements
@@ -209,6 +210,25 @@ function loadCatQuestion() {
 }
 
 loadCatQuestion()
+
+//variable to keep track of the total score
+let totalScore = 0;
+let overallRisk = ""; //variable to keep track of the overall risk level
+
+for (let i = 0; i < answer.length; i++) {
+    totalScore += answer[i].score;
+}
+
+if (totalScore <= 2) {
+    overallRisk = "Low";
+}
+else if (totalScore <= 5) {
+    overallRisk = "Medium";
+}
+else {
+    overallRisk = "High"
+}
+
 
 //function to handle the next question
 // parameter: selectedOption - the selected option by the user
