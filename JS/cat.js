@@ -222,13 +222,6 @@ function loadCatQuestion() {
     backBtn.onclick = function () {
         previousQuestion();
     }
-
-    homeBtn.onclick = function () {
-        answer = [];
-        currentQuestion = 0;
-        localStorage.removeItem("catAnswer");
-        window.location.href = "index.html";
-    }
 }
 
 loadCatQuestion()
@@ -236,7 +229,12 @@ loadCatQuestion()
 //function to handle the next question
 // parameter: selectedOption - the selected option by the user
 function nextQuestion(selectedOption) {
-    answer.push(selectedOption);
+    answer.push({
+        part: catQuestion[currentQuestion].part,
+        name: selectedOption.name,
+        risk: selectedOption.risk,
+        problems: selectedOption.problems
+    })
 
     currentQuestion++;
 
@@ -248,13 +246,3 @@ function nextQuestion(selectedOption) {
         window.location.href = "result.html";
     }
 }
-
-//Back button functionality
-function previousQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        answer.pop(); // Remove the last answer when going back
-        loadCatQuestion();
-    }
-}
-
