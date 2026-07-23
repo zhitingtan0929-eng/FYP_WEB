@@ -10,12 +10,14 @@ const dogQuestion = [
             // Question 1 - Body
             {
                 name: "Slim Build",
+                imageID: "body1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Square Build",
+                imageID: "body2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -24,6 +26,7 @@ const dogQuestion = [
             },
             {
                 name: "Stocky Build",
+                imageID: "body3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -34,6 +37,7 @@ const dogQuestion = [
             },
             {
                 name: "Compact Build",
+                imageID: "body4",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -53,18 +57,21 @@ const dogQuestion = [
             // Question 2 - Eye Shape
             {
                 name: "Almond-shaped Eyes",
+                imageID: "eye1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Round Eyes",
+                imageID: "eye2",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Triangular Eyes",
+                imageID: "eye3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -75,6 +82,7 @@ const dogQuestion = [
             },
             {
                 name: "Protruding Eyes",
+                imageID: "eye4",
                 risk: "High",
                 //score: 1,
                 problems: [
@@ -95,12 +103,14 @@ const dogQuestion = [
             // Question 3 - Ears
             {
                 name: "Prick Ears",
+                imageID: "ear1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Semi-Prick Ears",
+                imageID: "ear2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -109,6 +119,7 @@ const dogQuestion = [
             },
             {
                 name: "Folded Ears",
+                imageID: "ear3",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -118,6 +129,7 @@ const dogQuestion = [
             },
             {
                 name: "Drop Ears",
+                imageID: "ear4",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -137,12 +149,14 @@ const dogQuestion = [
             // Question 4 - Tail
             {
                 name: "Otter Tail",
+                imageID: "tail1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Curled Tail",
+                imageID: "tail2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -151,6 +165,7 @@ const dogQuestion = [
             },
             {
                 name: "Screw Tail",
+                imageID: "tail3",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -160,6 +175,7 @@ const dogQuestion = [
             },
             {
                 name: "Bobtail / Tailless",
+                imageID: "tail4",
                 risk: "High",
                 //score: 2,
                 problems: [

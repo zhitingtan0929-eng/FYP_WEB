@@ -10,12 +10,14 @@ const catQuestion = [
             // Question 1 - Body Shape
             {
                 name: "Slender Body",
+                imageID: "body1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Cobby Body",
+                imageID: "body2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -25,6 +27,7 @@ const catQuestion = [
             },
             {
                 name: "Heavy Boned",
+                imageID: "body3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -34,6 +37,7 @@ const catQuestion = [
             },
             {
                 name: "Dwarf / Short-legged",
+                imageID: "body4",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -53,12 +57,14 @@ const catQuestion = [
             // Question 2 - Eye Shape
             {
                 name: "Round / Almond Eyes",
+                imageID: "eye1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Large Round Eyes",
+                imageID: "eye2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -69,6 +75,7 @@ const catQuestion = [
             },
             {
                 name: "Deep-set Eyes",
+                imageID: "eye3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -78,6 +85,7 @@ const catQuestion = [
             },
             {
                 name: "Protruding Eyes",
+                imageID: "eye4",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -97,18 +105,21 @@ const catQuestion = [
             // Question 3 - Ear Shape
             {
                 name: "Straight Ears",
+                imageID: "ear1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Large Upright Ears",
+                imageID: "ear2",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Small / Low-set Ears",
+                imageID: "ear3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -118,6 +129,7 @@ const catQuestion = [
             },
             {
                 name: "Folded Ears",
+                imageID: "ear4",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -138,12 +150,14 @@ const catQuestion = [
             // Question 4 - Tail
             {
                 name: "Long Tail",
+                imageID: "tail1",
                 risk: "Low",
                 //score: 0,
                 problems: []
             },
             {
                 name: "Short Tail",
+                imageID: "tail2",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -152,6 +166,7 @@ const catQuestion = [
             },
             {
                 name: "Curled Tail",
+                imageID: "tail3",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -160,6 +175,7 @@ const catQuestion = [
             },
             {
                 name: "Tailless / Stub Tail",
+                imageID: "tail4",
                 risk: "High",
                 //score: 2,
                 problems: [
