@@ -20,7 +20,7 @@ const catQuestion = [
                 //score: 1,
                 problems: [
                     "Weight gain",
-                    "Joint stress"
+                    "Reduced agility"
                 ]
             },
             {
@@ -28,8 +28,8 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Weight gain",
-                    "Joint pain"
+                    "Reduced mobility",
+                    "Joint stress"
                 ]
             },
             {
@@ -39,7 +39,7 @@ const catQuestion = [
                 problems: [
                     "Back problems",
                     "Joint pain",
-                    "Limited movement"
+                    "Reduced mobility"
                 ]
             }
         ]
@@ -62,8 +62,8 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Increased eye exposure",
-                    "Tear film imbalance risk",
+                    "Watery eyes",
+                    "Dry eyes",
                     "Eye irritation"
                 ]
             },
@@ -72,8 +72,8 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Eyelid irritation",
-                    "Eye discomfort"
+                    "Eye irritation",
+                    "Dry eyes"
                 ]
             },
             {
@@ -82,7 +82,7 @@ const catQuestion = [
                 //score: 2,
                 problems: [
                     "Eye injury",
-                    "Eye infection",
+                    "Dry eyes",
                     "Vision problems"
                 ]
             }
@@ -121,7 +121,7 @@ const catQuestion = [
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Osteochondrodysplasia (genetic bone disease)",
+                    "Genetic bone disease",
                     "Joint pain",
                     "Stiff joints",
                     "Difficulty moving"
@@ -155,7 +155,7 @@ const catQuestion = [
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Tail mobility limitation (mild)"
+                    "Reduced tail movement"
                 ]
             },
             {
@@ -164,7 +164,7 @@ const catQuestion = [
                 //score: 2,
                 problems: [
                     "Spinal problems",
-                    "Weak back legs",
+                    "Reduced hind leg strength",
                     "Possible nerve issues"
                 ]
             }
