@@ -4,11 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Avatar Admin</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link rel="stylesheet" href="../CSS/general.css">
 </head>
 
 <body>
+    <h1>Avatar Editor</h1>
 
+
+    <select id="animal">
+
+        <option value="cat">Cat</option>
+
+        <option value="dog">Dog</option>
+
+    </select>
+
+
+    <select id="body">
+
+        <option value="body1">Body 1</option>
+
+        <option value="body2">Body 2</option>
+
+        <option value="body1">Body 3</option>
+
+        <option value="body2">Body 4</option>
+
+    </select>
+
+
+
+    <div class="avatar">
+
+        <img id="bodyImg">
+
+        <img id="tailImg">
+
+        <img id="earImg">
+
+        <img id="eyeImg">
+
+    </div>
+
+
+
+    <div class="panel">
+
+
+        <h3>Eye</h3>
+
+
+        X
+
+        <input id="eyeX" value="50">
+
+
+        Y
+
+        <input id="eyeY" value="25">
+
+
+
+        <h3> Ear</h3>
+
+
+        X
+
+        <input id="earX" value="50">
+
+
+        Y
+
+        <input id="earY" value="10">
+
+
+
+        <h3>Tail</h3>
+
+
+        X
+
+        <input id="tailX" value="80">
+
+
+        Y
+
+        <input id="tailY" value="60">
+
+
+        <br><br>
+
+
+        <button onclick="updateAvatar()">Update Preview</button>
+
+
+    </div>
+
+
+    <script src="../JS/admin.js" defer></script>
 </body>
 
 </html>
