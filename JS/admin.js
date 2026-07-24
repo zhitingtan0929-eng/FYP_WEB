@@ -1,3 +1,4 @@
+
 const bodyImg =
     document.getElementById("bodyImg");
 
@@ -15,42 +16,77 @@ const tailImg =
 
 
 
-function updateAvatar() {
+function updatePreview() {
 
 
     let animal =
         document.getElementById("animal").value;
 
 
-
     let body =
         document.getElementById("body").value;
 
 
-
-    // 图片
-
-
-    bodyImg.src =
-        `img/${animal}/body/${body}.png`;
+    let eye =
+        document.getElementById("eye").value;
 
 
-
-    eyeImg.src =
-        `img/${animal}/eye/eye1.png`;
-
-
-    earImg.src =
-        `img/${animal}/ear/ear1.png`;
+    let ear =
+        document.getElementById("ear").value;
 
 
-    tailImg.src =
-        `img/${animal}/tail/tail1.png`;
+    let tail =
+        document.getElementById("tail").value;
 
 
 
+    updateAvatar(
+        animal,
+        "Body",
+        {
+            imageID: body
+        }
+    );
 
-    // 位置
+
+
+    updateAvatar(
+        animal,
+        "Eyes",
+        {
+            imageID: eye
+        }
+    );
+
+
+
+    updateAvatar(
+        animal,
+        "Ears",
+        {
+            imageID: ear
+        }
+    );
+
+
+
+    updateAvatar(
+        animal,
+        "Tail",
+        {
+            imageID: tail
+        }
+    );
+
+    updatePosition();
+
+}
+
+
+updatePreview();
+
+
+function updatePosition() {
 
 
     eyeImg.style.left =
@@ -64,7 +100,6 @@ function updateAvatar() {
 
     earImg.style.left =
         document.getElementById("earX").value + "%";
-
 
     earImg.style.top =
         document.getElementById("earY").value + "%";
@@ -82,5 +117,60 @@ function updateAvatar() {
 }
 
 
+let avatarConfig;
 
-updateAvatar();
+
+fetch("../DATA/avatarConfig.json")
+    .then(res => res.json())
+    .then(data => {
+
+        avatarConfig = data;
+
+        loadConfig();
+
+    });
+
+function loadConfig() {
+
+
+    let animal =
+        document.getElementById("animal").value;
+
+
+    let body =
+        document.getElementById("body").value;
+
+
+
+    let data =
+        avatarConfig[animal][body];
+
+
+
+    document.getElementById("eyeX").value =
+        data.eye.x;
+
+
+    document.getElementById("eyeY").value =
+        data.eye.y;
+
+
+
+    document.getElementById("earX").value =
+        data.ear.x;
+
+
+    document.getElementById("earY").value =
+        data.ear.y;
+
+
+
+    document.getElementById("tailX").value =
+        data.tail.x;
+
+
+    document.getElementById("tailY").value =
+        data.tail.y;
+
+
+}

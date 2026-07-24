@@ -44,12 +44,27 @@ function nextQuestion(questionArray, selectedOption) {
     answer.push({
 
         part: questionArray[currentQuestion].part,
+
         name: selectedOption.name,
+
+        imageID: selectedOption.imageID,
+
         risk: selectedOption.risk,
+
         problems: selectedOption.problems
-        //...selectedOption
 
     });
+
+    updateAvatar(
+
+        currentAnimal,
+
+        questionArray[currentQuestion].part,
+
+        selectedOption
+
+    );
+
 
     currentQuestion++;
 

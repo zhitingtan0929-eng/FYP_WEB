@@ -65,26 +65,3 @@ tr:nth-child(even) {
 .result-card:hover .card-back {
     transform: rotateY(0deg);
 }
-
-.avatar {
-
-    position: relative;
-
-    width: 300px;
-
-    height: 300px;
-
-}
-
-
-.avatar img {
-
-    position: absolute;
-
-    width: 100%;
-
-    left: 0;
-
-    top: 0;
-
-}

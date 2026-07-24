@@ -13,6 +13,18 @@
     <h1>Avatar Editor</h1>
 
 
+    <div class="avatar">
+
+        <img id="tailImg">
+
+        <img id="earImg">
+
+        <img id="bodyImg">
+
+        <img id="eyeImg">
+
+    </div>
+
     <select id="animal">
 
         <option value="cat">Cat</option>
@@ -28,81 +40,149 @@
 
         <option value="body2">Body 2</option>
 
-        <option value="body1">Body 3</option>
+        <option value="body3">Body 3</option>
 
-        <option value="body2">Body 4</option>
+        <option value="body4">Body 4</option>
 
     </select>
 
+    <select id="eye">
+
+        <option value="eye1">
+            Eye 1
+        </option>
+
+        <option value="eye2">
+            Eye 2
+        </option>
+
+        <option value="eye3">
+            Eye 3
+        </option>
+
+        <option value="eye4">
+            Eye 4
+        </option>
 
 
-    <div class="avatar">
+    </select>
 
-        <img id="bodyImg">
+    <select id="ear">
 
-        <img id="tailImg">
+        <option value="ear1">
+            Ear 1
+        </option>
 
-        <img id="earImg">
+        <option value="ear2">
+            Ear 2
+        </option>
 
-        <img id="eyeImg">
+        <option value="ear3">
+            Ear 3
+        </option>
 
-    </div>
+        <option value="ear4">
+            Ear 4
+        </option>
+
+    </select>
+
+    <select id="tail">
 
 
+        <option value="tail1">
+            Tail 1
+        </option>
+
+
+        <option value="tail2">
+            Tail 2
+        </option>
+
+
+        <option value="tail3">
+            Tail 3
+        </option>
+
+
+        <option value="tail4">
+            Tail 4
+        </option>
+
+
+    </select>
 
     <div class="panel">
 
+        <!--Eye-->
 
         <h3>Eye</h3>
 
 
         X
 
-        <input id="eyeX" value="50">
+        <input id="eyeX" value="0">
 
 
         Y
 
-        <input id="eyeY" value="25">
+        <input id="eyeY" value="0">
+
+
+        <!-- Scale
+
+        <input id="eyeScale" value="1"> -->
 
 
 
+        <!--Ear-->
         <h3> Ear</h3>
 
 
         X
 
-        <input id="earX" value="50">
+        <input id="earX" value="0">
 
 
         Y
 
-        <input id="earY" value="10">
+        <input id="earY" value="0">
 
 
+        <!-- Scale
+
+        <input id="earScale" value="1"> -->
+
+
+
+        <!--Tail-->
 
         <h3>Tail</h3>
 
 
         X
 
-        <input id="tailX" value="80">
+        <input id="tailX" value="0">
 
 
         Y
 
-        <input id="tailY" value="60">
+        <input id="tailY" value="0">
+
+
+        <!-- Scale
+
+        <input id="tailScale" value="1"> -->
 
 
         <br><br>
 
 
-        <button onclick="updateAvatar()">Update Preview</button>
-
+        <button onclick="updatePreview()">Update Preview</button>
 
     </div>
 
-
+    <script src="../JS/avatar.js" defer></script>
     <script src="../JS/admin.js" defer></script>
 </body>
 

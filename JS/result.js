@@ -91,6 +91,23 @@ for (let i = 0; i < answer.length; i++) {
     container.appendChild(card);
 }
 
+
+//===============================
+// Display Avatar
+//===============================
+
+answer.forEach(item => {
+
+
+    updateAvatar(
+        animal,
+        item.part,
+        item
+    );
+
+
+});
+
 //===============================
 // Restart
 //===============================
