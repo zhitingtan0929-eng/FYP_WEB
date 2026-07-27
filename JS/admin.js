@@ -1,3 +1,6 @@
+// ===============================
+// Avatar Image Reference
+// ===============================
 
 const bodyImg =
     document.getElementById("bodyImg");
@@ -15,6 +18,18 @@ const tailImg =
     document.getElementById("tailImg");
 
 
+
+// ===============================
+// Avatar Config
+// ===============================
+
+let avatarConfig = null;
+
+
+
+// ===============================
+// Update Avatar Preview
+// ===============================
 
 function updatePreview() {
 
@@ -40,6 +55,7 @@ function updatePreview() {
 
 
 
+    // Body
     updateAvatar(
         animal,
         "Body",
@@ -49,7 +65,7 @@ function updatePreview() {
     );
 
 
-
+    // Eye
     updateAvatar(
         animal,
         "Eyes",
@@ -59,7 +75,7 @@ function updatePreview() {
     );
 
 
-
+    // Ear
     updateAvatar(
         animal,
         "Ears",
@@ -69,7 +85,7 @@ function updatePreview() {
     );
 
 
-
+    // Tail
     updateAvatar(
         animal,
         "Tail",
@@ -78,13 +94,16 @@ function updatePreview() {
         }
     );
 
+
     updatePosition();
 
 }
 
 
-updatePreview();
 
+// ===============================
+// Update Image Position
+// ===============================
 
 function updatePosition() {
 
@@ -101,6 +120,7 @@ function updatePosition() {
     earImg.style.left =
         document.getElementById("earX").value + "%";
 
+
     earImg.style.top =
         document.getElementById("earY").value + "%";
 
@@ -113,24 +133,44 @@ function updatePosition() {
     tailImg.style.top =
         document.getElementById("tailY").value + "%";
 
-
 }
 
 
-let avatarConfig;
 
+// ===============================
+// Load JSON Config
+// ===============================
 
 fetch("../DATA/avatarConfig.json")
+
     .then(res => res.json())
+
     .then(data => {
+
 
         avatarConfig = data;
 
+
         loadConfig();
+
+
+        updatePreview();
+
 
     });
 
+
+
+
+// ===============================
+// Load Body Position Config
+// ===============================
+
 function loadConfig() {
+
+
+    if (!avatarConfig) return;
+
 
 
     let animal =
@@ -144,6 +184,10 @@ function loadConfig() {
 
     let data =
         avatarConfig[animal][body];
+
+
+
+    if (!data) return;
 
 
 
@@ -174,3 +218,117 @@ function loadConfig() {
 
 
 }
+
+
+
+// ===============================
+// Auto Update Selection
+// ===============================
+
+
+// Animal Change
+
+document
+    .getElementById("animal")
+    .onchange = function () {
+
+
+        loadConfig();
+
+        updatePreview();
+
+
+    };
+
+
+
+// Body Change
+
+document
+    .getElementById("body")
+    .onchange = function () {
+
+
+        loadConfig();
+
+        updatePreview();
+
+
+    };
+
+
+
+// Eye Change
+
+document
+    .getElementById("eye")
+    .onchange = function () {
+
+
+        updatePreview();
+
+
+    };
+
+
+
+// Ear Change
+
+document
+    .getElementById("ear")
+    .onchange = function () {
+
+
+        updatePreview();
+
+
+    };
+
+
+
+// Tail Change
+
+document
+    .getElementById("tail")
+    .onchange = function () {
+
+
+        updatePreview();
+
+
+    };
+
+
+
+// ===============================
+// Input Position Change
+// ===============================
+
+document
+    .getElementById("eyeX")
+    .oninput = updatePosition;
+
+
+document
+    .getElementById("eyeY")
+    .oninput = updatePosition;
+
+
+document
+    .getElementById("earX")
+    .oninput = updatePosition;
+
+
+document
+    .getElementById("earY")
+    .oninput = updatePosition;
+
+
+document
+    .getElementById("tailX")
+    .oninput = updatePosition;
+
+
+document
+    .getElementById("tailY")
+    .oninput = updatePosition;
