@@ -22,3 +22,10 @@
     top: 0;
 
 }
+
+
+.selected {
+    background: #4CAF50;
+    color: white;
+    border: 3px solid #2E7D32;
+}
