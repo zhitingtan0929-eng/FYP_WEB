@@ -1,6 +1,5 @@
 const avatarPath = {
 
-
     cat: {
 
         body: "../img/cat/body/",
@@ -9,7 +8,6 @@ const avatarPath = {
         tail: "../img/cat/tail/"
 
     },
-
 
     dog: {
 
@@ -23,106 +21,45 @@ const avatarPath = {
 };
 
 
-
 function updateAvatar(animal, part, data) {
 
+    const path = avatarPath[animal];
 
-    let path = avatarPath[animal];
-
-    let img;
+    if (!path) {
+        console.error("Animal not found:", animal);
+        return;
+    }
 
 
     if (part == "Body") {
 
-        img = document.getElementById("bodyImg");
-
-        img.src =
+        document.getElementById("bodyImg").src =
             path.body + data.imageID + ".png";
 
     }
 
 
+    else if (part == "Eyes") {
 
-    if (part == "Eyes") {
-
-        img = document.getElementById("eyeImg");
-
-        img.src =
+        document.getElementById("eyeImg").src =
             path.eye + data.imageID + ".png";
 
     }
 
 
+    else if (part == "Ears") {
 
-    if (part == "Ears") {
-
-        img = document.getElementById("earImg");
-
-        img.src =
+        document.getElementById("earImg").src =
             path.ear + data.imageID + ".png";
 
     }
 
 
+    else if (part == "Tail") {
 
-    if (part == "Tail") {
-
-        img = document.getElementById("tailImg");
-
-        img.src =
+        document.getElementById("tailImg").src =
             path.tail + data.imageID + ".png";
 
     }
-
-}
-
-
-function loadCurrentBody() {
-
-    const animal = document.getElementById("animal").value;
-
-    const body = document.getElementById("body").value;
-
-    const data =
-        avatarConfig[animal][body];
-
-    eyeX.value = data.eye.x;
-    eyeY.value = data.eye.y;
-
-    earX.value = data.ear.x;
-    earY.value = data.ear.y;
-
-    tailX.value = data.tail.x;
-    tailY.value = data.tail.y;
-
-    updatePreview();
-
-}
-
-function saveCurrentBody() {
-
-    const animal = animalSelect.value;
-
-    const body = bodySelect.value;
-
-    avatarConfig[animal][body].eye.x =
-        Number(eyeX.value);
-
-    avatarConfig[animal][body].eye.y =
-        Number(eyeY.value);
-
-    avatarConfig[animal][body].ear.x =
-        Number(earX.value);
-
-    avatarConfig[animal][body].ear.y =
-        Number(earY.value);
-
-    avatarConfig[animal][body].tail.x =
-        Number(tailX.value);
-
-    avatarConfig[animal][body].tail.y =
-        Number(tailY.value);
-
-    updatePreview();
 
 }

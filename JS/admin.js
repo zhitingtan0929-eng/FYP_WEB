@@ -5,14 +5,11 @@
 const bodyImg =
     document.getElementById("bodyImg");
 
-
 const eyeImg =
     document.getElementById("eyeImg");
 
-
 const earImg =
     document.getElementById("earImg");
-
 
 const tailImg =
     document.getElementById("tailImg");
@@ -33,29 +30,22 @@ let avatarConfig = null;
 
 function updatePreview() {
 
-
-    let animal =
+    const animal =
         document.getElementById("animal").value;
 
-
-    let body =
+    const body =
         document.getElementById("body").value;
 
-
-    let eye =
+    const eye =
         document.getElementById("eye").value;
 
-
-    let ear =
+    const ear =
         document.getElementById("ear").value;
 
-
-    let tail =
+    const tail =
         document.getElementById("tail").value;
 
 
-
-    // Body
     updateAvatar(
         animal,
         "Body",
@@ -64,8 +54,6 @@ function updatePreview() {
         }
     );
 
-
-    // Eye
     updateAvatar(
         animal,
         "Eyes",
@@ -74,8 +62,6 @@ function updatePreview() {
         }
     );
 
-
-    // Ear
     updateAvatar(
         animal,
         "Ears",
@@ -84,8 +70,6 @@ function updatePreview() {
         }
     );
 
-
-    // Tail
     updateAvatar(
         animal,
         "Tail",
@@ -93,9 +77,6 @@ function updatePreview() {
             imageID: tail
         }
     );
-
-
-    updatePosition();
 
 }
 
@@ -107,28 +88,22 @@ function updatePreview() {
 
 function updatePosition() {
 
-
     eyeImg.style.left =
         document.getElementById("eyeX").value + "%";
-
 
     eyeImg.style.top =
         document.getElementById("eyeY").value + "%";
 
 
-
     earImg.style.left =
         document.getElementById("earX").value + "%";
-
 
     earImg.style.top =
         document.getElementById("earY").value + "%";
 
 
-
     tailImg.style.left =
         document.getElementById("tailX").value + "%";
-
 
     tailImg.style.top =
         document.getElementById("tailY").value + "%";
@@ -147,18 +122,22 @@ fetch("../DATA/avatarConfig.json")
 
     .then(data => {
 
-
         avatarConfig = data;
-
 
         loadConfig();
 
-
         updatePreview();
 
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Failed to load avatarConfig.json:",
+            error
+        );
 
     });
-
 
 
 
@@ -168,167 +147,201 @@ fetch("../DATA/avatarConfig.json")
 
 function loadConfig() {
 
+    if (!avatarConfig) {
+        return;
+    }
 
-    if (!avatarConfig) return;
 
-
-
-    let animal =
+    const animal =
         document.getElementById("animal").value;
 
-
-    let body =
+    const body =
         document.getElementById("body").value;
 
 
-
-    let data =
-        avatarConfig[animal][body];
-
+    const data =
+        avatarConfig[animal]?.[body];
 
 
-    if (!data) return;
+    if (!data) {
+
+        console.warn(
+            "No config found:",
+            animal,
+            body
+        );
+
+        return;
+
+    }
 
 
+    // ===============================
+    // Eye
+    // ===============================
 
     document.getElementById("eyeX").value =
         data.eye.x;
-
 
     document.getElementById("eyeY").value =
         data.eye.y;
 
 
+    // ===============================
+    // Ear
+    // ===============================
 
     document.getElementById("earX").value =
         data.ear.x;
-
 
     document.getElementById("earY").value =
         data.ear.y;
 
 
+    // ===============================
+    // Tail
+    // ===============================
 
     document.getElementById("tailX").value =
         data.tail.x;
 
-
     document.getElementById("tailY").value =
         data.tail.y;
-
 
 }
 
 
 
 // ===============================
-// Auto Update Selection
-// ===============================
-
-
 // Animal Change
+// ===============================
 
 document
     .getElementById("animal")
     .onchange = function () {
 
-
         loadConfig();
 
         updatePreview();
-
 
     };
 
 
 
+// ===============================
 // Body Change
+// ===============================
 
 document
     .getElementById("body")
     .onchange = function () {
 
+        // Body 改变
+        // 读取该 Body 的 Anchor Position
 
         loadConfig();
 
         updatePreview();
 
-
     };
 
 
 
+// ===============================
 // Eye Change
+// ===============================
 
 document
     .getElementById("eye")
     .onchange = function () {
 
-
         updatePreview();
-
 
     };
 
 
 
+// ===============================
 // Ear Change
+// ===============================
 
 document
     .getElementById("ear")
     .onchange = function () {
 
-
         updatePreview();
-
 
     };
 
 
 
+// ===============================
 // Tail Change
+// ===============================
 
 document
     .getElementById("tail")
     .onchange = function () {
 
-
         updatePreview();
-
 
     };
 
 
 
 // ===============================
-// Input Position Change
+// Position Input
 // ===============================
 
 document
     .getElementById("eyeX")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
 
 
 document
     .getElementById("eyeY")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
 
 
 document
     .getElementById("earX")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
 
 
 document
     .getElementById("earY")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
 
 
 document
     .getElementById("tailX")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
 
 
 document
     .getElementById("tailY")
-    .oninput = updatePosition;
+    .oninput = function () {
+
+        updatePosition();
+
+    };
