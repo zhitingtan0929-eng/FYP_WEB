@@ -1,4 +1,9 @@
-const currentAnimal = localStorage.getItem("animal");
+// ===============================
+// Current Animal
+// ===============================
+
+const currentAnimal =
+    localStorage.getItem("animal");
 
 
 // ===============================
@@ -18,7 +23,6 @@ let currentQuestionArray;
 let shuffledOptions = [];
 
 
-
 // ===============================
 // Shuffle Function
 // ===============================
@@ -27,12 +31,25 @@ function shuffle(array) {
 
     let result = [...array];
 
-    for (let i = result.length - 1; i > 0; i--) {
+    for (
+        let i = result.length - 1;
+        i > 0;
+        i--
+    ) {
 
-        const j = Math.floor(Math.random() * (i + 1));
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
 
-        [result[i], result[j]] =
-            [result[j], result[i]];
+        [
+            result[i],
+            result[j]
+        ] =
+            [
+                result[j],
+                result[i]
+            ];
 
     }
 
@@ -41,44 +58,43 @@ function shuffle(array) {
 }
 
 
-
 // ===============================
 // Load Question
 // ===============================
 
 function loadQuestion(questionArray) {
 
-
-    currentQuestionArray = questionArray;
+    currentQuestionArray =
+        questionArray;
 
 
     selectedOption = null;
-
 
 
     // ===============================
     // Back Button
     // ===============================
 
-    if (currentQuestion == 0) {
+    if (currentQuestion === 0) {
 
-        backBtn.style.display = "none";
+        backBtn.style.display =
+            "none";
 
     }
+
     else {
 
-        backBtn.style.display = "inline-block";
+        backBtn.style.display =
+            "inline-block";
 
     }
-
 
 
     // ===============================
-    // Create Random Options
+    // Random Options
     // ===============================
 
     if (!shuffledOptions[currentQuestion]) {
-
 
         shuffledOptions[currentQuestion] =
             shuffle(
@@ -88,11 +104,8 @@ function loadQuestion(questionArray) {
     }
 
 
-
-    let options =
+    const options =
         shuffledOptions[currentQuestion];
-
-
 
 
     // ===============================
@@ -103,54 +116,47 @@ function loadQuestion(questionArray) {
         questionArray[currentQuestion].title;
 
 
-
     document.getElementById("question").innerHTML =
         questionArray[currentQuestion].question;
 
 
-
     // ===============================
-    // Clear Button Highlight
-    // ===============================
-
-    for (let i = 0; i < options.length; i++) {
-
-        document
-            .getElementById("btn" + i)
-            .classList.remove("selected");
-
-    }
-
-
-
-    // ===============================
-    // Display Buttons
+    // Clear Buttons
     // ===============================
 
-    for (let i = 0; i < options.length; i++) {
-
+    for (let i = 0; i < 4; i++) {
 
         const button =
             document.getElementById("btn" + i);
 
+        button.classList.remove("selected");
 
+    }
+
+
+    // ===============================
+    // Display Options
+    // ===============================
+
+    for (let i = 0; i < options.length; i++) {
+
+        const button =
+            document.getElementById("btn" + i);
 
         const option =
             options[i];
-
 
 
         button.innerHTML =
             option.name;
 
 
-
-
         button.onclick = function () {
 
 
-
-            // Remove previous selection
+            // ===============================
+            // Remove Previous Selection
+            // ===============================
 
             for (let j = 0; j < options.length; j++) {
 
@@ -161,20 +167,24 @@ function loadQuestion(questionArray) {
             }
 
 
-
-            // Highlight selected button
+            // ===============================
+            // Highlight Selected Button
+            // ===============================
 
             button.classList.add("selected");
 
 
+            // ===============================
+            // Save Selection
+            // ===============================
 
-            // Save selection
-
-            selectedOption = option;
-
+            selectedOption =
+                option;
 
 
-            // Update Avatar
+            // ===============================
+            // Update Avatar Image
+            // ===============================
 
             updateAvatar(
 
@@ -186,13 +196,68 @@ function loadQuestion(questionArray) {
 
             );
 
+
+            // ===============================
+            // If Body Selected
+            // Apply Body Position
+            // ===============================
+
+            if (
+                questionArray[currentQuestion].part ===
+                "Body"
+            ) {
+
+                applyAvatarPosition(
+
+                    currentAnimal,
+
+                    selectedOption.imageID
+
+                );
+
+            }
+
         };
 
+    }
+
+
+    // ===============================
+    // Restore Previous Answer
+    // ===============================
+
+    if (answer[currentQuestion]) {
+
+        const previousAnswer =
+            answer[currentQuestion];
+
+
+        selectedOption =
+            previousAnswer;
+
+
+        // Find matching option
+        const selectedIndex =
+            options.findIndex(
+                option =>
+                    option.imageID ===
+                    previousAnswer.imageID
+            );
+
+
+        if (selectedIndex !== -1) {
+
+            document
+                .getElementById(
+                    "btn" + selectedIndex
+                )
+                .classList.add("selected");
+
+        }
 
     }
 
 }
-
 
 
 // ===============================
@@ -201,20 +266,15 @@ function loadQuestion(questionArray) {
 
 nextBtn.onclick = function () {
 
-
-
-    if (selectedOption == null) {
-
+    if (selectedOption === null) {
 
         alert(
             "Please select an option."
         );
 
-
         return;
 
     }
-
 
 
     nextQuestion(
@@ -225,61 +285,53 @@ nextBtn.onclick = function () {
 
     );
 
-
 };
-
-
 
 
 // ===============================
 // Next Question
 // ===============================
 
-function nextQuestion(questionArray, selectedOption) {
-
-
+function nextQuestion(
+    questionArray,
+    selectedOption
+) {
 
     answer[currentQuestion] = {
-
 
         part:
             questionArray[currentQuestion].part,
 
-
         name:
             selectedOption.name,
-
 
         imageID:
             selectedOption.imageID,
 
-
         risk:
             selectedOption.risk,
-
 
         problems:
             selectedOption.problems
 
-
     };
-
 
 
     currentQuestion++;
 
 
+    if (
+        currentQuestion <
+        questionArray.length
+    ) {
 
-    if (currentQuestion < questionArray.length) {
-
-
-        loadQuestion(questionArray);
-
+        loadQuestion(
+            questionArray
+        );
 
     }
 
     else {
-
 
         localStorage.setItem(
 
@@ -293,14 +345,9 @@ function nextQuestion(questionArray, selectedOption) {
         window.location.href =
             "../html/result.html";
 
-
     }
 
-
 }
-
-
-
 
 
 // ===============================
@@ -309,44 +356,61 @@ function nextQuestion(questionArray, selectedOption) {
 
 function previousQuestion(questionArray) {
 
+    if (currentQuestion <= 0) {
 
-
-    if (currentQuestion > 0) {
-
-
-        currentQuestion--;
-
-
-
-        loadQuestion(questionArray);
-
-
-
-        // Restore Avatar
-
-        restoreAvatar();
-
-
+        return;
 
     }
 
 
+    currentQuestion--;
+
+
+    loadQuestion(
+        questionArray
+    );
+
+
+    restoreAvatar();
+
 }
 
 
-
-
-
 // ===============================
-// Restore Avatar when Back
+// Restore Avatar
 // ===============================
 
 function restoreAvatar() {
 
 
+    // ===============================
+    // Clear Current Images
+    // ===============================
+
+    const bodyImg =
+        document.getElementById("bodyImg");
+
+    const eyeImg =
+        document.getElementById("eyeImg");
+
+    const earImg =
+        document.getElementById("earImg");
+
+    const tailImg =
+        document.getElementById("tailImg");
+
+
+    if (bodyImg) bodyImg.src = "";
+    if (eyeImg) eyeImg.src = "";
+    if (earImg) earImg.src = "";
+    if (tailImg) tailImg.src = "";
+
+
+    // ===============================
+    // Restore Selected Parts
+    // ===============================
 
     answer.forEach(item => {
-
 
         updateAvatar(
 
@@ -358,13 +422,33 @@ function restoreAvatar() {
 
         );
 
-
     });
 
 
+    // ===============================
+    // Restore Body Position
+    // ===============================
+
+    const bodyAnswer =
+        answer.find(
+            item =>
+                item.part === "Body"
+        );
+
+
+    if (bodyAnswer) {
+
+        applyAvatarPosition(
+
+            currentAnimal,
+
+            bodyAnswer.imageID
+
+        );
+
+    }
+
 }
-
-
 
 
 // ===============================
@@ -373,30 +457,25 @@ function restoreAvatar() {
 
 function goHome() {
 
-
-
     answer = [];
 
     currentQuestion = 0;
 
+    selectedOption = null;
 
     shuffledOptions = [];
-
 
 
     localStorage.removeItem(
         "catAnswer"
     );
 
-
     localStorage.removeItem(
         "dogAnswer"
     );
 
 
-
     window.location.href =
         "choose_animal.html";
-
 
 }

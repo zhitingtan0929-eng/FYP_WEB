@@ -188,15 +188,32 @@ const catQuestion = [
     }
 ];
 
-window.onload = function () {
+window.onload = async function () {
+
+    // ===============================
+    // Load Avatar Config
+    // ===============================
+
+    await loadAvatarConfig();
+
+
+    // ===============================
+    // Load First Question
+    // ===============================
 
     loadQuestion(catQuestion);
+
+
+    // ===============================
+    // Buttons
+    // ===============================
 
     backBtn.onclick = function () {
 
         previousQuestion(catQuestion);
 
     };
+
 
     homeBtn.onclick = goHome;
 

@@ -15,13 +15,11 @@ const tailImg =
     document.getElementById("tailImg");
 
 
-
 // ===============================
 // Avatar Config
 // ===============================
 
 let avatarConfig = null;
-
 
 
 // ===============================
@@ -46,6 +44,8 @@ function updatePreview() {
         document.getElementById("tail").value;
 
 
+    // Body
+
     updateAvatar(
         animal,
         "Body",
@@ -53,6 +53,9 @@ function updatePreview() {
             imageID: body
         }
     );
+
+
+    // Eye
 
     updateAvatar(
         animal,
@@ -62,6 +65,9 @@ function updatePreview() {
         }
     );
 
+
+    // Ear
+
     updateAvatar(
         animal,
         "Ears",
@@ -70,6 +76,9 @@ function updatePreview() {
         }
     );
 
+
+    // Tail
+
     updateAvatar(
         animal,
         "Tail",
@@ -77,6 +86,9 @@ function updatePreview() {
             imageID: tail
         }
     );
+
+
+    updatePosition();
 
 }
 
@@ -88,6 +100,15 @@ function updatePreview() {
 
 function updatePosition() {
 
+    if (!avatarConfig) {
+        return;
+    }
+
+
+    // ===============================
+    // Eye
+    // ===============================
+
     eyeImg.style.left =
         document.getElementById("eyeX").value + "%";
 
@@ -95,12 +116,20 @@ function updatePosition() {
         document.getElementById("eyeY").value + "%";
 
 
+    // ===============================
+    // Ear
+    // ===============================
+
     earImg.style.left =
         document.getElementById("earX").value + "%";
 
     earImg.style.top =
         document.getElementById("earY").value + "%";
 
+
+    // ===============================
+    // Tail
+    // ===============================
 
     tailImg.style.left =
         document.getElementById("tailX").value + "%";
@@ -116,7 +145,7 @@ function updatePosition() {
 // Load JSON Config
 // ===============================
 
-fetch("../DATA/avatarConfig.json")
+fetch("../Data/avatarConfig.json")
 
     .then(res => res.json())
 
@@ -142,7 +171,7 @@ fetch("../DATA/avatarConfig.json")
 
 
 // ===============================
-// Load Body Position Config
+// Load Current Body Config
 // ===============================
 
 function loadConfig() {
@@ -176,9 +205,7 @@ function loadConfig() {
     }
 
 
-    // ===============================
     // Eye
-    // ===============================
 
     document.getElementById("eyeX").value =
         data.eye.x;
@@ -187,9 +214,7 @@ function loadConfig() {
         data.eye.y;
 
 
-    // ===============================
     // Ear
-    // ===============================
 
     document.getElementById("earX").value =
         data.ear.x;
@@ -198,15 +223,134 @@ function loadConfig() {
         data.ear.y;
 
 
-    // ===============================
     // Tail
-    // ===============================
 
     document.getElementById("tailX").value =
         data.tail.x;
 
     document.getElementById("tailY").value =
         data.tail.y;
+
+
+    updatePosition();
+
+}
+
+
+
+// ===============================
+// Update JSON Object
+// ===============================
+
+function updateConfigFromInput() {
+
+    if (!avatarConfig) {
+        return;
+    }
+
+
+    const animal =
+        document.getElementById("animal").value;
+
+    const body =
+        document.getElementById("body").value;
+
+
+    const data =
+        avatarConfig[animal]?.[body];
+
+
+    if (!data) {
+        return;
+    }
+
+
+    // ===============================
+    // Eye
+    // ===============================
+
+    data.eye.x =
+        Number(document.getElementById("eyeX").value);
+
+    data.eye.y =
+        Number(document.getElementById("eyeY").value);
+
+
+    // ===============================
+    // Ear
+    // ===============================
+
+    data.ear.x =
+        Number(document.getElementById("earX").value);
+
+    data.ear.y =
+        Number(document.getElementById("earY").value);
+
+
+    // ===============================
+    // Tail
+    // ===============================
+
+    data.tail.x =
+        Number(document.getElementById("tailX").value);
+
+    data.tail.y =
+        Number(document.getElementById("tailY").value);
+
+}
+
+
+
+// ===============================
+// Save Config To Server
+// ===============================
+
+function saveConfig() {
+
+    updateConfigFromInput();
+
+
+    fetch("../PHP/saveAvatarConfig.php", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(avatarConfig)
+
+    })
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            if (data.success) {
+
+                alert("Avatar configuration saved!");
+
+            }
+            else {
+
+                alert(
+                    "Save failed: " +
+                    data.message
+                );
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(error);
+
+            alert(
+                "Unable to save avatar configuration."
+            );
+
+        });
 
 }
 
@@ -235,9 +379,6 @@ document
 document
     .getElementById("body")
     .onchange = function () {
-
-        // Body 改变
-        // 读取该 Body 的 Anchor Position
 
         loadConfig();
 
@@ -298,6 +439,7 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };
 
@@ -307,6 +449,7 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };
 
@@ -316,6 +459,7 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };
 
@@ -325,6 +469,7 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };
 
@@ -334,6 +479,7 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };
 
@@ -343,5 +489,6 @@ document
     .oninput = function () {
 
         updatePosition();
+        updateConfigFromInput();
 
     };

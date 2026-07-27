@@ -188,12 +188,18 @@ const dogQuestion = [
     }
 ]
 
-window.onload = function () {
+window.onload = async function () {
+
+    await loadAvatarConfig();
+
     loadQuestion(dogQuestion);
 
     backBtn.onclick = function () {
+
         previousQuestion(dogQuestion);
+
     };
 
     homeBtn.onclick = goHome;
+
 };
