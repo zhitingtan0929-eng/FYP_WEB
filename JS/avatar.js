@@ -1,3 +1,4 @@
+
 // =====================================================
 // Avatar Image Path
 // =====================================================
@@ -43,6 +44,10 @@ function loadAvatarConfig() {
     // Already loaded
     if (avatarConfig) {
 
+        console.log(
+            "✅ Using existing avatarConfig"
+        );
+
         return Promise.resolve(
             avatarConfig
         );
@@ -53,19 +58,68 @@ function loadAvatarConfig() {
     // Already loading
     if (avatarConfigPromise) {
 
+        console.log(
+            "⏳ Waiting for existing config request..."
+        );
+
         return avatarConfigPromise;
 
     }
 
 
-    // Start loading
+    // =================================================
+    // Config URL
+    // =================================================
+
+    const configURL =
+        "../Data/avatarConfig.json?time=" +
+        Date.now();
+
+
+    console.log(
+        "📂 Loading Avatar Config From:",
+        configURL
+    );
+
+
+    console.log(
+        "🌐 Current Page:",
+        window.location.href
+    );
+
+
+    console.log(
+        "🌐 Current Directory:",
+        window.location.pathname
+    );
+
+
+    // =================================================
+    // Fetch
+    // =================================================
+
     avatarConfigPromise =
-        fetch(
-            "../Data/avatarConfig.json?time=" +
-            Date.now()
-        )
+        fetch(configURL)
 
             .then(response => {
+
+                console.log(
+                    "📡 Config Response:",
+                    response
+                );
+
+
+                console.log(
+                    "📡 Config Status:",
+                    response.status
+                );
+
+
+                console.log(
+                    "📡 Config URL:",
+                    response.url
+                );
+
 
                 if (!response.ok) {
 
@@ -76,31 +130,44 @@ function loadAvatarConfig() {
 
                 }
 
+
                 return response.json();
 
             })
 
+
             .then(data => {
 
-                avatarConfig = data;
-
                 console.log(
-                    "Avatar Config Loaded:",
-                    avatarConfig
+                    "✅ Avatar Config Loaded:",
+                    data
                 );
+
+
+                avatarConfig =
+                    data;
+
 
                 return avatarConfig;
 
             })
 
+
             .catch(error => {
 
                 console.error(
-                    "Failed to load avatarConfig.json:",
+                    "❌ Failed to load avatarConfig.json:",
                     error
                 );
 
-                avatarConfig = null;
+
+                avatarConfig =
+                    null;
+
+
+                avatarConfigPromise =
+                    null;
+
 
                 throw error;
 
@@ -121,11 +188,8 @@ function getAvatarImage(part) {
     const ids = {
 
         Body: "bodyImg",
-
         Eyes: "eyeImg",
-
         Ears: "earImg",
-
         Tail: "tailImg"
 
     };
@@ -147,170 +211,228 @@ function getAvatarImage(part) {
 }
 
 
-
 // =====================================================
-// Update Avatar Image
+// Get Image Path
 // =====================================================
 
-function updateAvatar(
+function getAvatarImagePath(
     animal,
     part,
-    data
+    imageID
 ) {
 
-    return new Promise((resolve, reject) => {
-
-        const path =
-            avatarPath[animal];
+    const path =
+        avatarPath[animal];
 
 
-        if (!path) {
+    if (!path) {
 
-            console.error(
-                "Animal not found:",
-                animal
+        throw new Error(
+            "Animal not found: " +
+            animal
+        );
+
+    }
+
+
+    switch (part) {
+
+        case "Body":
+
+            return (
+                path.body +
+                imageID +
+                ".png"
             );
 
-            reject(
-                new Error(
-                    "Animal not found: " + animal
-                )
+
+        case "Eyes":
+
+            return (
+                path.eye +
+                imageID +
+                ".png"
             );
 
-            return;
 
-        }
+        case "Ears":
 
-
-        if (!data || !data.imageID) {
-
-            console.error(
-                "Invalid avatar data:",
-                data
+            return (
+                path.ear +
+                imageID +
+                ".png"
             );
 
-            reject(
-                new Error(
-                    "Invalid avatar data"
-                )
+
+        case "Tail":
+
+            return (
+                path.tail +
+                imageID +
+                ".png"
             );
 
-            return;
 
-        }
+        default:
 
-
-        const img =
-            getAvatarImage(part);
-
-
-        if (!img) {
-
-            console.warn(
-                "Avatar image element not found:",
+            throw new Error(
+                "Unknown avatar part: " +
                 part
             );
 
-            reject(
-                new Error(
-                    "Avatar image not found: " + part
-                )
-            );
+    }
 
-            return;
-
-        }
+}
 
 
-        let src;
+// =====================================================
+// Load Image
+// =====================================================
 
+function loadImage(
+    img,
+    src
+) {
 
-        switch (part) {
+    return new Promise(
+        (resolve, reject) => {
 
-            case "Body":
-
-                src =
-                    path.body +
-                    data.imageID +
-                    ".png";
-
-                break;
-
-
-            case "Eyes":
-
-                src =
-                    path.eye +
-                    data.imageID +
-                    ".png";
-
-                break;
-
-
-            case "Ears":
-
-                src =
-                    path.ear +
-                    data.imageID +
-                    ".png";
-
-                break;
-
-
-            case "Tail":
-
-                src =
-                    path.tail +
-                    data.imageID +
-                    ".png";
-
-                break;
-
-
-            default:
+            if (!img) {
 
                 reject(
                     new Error(
-                        "Unknown avatar part: " + part
+                        "Image element not found."
                     )
                 );
 
                 return;
 
+            }
+
+
+            // Hide before loading
+            img.style.visibility =
+                "hidden";
+
+
+            // Remove previous handlers
+            img.onload = null;
+
+            img.onerror = null;
+
+
+            img.onload = function () {
+
+                console.log(
+                    "✅ IMAGE LOADED:",
+                    src
+                );
+
+
+                img.style.visibility =
+                    "visible";
+
+
+                resolve();
+
+            };
+
+
+            img.onerror = function () {
+
+                console.error(
+                    "❌ IMAGE FAILED:",
+                    src
+                );
+
+
+                img.style.visibility =
+                    "hidden";
+
+
+                reject(
+                    new Error(
+                        "Image failed to load: " +
+                        src
+                    )
+                );
+
+            };
+
+
+            // Set image only here
+            img.src = src;
+
         }
+    );
+
+}
 
 
-        img.onload = function () {
+// =====================================================
+// Update Avatar
+// =====================================================
 
-            console.log(
-                "✅ IMAGE LOADED:",
-                img.src
+async function updateAvatar(
+    animal,
+    part,
+    data
+) {
+
+    if (!data || !data.imageID) {
+
+        console.error(
+            "Invalid avatar data:",
+            data
+        );
+
+        return;
+
+    }
+
+
+    const img =
+        getAvatarImage(part);
+
+
+    if (!img) {
+
+        console.warn(
+            "Avatar image element not found:",
+            part
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const src =
+            getAvatarImagePath(
+                animal,
+                part,
+                data.imageID
             );
 
-            resolve();
 
-        };
-
-
-        img.onerror = function () {
-
-            console.error(
-                "❌ IMAGE FAILED:",
-                img.src
-            );
-
-            reject(
-                new Error(
-                    "Image failed: " + img.src
-                )
-            );
-
-        };
+        await loadImage(
+            img,
+            src
+        );
 
 
-        img.src = src;
+    }
 
-    });
+    catch (error) {
+
+        console.error(
+            "Avatar image loading error:",
+            error
+        );
+
+    }
 
 }
 
@@ -333,9 +455,11 @@ function resetAvatarPosition() {
 
     if (eyeImg) {
 
-        eyeImg.style.left = "0%";
+        eyeImg.style.left =
+            "0%";
 
-        eyeImg.style.top = "0%";
+        eyeImg.style.top =
+            "0%";
 
         eyeImg.style.transform =
             "scale(1)";
@@ -345,9 +469,11 @@ function resetAvatarPosition() {
 
     if (earImg) {
 
-        earImg.style.left = "0%";
+        earImg.style.left =
+            "0%";
 
-        earImg.style.top = "0%";
+        earImg.style.top =
+            "0%";
 
         earImg.style.transform =
             "scale(1)";
@@ -357,9 +483,11 @@ function resetAvatarPosition() {
 
     if (tailImg) {
 
-        tailImg.style.left = "0%";
+        tailImg.style.left =
+            "0%";
 
-        tailImg.style.top = "0%";
+        tailImg.style.top =
+            "0%";
 
         tailImg.style.transform =
             "scale(1)";
@@ -368,104 +496,6 @@ function resetAvatarPosition() {
 
 }
 
-// =====================================================
-// Load Default Avatar
-// =====================================================
-
-async function loadDefaultAvatar(animal) {
-
-    // =================================================
-    // Make Sure Config Is Loaded
-    // =================================================
-
-    try {
-
-        await loadAvatarConfig();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Cannot load default avatar because config failed.",
-            error
-        );
-
-        return;
-
-    }
-
-
-    // =================================================
-    // Default Image ID
-    // =================================================
-
-    const defaultBody = "body1";
-    const defaultEye = "eye1";
-    const defaultEar = "ear1";
-    const defaultTail = "tail1";
-
-
-    // =================================================
-    // Load Images
-    // =================================================
-
-    updateAvatar(
-        animal,
-        "Body",
-        {
-            imageID: defaultBody
-        }
-    );
-
-
-    updateAvatar(
-        animal,
-        "Eyes",
-        {
-            imageID: defaultEye
-        }
-    );
-
-
-    updateAvatar(
-        animal,
-        "Ears",
-        {
-            imageID: defaultEar
-        }
-    );
-
-
-    updateAvatar(
-        animal,
-        "Tail",
-        {
-            imageID: defaultTail
-        }
-    );
-
-
-    // =================================================
-    // Apply Body Position From JSON
-    // =================================================
-
-    await applyAvatarPosition(
-        animal,
-        defaultBody
-    );
-
-
-    console.log(
-        "✅ Default avatar loaded:",
-        animal,
-        defaultBody,
-        defaultEye,
-        defaultEar,
-        defaultTail
-    );
-
-}
 
 // =====================================================
 // Apply Avatar Position
@@ -476,15 +506,8 @@ async function applyAvatarPosition(
     bodyID
 ) {
 
-    // =================================================
-    // Make Sure Config Is Loaded
-    // =================================================
-
+    // Make sure config is loaded
     if (!avatarConfig) {
-
-        console.log(
-            "Avatar config not ready. Waiting..."
-        );
 
         try {
 
@@ -506,7 +529,7 @@ async function applyAvatarPosition(
 
 
     // =================================================
-    // Get Body Config
+    // Get Config
     // =================================================
 
     const config =
@@ -617,10 +640,123 @@ async function applyAvatarPosition(
 
 
     console.log(
-        "Applied Avatar Position:",
+        "✅ Applied Avatar Position:",
         animal,
         bodyID,
         config
+    );
+
+}
+
+
+// =====================================================
+// Load Default Avatar
+// =====================================================
+
+async function loadDefaultAvatar(animal) {
+
+    console.log(
+        "Loading default avatar:",
+        animal
+    );
+
+
+    // =================================================
+    // Load Config First
+    // =================================================
+
+    try {
+
+        await loadAvatarConfig();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "❌ Config failed."
+        );
+
+        return;
+
+    }
+
+
+    // =================================================
+    // Default IDs
+    // =================================================
+
+    const defaultBody =
+        "body1";
+
+    const defaultEye =
+        "eye1";
+
+    const defaultEar =
+        "ear1";
+
+    const defaultTail =
+        "tail1";
+
+
+    // =================================================
+    // Load All Images
+    // =================================================
+
+    await Promise.all([
+
+        updateAvatar(
+            animal,
+            "Body",
+            {
+                imageID:
+                    defaultBody
+            }
+        ),
+
+        updateAvatar(
+            animal,
+            "Eyes",
+            {
+                imageID:
+                    defaultEye
+            }
+        ),
+
+        updateAvatar(
+            animal,
+            "Ears",
+            {
+                imageID:
+                    defaultEar
+            }
+        ),
+
+        updateAvatar(
+            animal,
+            "Tail",
+            {
+                imageID:
+                    defaultTail
+            }
+        )
+
+    ]);
+
+
+    // =================================================
+    // Apply Position AFTER Images
+    // =================================================
+
+    await applyAvatarPosition(
+        animal,
+        defaultBody
+    );
+
+
+    console.log(
+        "✅ DEFAULT AVATAR READY:",
+        animal
     );
 
 }
