@@ -151,14 +151,17 @@ function loadQuestion(questionArray) {
             option.name;
 
 
-        button.onclick = function () {
-
+        button.onclick = async function () {
 
             // ===============================
             // Remove Previous Selection
             // ===============================
 
-            for (let j = 0; j < options.length; j++) {
+            for (
+                let j = 0;
+                j < options.length;
+                j++
+            ) {
 
                 document
                     .getElementById("btn" + j)
@@ -198,8 +201,7 @@ function loadQuestion(questionArray) {
 
 
             // ===============================
-            // If Body Selected
-            // Apply Body Position
+            // Body Position
             // ===============================
 
             if (
@@ -207,7 +209,7 @@ function loadQuestion(questionArray) {
                 "Body"
             ) {
 
-                applyAvatarPosition(
+                await applyAvatarPosition(
 
                     currentAnimal,
 
@@ -382,52 +384,16 @@ function previousQuestion(questionArray) {
 
 function restoreAvatar() {
 
-
-    // ===============================
-    // Clear Current Images
-    // ===============================
-
-    const bodyImg =
-        document.getElementById("bodyImg");
-
-    const eyeImg =
-        document.getElementById("eyeImg");
-
-    const earImg =
-        document.getElementById("earImg");
-
-    const tailImg =
-        document.getElementById("tailImg");
-
-
-    if (bodyImg) bodyImg.src = "";
-    if (eyeImg) eyeImg.src = "";
-    if (earImg) earImg.src = "";
-    if (tailImg) tailImg.src = "";
-
-
-    // ===============================
-    // Restore Selected Parts
-    // ===============================
-
     answer.forEach(item => {
 
         updateAvatar(
-
             currentAnimal,
-
             item.part,
-
             item
-
         );
 
     });
 
-
-    // ===============================
-    // Restore Body Position
-    // ===============================
 
     const bodyAnswer =
         answer.find(
@@ -439,11 +405,8 @@ function restoreAvatar() {
     if (bodyAnswer) {
 
         applyAvatarPosition(
-
             currentAnimal,
-
             bodyAnswer.imageID
-
         );
 
     }

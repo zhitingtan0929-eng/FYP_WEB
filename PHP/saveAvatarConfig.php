@@ -30,15 +30,21 @@ if ($data === null) {
 }
 
 
-$file = "../Data/avatarConfig.json";
+$file = __DIR__ . "/../Data/avatarConfig.json";
 
 
 $result = file_put_contents(
+
     $file,
+
     json_encode(
         $data,
-        JSON_PRETTY_PRINT
-    )
+        JSON_PRETTY_PRINT |
+        JSON_UNESCAPED_UNICODE
+    ),
+
+    LOCK_EX
+
 );
 
 
@@ -46,7 +52,7 @@ if ($result === false) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Failed to write file"
+        "message" => "Failed to write avatarConfig.json"
     ]);
 
     exit;
@@ -55,7 +61,11 @@ if ($result === false) {
 
 
 echo json_encode([
-    "success" => true
+
+    "success" => true,
+
+    "message" => "Avatar configuration saved"
+
 ]);
 
 ?>

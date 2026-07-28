@@ -188,17 +188,76 @@ const dogQuestion = [
     }
 ]
 
+
+window.addEventListener(
+    "load",
+    async function () {
+
+        try {
+
+            await loadAvatarConfig();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Avatar config failed to load."
+            );
+
+        }
+
+
+        loadQuestion(
+            dogQuestion
+        );
+
+
+        backBtn.onclick = function () {
+
+            previousQuestion(
+                dogQuestion
+            );
+
+        };
+
+
+        homeBtn.onclick =
+            goHome;
+
+    }
+);
+
 window.onload = async function () {
 
-    await loadAvatarConfig();
+    // =================================================
+    // Load Default Cat
+    // =================================================
+
+    await loadDefaultAvatar("dog");
+
+
+    // =================================================
+    // Load Question
+    // =================================================
 
     loadQuestion(dogQuestion);
+
+
+    // =================================================
+    // Back Button
+    // =================================================
 
     backBtn.onclick = function () {
 
         previousQuestion(dogQuestion);
 
     };
+
+
+    // =================================================
+    // Home Button
+    // =================================================
 
     homeBtn.onclick = goHome;
 

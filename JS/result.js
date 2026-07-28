@@ -216,72 +216,83 @@ for (
 // Display Result Avatar
 // ===============================
 
+// ===============================
+// Load Result Avatar
+// ===============================
+
 async function loadResultAvatar() {
 
-
-    // ===============================
-    // Load Latest Config
-    // ===============================
+    // =================================================
+    // Load Config
+    // =================================================
 
     await loadAvatarConfig();
 
 
-    // ===============================
-    // Display Images
-    // ===============================
-
-    answer.forEach(item => {
-
-        updateAvatar(
-
-            animal,
-
-            item.part,
-
-            item
-
-        );
-
-    });
-
-
-    // ===============================
+    // =================================================
     // Find Body
-    // ===============================
+    // =================================================
 
     const bodyAnswer =
         answer.find(
-
             item =>
                 item.part === "Body"
-
         );
 
 
-    // ===============================
-    // Apply Body Position
-    // ===============================
+    if (!bodyAnswer) {
 
-    if (bodyAnswer) {
+        console.error(
+            "Body answer not found."
+        );
 
-        applyAvatarPosition(
+        return;
 
+    }
+
+
+    // =================================================
+    // Load Images
+    // =================================================
+
+    for (const item of answer) {
+
+        await updateAvatar(
             animal,
-
-            bodyAnswer.imageID
-
+            item.part,
+            item
         );
 
     }
 
-}
 
+    // =================================================
+    // Apply Position
+    // =================================================
+
+    await applyAvatarPosition(
+        animal,
+        bodyAnswer.imageID
+    );
+
+
+    console.log(
+        "✅ Result Avatar Ready:",
+        animal,
+        bodyAnswer.imageID
+    );
+
+}
 
 // ===============================
 // Start Avatar
 // ===============================
 
-loadResultAvatar();
+window.onload = async function () {
+
+    await loadResultAvatar();
+
+};
 
 
 // ===============================

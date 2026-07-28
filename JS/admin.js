@@ -1,6 +1,6 @@
-// ===============================
+// =====================================================
 // Avatar Image Reference
-// ===============================
+// =====================================================
 
 const bodyImg =
     document.getElementById("bodyImg");
@@ -15,16 +15,9 @@ const tailImg =
     document.getElementById("tailImg");
 
 
-// ===============================
-// Avatar Config
-// ===============================
-
-let avatarConfig = null;
-
-
-// ===============================
-// Update Avatar Preview
-// ===============================
+// =====================================================
+// Update Preview
+// =====================================================
 
 function updatePreview() {
 
@@ -44,7 +37,9 @@ function updatePreview() {
         document.getElementById("tail").value;
 
 
-    // Body
+    // =================================================
+    // Images
+    // =================================================
 
     updateAvatar(
         animal,
@@ -55,8 +50,6 @@ function updatePreview() {
     );
 
 
-    // Eye
-
     updateAvatar(
         animal,
         "Eyes",
@@ -65,8 +58,6 @@ function updatePreview() {
         }
     );
 
-
-    // Ear
 
     updateAvatar(
         animal,
@@ -77,8 +68,6 @@ function updatePreview() {
     );
 
 
-    // Tail
-
     updateAvatar(
         animal,
         "Tail",
@@ -88,114 +77,53 @@ function updatePreview() {
     );
 
 
-    updatePosition();
+    // =================================================
+    // Position
+    // =================================================
+
+    updatePositionPreview();
 
 }
 
 
-
-// ===============================
-// Update Image Position
-// ===============================
-
-function updatePosition() {
-
-    if (!avatarConfig) {
-        return;
-    }
-
-
-    // ===============================
-    // Eye
-    // ===============================
-
-    eyeImg.style.left =
-        document.getElementById("eyeX").value + "%";
-
-    eyeImg.style.top =
-        document.getElementById("eyeY").value + "%";
-
-
-    // ===============================
-    // Ear
-    // ===============================
-
-    earImg.style.left =
-        document.getElementById("earX").value + "%";
-
-    earImg.style.top =
-        document.getElementById("earY").value + "%";
-
-
-    // ===============================
-    // Tail
-    // ===============================
-
-    tailImg.style.left =
-        document.getElementById("tailX").value + "%";
-
-    tailImg.style.top =
-        document.getElementById("tailY").value + "%";
-
-}
-
-
-
-// ===============================
-// Load JSON Config
-// ===============================
-
-fetch("../Data/avatarConfig.json")
-
-    .then(res => res.json())
-
-    .then(data => {
-
-        avatarConfig = data;
-
-        loadConfig();
-
-        updatePreview();
-
-    })
-
-    .catch(error => {
-
-        console.error(
-            "Failed to load avatarConfig.json:",
-            error
-        );
-
-    });
-
-
-
-// ===============================
-// Load Current Body Config
-// ===============================
+// =====================================================
+// Load Current Config
+// =====================================================
 
 function loadConfig() {
 
     if (!avatarConfig) {
+
+        console.warn(
+            "Avatar config not loaded."
+        );
+
         return;
+
     }
 
 
     const animal =
-        document.getElementById("animal").value;
+        document.getElementById(
+            "animal"
+        ).value;
 
     const body =
-        document.getElementById("body").value;
+        document.getElementById(
+            "body"
+        ).value;
 
 
     const data =
-        avatarConfig[animal]?.[body];
+        avatarConfig
+        ?.[animal]
+        ?.[body];
 
 
     if (!data) {
 
         console.warn(
-            "No config found:",
+            "No config:",
             animal,
             body
         );
@@ -205,290 +133,514 @@ function loadConfig() {
     }
 
 
+    // =================================================
     // Eye
+    // =================================================
 
-    document.getElementById("eyeX").value =
-        data.eye.x;
+    document.getElementById(
+        "eyeX"
+    ).value =
+        data.eye?.x ?? 0;
 
-    document.getElementById("eyeY").value =
-        data.eye.y;
+
+    document.getElementById(
+        "eyeY"
+    ).value =
+        data.eye?.y ?? 0;
 
 
+    document.getElementById(
+        "eyeScale"
+    ).value =
+        data.eye?.scale ?? 1;
+
+
+    // =================================================
     // Ear
+    // =================================================
 
-    document.getElementById("earX").value =
-        data.ear.x;
+    document.getElementById(
+        "earX"
+    ).value =
+        data.ear?.x ?? 0;
 
-    document.getElementById("earY").value =
-        data.ear.y;
+
+    document.getElementById(
+        "earY"
+    ).value =
+        data.ear?.y ?? 0;
 
 
+    document.getElementById(
+        "earScale"
+    ).value =
+        data.ear?.scale ?? 1;
+
+
+    // =================================================
     // Tail
+    // =================================================
 
-    document.getElementById("tailX").value =
-        data.tail.x;
+    document.getElementById(
+        "tailX"
+    ).value =
+        data.tail?.x ?? 0;
 
-    document.getElementById("tailY").value =
-        data.tail.y;
+
+    document.getElementById(
+        "tailY"
+    ).value =
+        data.tail?.y ?? 0;
 
 
-    updatePosition();
+    document.getElementById(
+        "tailScale"
+    ).value =
+        data.tail?.scale ?? 1;
+
+
+    // =================================================
+    // Update
+    // =================================================
+
+    updatePreview();
 
 }
 
 
-
-// ===============================
-// Update JSON Object
-// ===============================
+// =====================================================
+// Update JSON From Input
+// =====================================================
 
 function updateConfigFromInput() {
 
     if (!avatarConfig) {
+
         return;
+
     }
 
 
     const animal =
-        document.getElementById("animal").value;
+        document.getElementById(
+            "animal"
+        ).value;
 
     const body =
-        document.getElementById("body").value;
+        document.getElementById(
+            "body"
+        ).value;
 
 
     const data =
-        avatarConfig[animal]?.[body];
+        avatarConfig
+        ?.[animal]
+        ?.[body];
 
 
     if (!data) {
+
         return;
+
     }
 
 
-    // ===============================
+    // =================================================
     // Eye
-    // ===============================
+    // =================================================
 
     data.eye.x =
-        Number(document.getElementById("eyeX").value);
+        Number(
+            document.getElementById(
+                "eyeX"
+            ).value
+        );
+
 
     data.eye.y =
-        Number(document.getElementById("eyeY").value);
+        Number(
+            document.getElementById(
+                "eyeY"
+            ).value
+        );
 
 
-    // ===============================
+    data.eye.scale =
+        Number(
+            document.getElementById(
+                "eyeScale"
+            ).value
+        );
+
+
+    // =================================================
     // Ear
-    // ===============================
+    // =================================================
 
     data.ear.x =
-        Number(document.getElementById("earX").value);
+        Number(
+            document.getElementById(
+                "earX"
+            ).value
+        );
+
 
     data.ear.y =
-        Number(document.getElementById("earY").value);
+        Number(
+            document.getElementById(
+                "earY"
+            ).value
+        );
 
 
-    // ===============================
+    data.ear.scale =
+        Number(
+            document.getElementById(
+                "earScale"
+            ).value
+        );
+
+
+    // =================================================
     // Tail
-    // ===============================
+    // =================================================
 
     data.tail.x =
-        Number(document.getElementById("tailX").value);
+        Number(
+            document.getElementById(
+                "tailX"
+            ).value
+        );
+
 
     data.tail.y =
-        Number(document.getElementById("tailY").value);
+        Number(
+            document.getElementById(
+                "tailY"
+            ).value
+        );
+
+
+    data.tail.scale =
+        Number(
+            document.getElementById(
+                "tailScale"
+            ).value
+        );
+
+
+    // =================================================
+    // Immediately Preview
+    // =================================================
+
+    updatePositionPreview();
 
 }
 
 
+// =====================================================
+// Update Position Preview
+// =====================================================
 
-// ===============================
-// Save Config To Server
-// ===============================
+function updatePositionPreview() {
 
-function saveConfig() {
+    if (!eyeImg ||
+        !earImg ||
+        !tailImg) {
+
+        return;
+
+    }
+
+
+    // =================================================
+    // Eye
+    // =================================================
+
+    eyeImg.style.left =
+        `${document.getElementById("eyeX").value}%`;
+
+    eyeImg.style.top =
+        `${document.getElementById("eyeY").value}%`;
+
+    eyeImg.style.transform =
+        `scale(${document.getElementById("eyeScale").value})`;
+
+
+    // =================================================
+    // Ear
+    // =================================================
+
+    earImg.style.left =
+        `${document.getElementById("earX").value}%`;
+
+    earImg.style.top =
+        `${document.getElementById("earY").value}%`;
+
+    earImg.style.transform =
+        `scale(${document.getElementById("earScale").value})`;
+
+
+    // =================================================
+    // Tail
+    // =================================================
+
+    tailImg.style.left =
+        `${document.getElementById("tailX").value}%`;
+
+    tailImg.style.top =
+        `${document.getElementById("tailY").value}%`;
+
+    tailImg.style.transform =
+        `scale(${document.getElementById("tailScale").value})`;
+
+}
+
+
+// =====================================================
+// Save Config
+// =====================================================
+
+async function saveConfig() {
 
     updateConfigFromInput();
 
 
-    fetch("../PHP/saveAvatarConfig.php", {
+    if (!avatarConfig) {
 
-        method: "POST",
+        alert(
+            "Avatar configuration is not loaded."
+        );
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+        return;
 
-        body: JSON.stringify(avatarConfig)
+    }
 
-    })
 
-        .then(res => res.json())
+    try {
 
-        .then(data => {
+        const response =
+            await fetch(
+                "../PHP/saveAvatarConfig.php",
+                {
 
-            if (data.success) {
+                    method: "POST",
 
-                alert("Avatar configuration saved!");
+                    headers: {
 
-            }
-            else {
+                        "Content-Type":
+                            "application/json"
 
-                alert(
-                    "Save failed: " +
-                    data.message
-                );
+                    },
 
-            }
+                    body:
+                        JSON.stringify(
+                            avatarConfig
+                        )
 
-        })
-
-        .catch(error => {
-
-            console.error(error);
-
-            alert(
-                "Unable to save avatar configuration."
+                }
             );
 
-        });
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP Error: " +
+                response.status
+            );
+
+        }
+
+
+        const result =
+            await response.json();
+
+
+        if (result.success) {
+
+            alert(
+                "Avatar configuration saved!"
+            );
+
+        }
+
+        else {
+
+            alert(
+                "Save failed: " +
+                result.message
+            );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Save error:",
+            error
+        );
+
+
+        alert(
+            "Unable to save avatar configuration."
+        );
+
+    }
 
 }
 
 
-
-// ===============================
-// Animal Change
-// ===============================
+// =====================================================
+// Selection Change
+// =====================================================
 
 document
     .getElementById("animal")
-    .onchange = function () {
+    .addEventListener(
+        "change",
+        function () {
 
-        loadConfig();
+            loadConfig();
 
-        updatePreview();
+        }
+    );
 
-    };
-
-
-
-// ===============================
-// Body Change
-// ===============================
 
 document
     .getElementById("body")
-    .onchange = function () {
+    .addEventListener(
+        "change",
+        function () {
 
-        loadConfig();
+            loadConfig();
 
-        updatePreview();
+        }
+    );
 
-    };
-
-
-
-// ===============================
-// Eye Change
-// ===============================
 
 document
     .getElementById("eye")
-    .onchange = function () {
+    .addEventListener(
+        "change",
+        function () {
 
-        updatePreview();
+            updatePreview();
 
-    };
+        }
+    );
 
-
-
-// ===============================
-// Ear Change
-// ===============================
 
 document
     .getElementById("ear")
-    .onchange = function () {
+    .addEventListener(
+        "change",
+        function () {
 
-        updatePreview();
+            updatePreview();
 
-    };
+        }
+    );
 
-
-
-// ===============================
-// Tail Change
-// ===============================
 
 document
     .getElementById("tail")
-    .onchange = function () {
+    .addEventListener(
+        "change",
+        function () {
 
-        updatePreview();
+            updatePreview();
 
-    };
-
-
-
-// ===============================
-// Position Input
-// ===============================
-
-document
-    .getElementById("eyeX")
-    .oninput = function () {
-
-        updatePosition();
-        updateConfigFromInput();
-
-    };
+        }
+    );
 
 
-document
-    .getElementById("eyeY")
-    .oninput = function () {
+// =====================================================
+// Position + Scale Inputs
+// =====================================================
 
-        updatePosition();
-        updateConfigFromInput();
+const positionInputs = [
 
-    };
+    "eyeX",
+    "eyeY",
+    "eyeScale",
 
+    "earX",
+    "earY",
+    "earScale",
 
-document
-    .getElementById("earX")
-    .oninput = function () {
+    "tailX",
+    "tailY",
+    "tailScale"
 
-        updatePosition();
-        updateConfigFromInput();
-
-    };
-
-
-document
-    .getElementById("earY")
-    .oninput = function () {
-
-        updatePosition();
-        updateConfigFromInput();
-
-    };
+];
 
 
-document
-    .getElementById("tailX")
-    .oninput = function () {
+positionInputs.forEach(
+    id => {
 
-        updatePosition();
-        updateConfigFromInput();
+        document
+            .getElementById(id)
+            .addEventListener(
+                "input",
+                function () {
 
-    };
+                    updateConfigFromInput();
 
+                }
+            );
+
+    }
+);
+
+
+// =====================================================
+// Save Button
+// =====================================================
 
 document
-    .getElementById("tailY")
-    .oninput = function () {
+    .getElementById("saveBtn")
+    .addEventListener(
+        "click",
+        saveConfig
+    );
 
-        updatePosition();
-        updateConfigFromInput();
 
-    };
+// =====================================================
+// Initialize Admin
+// =====================================================
+
+window.addEventListener(
+    "load",
+    async function () {
+
+        console.log(
+            "Admin initializing..."
+        );
+
+
+        const config =
+            await loadAvatarConfig();
+
+
+        if (!config) {
+
+            console.error(
+                "Admin cannot start because config failed to load."
+            );
+
+            return;
+
+        }
+
+
+        loadConfig();
+
+
+        console.log(
+            "Admin initialized."
+        );
+
+    }
+);
