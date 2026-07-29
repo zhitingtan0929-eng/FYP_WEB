@@ -176,6 +176,11 @@ function loadConfig() {
     ).value =
         data.ear?.scale ?? 1;
 
+    document.getElementById("earFront").value =
+        String(
+            data.ear?.front ?? false
+        );
+
 
     // =================================================
     // Tail
@@ -300,6 +305,11 @@ function updateConfigFromInput() {
             ).value
         );
 
+    data.ear.front =
+        document.getElementById(
+            "earFront"
+        ).value === "true";
+
 
     // =================================================
     // Tail
@@ -393,6 +403,29 @@ function updatePositionPreview() {
 
     tailImg.style.transform =
         `scale(${document.getElementById("tailScale").value})`;
+
+    // =================================================
+    // Ear front or not,adjust layour
+    // =================================================    
+    bodyImg.style.zIndex = 2;
+
+    tailImg.style.zIndex = 1;
+
+    eyeImg.style.zIndex = 4;
+
+    if (
+        document.getElementById("earFront").value
+        === "true"
+    ) {
+
+        earImg.style.zIndex = 3;
+
+    }
+    else {
+
+        earImg.style.zIndex = 1;
+
+    }
 
 }
 
