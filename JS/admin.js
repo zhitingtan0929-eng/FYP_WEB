@@ -19,67 +19,69 @@ const tailImg =
 // Update Preview
 // =====================================================
 
-function updatePreview() {
+async function updatePreview() {
+
 
     const animal =
         document.getElementById("animal").value;
 
+
     const body =
         document.getElementById("body").value;
+
 
     const eye =
         document.getElementById("eye").value;
 
+
     const ear =
         document.getElementById("ear").value;
+
 
     const tail =
         document.getElementById("tail").value;
 
 
-    // =================================================
-    // Images
-    // =================================================
 
-    updateAvatar(
-        animal,
-        "Body",
-        {
-            imageID: body
-        }
-    );
+    await Promise.all([
 
-
-    updateAvatar(
-        animal,
-        "Eyes",
-        {
-            imageID: eye
-        }
-    );
+        updateAvatar(
+            animal,
+            "Body",
+            {
+                imageID: body
+            }
+        ),
 
 
-    updateAvatar(
-        animal,
-        "Ears",
-        {
-            imageID: ear
-        }
-    );
+        updateAvatar(
+            animal,
+            "Eyes",
+            {
+                imageID: eye
+            }
+        ),
 
 
-    updateAvatar(
-        animal,
-        "Tail",
-        {
-            imageID: tail
-        }
-    );
+        updateAvatar(
+            animal,
+            "Ears",
+            {
+                imageID: ear
+            }
+        ),
 
 
-    // =================================================
-    // Position
-    // =================================================
+        updateAvatar(
+            animal,
+            "Tail",
+            {
+                imageID: tail
+            }
+        )
+
+    ]);
+
 
     updatePositionPreview();
 
@@ -90,7 +92,7 @@ function updatePreview() {
 // Load Current Config
 // =====================================================
 
-function loadConfig() {
+async function loadConfig() {
 
     if (!avatarConfig) {
 
@@ -156,7 +158,7 @@ function loadConfig() {
 
 
     // =================================================
-    // Ear
+    // Ear Position
     // =================================================
 
     document.getElementById(
@@ -176,10 +178,36 @@ function loadConfig() {
     ).value =
         data.ear?.scale ?? 1;
 
-    document.getElementById("earFront").value =
+
+
+    // =================================================
+    // Ear Draw Order
+    // =================================================
+
+    const ear =
+        document.getElementById(
+            "ear"
+        ).value;
+
+
+    const earConfig =
+        avatarConfig
+        ?.[animal + "Ear"]
+        ?.[ear];
+
+
+    document.getElementById(
+        "earFront"
+    ).value =
         String(
-            data.ear?.front ?? false
+            earConfig?.front ?? false
         );
+
+
+    document.getElementById(
+        "currentEarName"
+    ).innerText =
+        ear;
 
 
     // =================================================
@@ -208,7 +236,7 @@ function loadConfig() {
     // Update
     // =================================================
 
-    updatePreview();
+    await updatePreview();
 
 }
 
@@ -305,11 +333,48 @@ function updateConfigFromInput() {
             ).value
         );
 
-    data.ear.front =
+    // =================================================
+    // Ear Draw Order Config
+    // =================================================
+
+
+    const ear =
+        document.getElementById(
+            "ear"
+        ).value;
+
+
+    const earKey =
+        animal + "Ear";
+
+
+    // Create category
+
+    if (!avatarConfig[earKey]) {
+
+        avatarConfig[earKey] = {};
+
+    }
+
+
+    // Create ear
+
+    if (!avatarConfig[earKey][ear]) {
+
+        avatarConfig[earKey][ear] =
+        {
+            front: false
+        };
+
+    }
+
+
+    // Save
+
+    avatarConfig[earKey][ear].front =
         document.getElementById(
             "earFront"
         ).value === "true";
-
 
     // =================================================
     // Tail
@@ -347,6 +412,28 @@ function updateConfigFromInput() {
 
 }
 
+function updateEarLayer() {
+
+    const animal =
+        document.getElementById("animal").value;
+
+
+    const ear =
+        document.getElementById("ear").value;
+
+
+    const earConfig =
+        avatarConfig?.[animal + "Ear"]?.[ear];
+
+
+    if (earConfig?.front) {
+        earImg.style.zIndex = 3;
+    }
+    else {
+        earImg.style.zIndex = 1;
+    }
+
+}
 
 // =====================================================
 // Update Position Preview
@@ -405,17 +492,32 @@ function updatePositionPreview() {
         `scale(${document.getElementById("tailScale").value})`;
 
     // =================================================
-    // Ear front or not,adjust layour
-    // =================================================    
-    bodyImg.style.zIndex = 2;
+    // Ear Draw Order
+    // =================================================
 
-    tailImg.style.zIndex = 1;
 
-    eyeImg.style.zIndex = 4;
+    const animal =
+        document.getElementById(
+            "animal"
+        ).value;
+
+
+    const ear =
+        document.getElementById(
+            "ear"
+        ).value;
+
+
+
+    const earConfig =
+        avatarConfig
+        ?.[animal + "Ear"]
+        ?.[ear];
+
+
 
     if (
-        document.getElementById("earFront").value
-        === "true"
+        earConfig?.front
     ) {
 
         earImg.style.zIndex = 3;
@@ -427,6 +529,7 @@ function updatePositionPreview() {
 
     }
 
+    updateEarLayer();
 }
 
 
@@ -533,13 +636,14 @@ document
     .getElementById("animal")
     .addEventListener(
         "change",
-        function () {
+        async function () {
 
             loadConfig();
 
+            await updatePreview();
+
         }
     );
-
 
 document
     .getElementById("body")
@@ -554,24 +658,27 @@ document
 
 
 document
-    .getElementById("eye")
+    .getElementById("body")
     .addEventListener(
         "change",
-        function () {
+        async function () {
 
-            updatePreview();
+            loadConfig();
+
+            await updatePreview();
 
         }
     );
-
 
 document
     .getElementById("ear")
     .addEventListener(
         "change",
-        function () {
+        async function () {
 
-            updatePreview();
+            loadConfig();
+
+            await updatePreview();
 
         }
     );
@@ -581,13 +688,12 @@ document
     .getElementById("tail")
     .addEventListener(
         "change",
-        function () {
+        async function () {
 
-            updatePreview();
+            await updatePreview();
 
         }
     );
-
 
 // =====================================================
 // Position + Scale Inputs
@@ -605,8 +711,9 @@ const positionInputs = [
 
     "tailX",
     "tailY",
-    "tailScale"
+    "tailScale",
 
+    "earFront"
 ];
 
 

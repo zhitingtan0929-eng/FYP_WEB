@@ -18,11 +18,14 @@ if (!$json) {
 
 $data = json_decode($json, true);
 
-if ($data === null) {
+
+if (
+    json_last_error() !== JSON_ERROR_NONE
+) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Invalid JSON"
+        "message" => json_last_error_msg()
     ]);
 
     exit;

@@ -200,25 +200,27 @@ function loadQuestion(questionArray) {
             );
 
 
-            // =================================================
-            // Apply Body Position
-            // =================================================
+            // Body
+            const body =
+                questionArray[currentQuestion].part === "Body"
+                    ? selectedOption.imageID
+                    : (
+                        answer.find(
+                            a => a.part === "Body"
+                        )?.imageID || "body1"
+                    );
 
-            if (
-                questionArray[currentQuestion].part ===
-                "Body"
-            ) {
+            // Ear
+            const ear =
+                questionArray[currentQuestion].part === "Ears"
+                    ? selectedOption.imageID
+                    : getCurrentEar();
 
-                await applyAvatarPosition(
-
-                    currentAnimal,
-
-                    selectedOption.imageID
-
-                );
-
-            }
-
+            await applyAvatarPosition(
+                currentAnimal,
+                body,
+                ear
+            );
         };
 
     }
@@ -406,10 +408,26 @@ function restoreAvatar() {
 
         applyAvatarPosition(
             currentAnimal,
-            bodyAnswer.imageID
+            bodyAnswer.imageID,
+            getCurrentEar()
         );
 
     }
+
+}
+
+function getCurrentEar() {
+
+    const ear =
+        answer.find(
+            item =>
+                item.part === "Ears"
+        );
+
+
+    return ear
+        ? ear.imageID
+        : "ear1";
 
 }
 

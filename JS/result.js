@@ -270,11 +270,18 @@ async function loadResultAvatar() {
     // Apply Position
     // =================================================
 
+    const earAnswer =
+        answer.find(
+            item =>
+                item.part === "Ears"
+        );
+
+
     await applyAvatarPosition(
         animal,
-        bodyAnswer.imageID
+        bodyAnswer.imageID,
+        earAnswer.imageID
     );
-
 
     console.log(
         "✅ Result Avatar Ready:",

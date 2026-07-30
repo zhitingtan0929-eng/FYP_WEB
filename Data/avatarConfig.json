@@ -9,8 +9,7 @@
             "ear": {
                 "x": 0,
                 "y": 0,
-                "scale": 1,
-                "front": false
+                "scale": 1
             },
             "tail": {
                 "x": -1,
@@ -27,8 +26,7 @@
             "ear": {
                 "x": 0,
                 "y": 0,
-                "scale": 1,
-                "front": false
+                "scale": 1
             },
             "tail": {
                 "x": 6,
@@ -45,8 +43,7 @@
             "ear": {
                 "x": 0,
                 "y": 2,
-                "scale": 1,
-                "front": false
+                "scale": 1
             },
             "tail": {
                 "x": 2,
@@ -63,8 +60,7 @@
             "ear": {
                 "x": -0.5,
                 "y": 22.5,
-                "scale": 1,
-                "front": false
+                "scale": 1
             },
             "tail": {
                 "x": 0,
@@ -141,6 +137,34 @@
                 "y": 0,
                 "scale": 1
             }
+        }
+    },
+    "catEar": {
+        "ear1": {
+            "front": false
+        },
+        "ear2": {
+            "front": false
+        },
+        "ear3": {
+            "front": true
+        },
+        "ear4": {
+            "front": false
+        }
+    },
+    "dogEar": {
+        "ear1": {
+            "front": false
+        },
+        "ear2": {
+            "front": false
+        },
+        "ear3": {
+            "front": true
+        },
+        "ear4": {
+            "front": true
         }
     }
 }

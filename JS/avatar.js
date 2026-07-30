@@ -422,6 +422,13 @@ async function updateAvatar(
             src
         );
 
+        // Save current image ID
+
+        if (part === "Ears") {
+            img.dataset.imageID =
+                data.imageID;
+        }
+
 
     }
 
@@ -503,7 +510,8 @@ function resetAvatarPosition() {
 
 async function applyAvatarPosition(
     animal,
-    bodyID
+    bodyID,
+    earID = "ear1"
 ) {
 
     // Make sure config is loaded
@@ -635,6 +643,56 @@ async function applyAvatarPosition(
 
         tailImg.style.transform =
             `scale(${config.tail.scale ?? 1})`;
+
+    }
+
+    // =================================================
+    // Update Draw Order
+    // =================================================
+
+    const bodyImg =
+        document.getElementById("bodyImg");
+
+
+    // Default Layer
+
+    if (bodyImg)
+        bodyImg.style.zIndex = 2;
+
+    if (tailImg)
+        tailImg.style.zIndex = 1;
+
+    if (eyeImg)
+        eyeImg.style.zIndex = 4;
+
+
+
+    // =================================================
+    // Read Ear Draw Order From catEar / dogEar
+    // =================================================
+
+    // use current selected ear
+
+    const currentEar =
+        earID;
+
+
+
+    const earConfig =
+        avatarConfig
+        ?.[animal + "Ear"]
+        ?.[currentEar];
+
+
+
+    if (earConfig?.front) {
+
+        earImg.style.zIndex = 3;
+
+    }
+    else {
+
+        earImg.style.zIndex = 1;
 
     }
 

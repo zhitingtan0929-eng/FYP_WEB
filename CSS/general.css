@@ -87,3 +87,22 @@
     color: white;
     border: 3px solid #2E7D32;
 }
+
+#tailImg {
+    z-index: 1;
+}
+
+
+#earImg {
+    z-index: 2;
+}
+
+
+#bodyImg {
+    z-index: 2;
+}
+
+
+#eyeImg {
+    z-index: 4;
+}

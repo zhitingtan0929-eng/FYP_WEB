@@ -200,25 +200,6 @@
             <input id="earScale" type="number" step="0.01" min="0.01">
         </label>
 
-        <label>
-
-            Front
-
-            <select id="earFront">
-
-                <option value="false">
-                    Behind Body
-                </option>
-
-                <option value="true">
-                    Front of Body
-                </option>
-
-            </select>
-
-        </label>
-
-
         <!-- ========================== -->
         <!-- Tail -->
         <!-- ========================== -->
@@ -243,12 +224,43 @@
 
         <br><br>
 
+        <h3>Current Ear</h3>
+
+        <div class="ear-setting">
+
+            <div class="current-ear">
+
+                <strong id="currentEarName">
+                    Ear 1
+                </strong>
+
+            </div>
+
+            <label>
+
+                Draw Order
+
+                <select id="earFront">
+
+                    <option value="false">
+                        Behind Body
+                    </option>
+
+                    <option value="true">
+                        Front of Body
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+        <br><br>
 
         <button id="saveBtn" type="button">
             Save Configuration
         </button>
-
-
     </div>
 
 
