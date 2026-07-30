@@ -645,17 +645,6 @@ document
         }
     );
 
-document
-    .getElementById("body")
-    .addEventListener(
-        "change",
-        function () {
-
-            loadConfig();
-
-        }
-    );
-
 
 document
     .getElementById("body")
@@ -664,6 +653,17 @@ document
         async function () {
 
             loadConfig();
+
+            await updatePreview();
+
+        }
+    );
+
+document
+    .getElementById("eye")
+    .addEventListener(
+        "change",
+        async function () {
 
             await updatePreview();
 
