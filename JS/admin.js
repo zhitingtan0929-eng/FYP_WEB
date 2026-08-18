@@ -556,7 +556,7 @@ async function saveConfig() {
 
         const response =
             await fetch(
-                "../PHP/saveAvatarConfig.php",
+                "PHP/saveAvatarConfig.php",
                 {
 
                     method: "POST",
