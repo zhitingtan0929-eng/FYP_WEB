@@ -33,7 +33,7 @@ if (
 }
 
 
-$file = __DIR__ . "Data/avatarConfig.json";
+$file = __DIR__ . "../Data/avatarConfig.json";
 
 
 $result = file_put_contents(
