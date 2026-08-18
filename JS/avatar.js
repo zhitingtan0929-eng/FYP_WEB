@@ -7,19 +7,19 @@ const avatarPath = {
 
     cat: {
 
-        body: "../img/cat/body/",
-        eye: "../img/cat/eye/",
-        ear: "../img/cat/ear/",
-        tail: "../img/cat/tail/"
+        body: "img/cat/body/",
+        eye: "img/cat/eye/",
+        ear: "img/cat/ear/",
+        tail: "img/cat/tail/"
 
     },
 
     dog: {
 
-        body: "../img/dog/body/",
-        eye: "../img/dog/eye/",
-        ear: "../img/dog/ear/",
-        tail: "../img/dog/tail/"
+        body: "img/dog/body/",
+        eye: "img/dog/eye/",
+        ear: "img/dog/ear/",
+        tail: "img/dog/tail/"
 
     }
 
