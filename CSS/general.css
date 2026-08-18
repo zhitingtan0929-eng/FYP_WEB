@@ -1,7 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Gochi+Hand&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+:root {
+    /* 字体族设置 */
+    --font-title: 'DynaPuff', cursive, sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --font-slogan: 'Gochi Hand', cursive;
+
+    /* 响应式字号定义 */
+    /* --fs-slogan: clamp(2rem, 4vw + 1rem, 3.5rem);
+  --fs-h1: clamp(2.25rem, 3vw + 1.25rem, 3.25rem);
+  --fs-h2: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  --fs-h3: clamp(1.375rem, 1.5vw + 1rem, 1.875rem);
+  --fs-h4: clamp(1.125rem, 1vw + 0.875rem, 1.5rem);
+  --fs-h5: clamp(1rem, 0.75vw + 0.8rem, 1.25rem);
+  --fs-h6: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
+  --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem); */
+}
+
+
+body {
+    background: #555;
+    margin: 0;
+    font-family: var(--font-body);
+}
+
+.content {
+    max-width: 1200px;
+    /* 1140 */
+    margin: auto;
+    background: white;
+    padding: 10px 24px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   Font Styles
+========================================= */
+
 h1 {
     font-family: 'DynaPuff', cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-title);
+    line-height: 1.2;
 }
 
 /* =========================================
@@ -111,4 +157,33 @@ h1 {
 
 #eyeImg {
     z-index: 4;
+}
+
+
+/* =========================================
+   tablet responsive
+========================================= */
+
+@media(max-width: 1024px) {
+    body {
+        background: rgb(255, 0, 183);
+    }
+
+    .content {
+        padding: 10px 20px;
+    }
+}
+
+/* =========================================
+   phone responsive
+========================================= */
+
+@media(max-width: 768px) {
+    body {
+        background: rgb(0, 255, 72);
+    }
+
+    .content {
+        padding: 10px 16px;
+    }
 }
