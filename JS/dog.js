@@ -231,7 +231,24 @@ window.addEventListener(
 window.onload = async function () {
 
     // =================================================
-    // Load Default Cat
+    // Preload Cat Images
+    // =================================================
+
+    console.log(
+        "Preloading dog avatar images..."
+    );
+
+
+    await preloadAllAvatarImages("dog");
+
+
+    console.log(
+        "Dog avatar images ready!"
+    );
+
+
+    // =================================================
+    // Load Default Dog
     // =================================================
 
     await loadDefaultAvatar("dog");

@@ -191,6 +191,23 @@ const catQuestion = [
 window.onload = async function () {
 
     // =================================================
+    // Preload Cat Images
+    // =================================================
+
+    console.log(
+        "🐱 Preloading cat avatar images..."
+    );
+
+
+    await preloadAllAvatarImages("cat");
+
+
+    console.log(
+        "🐱 Cat avatar images ready!"
+    );
+
+
+    // =================================================
     // Load Default Cat
     // =================================================
 

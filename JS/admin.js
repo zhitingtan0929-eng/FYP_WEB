@@ -21,27 +21,25 @@ const tailImg =
 
 async function updatePreview() {
 
-
     const animal =
         document.getElementById("animal").value;
-
 
     const body =
         document.getElementById("body").value;
 
-
     const eye =
         document.getElementById("eye").value;
 
-
     const ear =
         document.getElementById("ear").value;
-
 
     const tail =
         document.getElementById("tail").value;
 
 
+    // =================================================
+    // Load All Images
+    // =================================================
 
     await Promise.all([
 
@@ -53,7 +51,6 @@ async function updatePreview() {
             }
         ),
 
-
         updateAvatar(
             animal,
             "Eyes",
@@ -62,7 +59,6 @@ async function updatePreview() {
             }
         ),
 
-
         updateAvatar(
             animal,
             "Ears",
@@ -70,7 +66,6 @@ async function updatePreview() {
                 imageID: ear
             }
         ),
-
 
         updateAvatar(
             animal,
@@ -82,6 +77,10 @@ async function updatePreview() {
 
     ]);
 
+
+    // =================================================
+    // Position
+    // =================================================
 
     updatePositionPreview();
 

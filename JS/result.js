@@ -230,6 +230,13 @@ async function loadResultAvatar() {
 
 
     // =================================================
+    // Preload Avatar Images
+    // =================================================
+
+    await preloadAllAvatarImages(animal);
+
+
+    // =================================================
     // Find Body
     // =================================================
 
@@ -252,7 +259,7 @@ async function loadResultAvatar() {
 
 
     // =================================================
-    // Load Images
+    // Load Selected Parts
     // =================================================
 
     for (const item of answer) {
@@ -267,7 +274,7 @@ async function loadResultAvatar() {
 
 
     // =================================================
-    // Apply Position
+    // Ear
     // =================================================
 
     const earAnswer =
@@ -277,11 +284,16 @@ async function loadResultAvatar() {
         );
 
 
+    // =================================================
+    // Apply Position + Layer
+    // =================================================
+
     await applyAvatarPosition(
         animal,
         bodyAnswer.imageID,
-        earAnswer.imageID
+        earAnswer?.imageID || "ear1"
     );
+
 
     console.log(
         "✅ Result Avatar Ready:",

@@ -1,3 +1,122 @@
+// =====================================================
+// Avatar Image Cache
+// =====================================================
+
+const avatarImageCache = {};
+
+
+// =====================================================
+// Preload Single Image
+// =====================================================
+
+function preloadAvatarImage(src) {
+
+    if (avatarImageCache[src]) {
+
+        return avatarImageCache[src];
+
+    }
+
+
+    const img = new Image();
+
+    img.src = src;
+
+    avatarImageCache[src] = img;
+
+
+    return img;
+
+}
+
+
+// =====================================================
+// Preload All Avatar Images
+// =====================================================
+
+async function preloadAllAvatarImages(animal) {
+
+    const parts = [
+
+        {
+            folder: "body",
+            prefix: "body"
+        },
+
+        {
+            folder: "eye",
+            prefix: "eye"
+        },
+
+        {
+            folder: "ear",
+            prefix: "ear"
+        },
+
+        {
+            folder: "tail",
+            prefix: "tail"
+        }
+
+    ];
+
+
+    const promises = [];
+
+
+    // =================================================
+    // Load 4 Images For Each Part
+    // =================================================
+
+    for (const part of parts) {
+
+        for (let i = 1; i <= 4; i++) {
+
+            const src =
+                `img/${animal}/${part.folder}/${part.prefix}${i}.png`;
+
+
+            const img =
+                preloadAvatarImage(src);
+
+
+            promises.push(
+
+                new Promise(resolve => {
+
+                    if (img.complete) {
+
+                        resolve();
+
+                    }
+
+                    else {
+
+                        img.onload =
+                            resolve;
+
+                        img.onerror =
+                            resolve;
+
+                    }
+
+                })
+
+            );
+
+        }
+
+    }
+
+
+    await Promise.all(promises);
+
+
+    console.log(
+        `✅ All ${animal} avatar images preloaded`
+    );
+
+}
 
 // =====================================================
 // Avatar Image Path
@@ -376,29 +495,17 @@ function loadImage(
 async function updateAvatar(
     animal,
     part,
-    data
+    option
 ) {
 
-    if (!data || !data.imageID) {
+    const imageID =
+        option.imageID;
 
-        console.error(
-            "Invalid avatar data:",
-            data
-        );
-
-        return;
-
-    }
-
-
-    const img =
-        getAvatarImage(part);
-
-
-    if (!img) {
+    if (!imageID) {
 
         console.warn(
-            "Avatar image element not found:",
+            "No imageID:",
+            animal,
             part
         );
 
@@ -407,39 +514,144 @@ async function updateAvatar(
     }
 
 
-    try {
-
-        const src =
-            getAvatarImagePath(
-                animal,
-                part,
-                data.imageID
-            );
+    let imgElement;
 
 
-        await loadImage(
-            img,
-            src
-        );
+    // =================================================
+    // Select Image Element
+    // =================================================
 
-        // Save current image ID
+    switch (part) {
 
-        if (part === "Ears") {
-            img.dataset.imageID =
-                data.imageID;
-        }
+        case "Body":
 
+            imgElement =
+                document.getElementById("bodyImg");
+
+            break;
+
+
+        case "Eyes":
+
+            imgElement =
+                document.getElementById("eyeImg");
+
+            break;
+
+
+        case "Ears":
+
+            imgElement =
+                document.getElementById("earImg");
+
+            break;
+
+
+        case "Tail":
+
+            imgElement =
+                document.getElementById("tailImg");
+
+            break;
 
     }
 
-    catch (error) {
+
+    if (!imgElement) {
 
         console.error(
-            "Avatar image loading error:",
-            error
+            "Image element not found:",
+            part
         );
 
+        return;
+
     }
+
+
+    // =================================================
+    // Image Path
+    // =================================================
+
+    let folder;
+
+
+    switch (part) {
+
+        case "Body":
+            folder = "body";
+            break;
+
+        case "Eyes":
+            folder = "eye";
+            break;
+
+        case "Ears":
+            folder = "ear";
+            break;
+
+        case "Tail":
+            folder = "tail";
+            break;
+
+    }
+
+
+    const src =
+        `img/${animal}/${folder}/${imageID}.png`;
+
+
+    // =================================================
+    // Preload / Cache
+    // =================================================
+
+    const cachedImage =
+        preloadAvatarImage(src);
+
+
+    // =================================================
+    // If Already Loaded
+    // =================================================
+
+    if (cachedImage.complete) {
+
+        imgElement.src =
+            cachedImage.src;
+
+        return;
+
+    }
+
+
+    // =================================================
+    // Wait First Load
+    // =================================================
+
+    await new Promise(
+        resolve => {
+
+            cachedImage.onload =
+                resolve;
+
+            cachedImage.onerror =
+                resolve;
+
+        }
+    );
+
+
+    // =================================================
+    // Apply
+    // =================================================
+
+    imgElement.src =
+        cachedImage.src;
+
+
+    console.log(
+        "✅ IMAGE LOADED:",
+        src
+    );
 
 }
 
