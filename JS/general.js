@@ -352,8 +352,6 @@ function nextQuestion(
     }
 
 }
-//hi
-
 
 // ===============================
 // Previous Question
