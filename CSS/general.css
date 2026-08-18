@@ -27,9 +27,9 @@ body {
 .content {
     max-width: 1200px;
     /* 1140 */
-    margin: auto;
+    margin: 0 auto;
     background: white;
-    padding: 10px 24px;
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem);
     box-sizing: border-box;
 }
 
@@ -48,6 +48,7 @@ h4,
 h5 {
     font-family: var(--font-title);
     line-height: 1.2;
+    margin: 0;
 }
 
 /* =========================================
@@ -169,9 +170,9 @@ h5 {
         background: rgb(255, 0, 183);
     }
 
-    .content {
+    /* .content {
         padding: 10px 20px;
-    }
+    } */
 }
 
 /* =========================================
@@ -183,7 +184,7 @@ h5 {
         background: rgb(0, 255, 72);
     }
 
-    .content {
+    /* .content {
         padding: 10px 16px;
-    }
+    } */
 }
