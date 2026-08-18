@@ -347,7 +347,7 @@ function nextQuestion(
 
 
         window.location.href =
-            "../html/result.html";
+            "result.html";
 
     }
 
