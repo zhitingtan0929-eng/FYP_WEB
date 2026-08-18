@@ -72,7 +72,7 @@ function loadAvatarConfig() {
     // =================================================
 
     const configURL =
-        "../Data/avatarConfig.json?time=" +
+        "Data/avatarConfig.json?time=" +
         Date.now();
 
 
