@@ -6,15 +6,59 @@
     --font-body: 'Nunito', sans-serif;
     --font-slogan: 'Gochi Hand', cursive;
 
-    /* 响应式字号定义 */
-    /* --fs-slogan: clamp(2rem, 4vw + 1rem, 3.5rem);
-  --fs-h1: clamp(2.25rem, 3vw + 1.25rem, 3.25rem);
-  --fs-h2: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
-  --fs-h3: clamp(1.375rem, 1.5vw + 1rem, 1.875rem);
-  --fs-h4: clamp(1.125rem, 1vw + 0.875rem, 1.5rem);
-  --fs-h5: clamp(1rem, 0.75vw + 0.8rem, 1.25rem);
-  --fs-h6: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
-  --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem); */
+    /* =========================
+     Font Size
+    ========================= */
+
+    --fs-slogan: clamp(2rem, 4vw + 1rem, 3.5rem);
+
+    --fs-h1-hero: clamp(2.25rem, 3vw + 1.25rem, 3.25rem);
+
+    --fs-h2-section: clamp(1.875rem, 2.5vw + 1rem, 2.5rem);
+
+    --fs-h3-subsection: clamp(1.5rem, 1.5vw + 1rem, 2rem);
+
+    --fs-h4: clamp(1.25rem, 1vw + 0.875rem, 1.625rem);
+
+    --fs-h5: clamp(1.125rem, 0.75vw + 0.8rem, 1.375rem);
+
+    --fs-h6: clamp(1rem, 0.5vw + 0.75rem, 1.125rem);
+
+    --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
+
+    --fs-body-large: clamp(1.125rem, 0.5vw + 0.95rem, 1.25rem);
+
+    --fs-button: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
+
+
+    /* =========================
+     Font Weight
+    ========================= */
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+
+    /* =========================
+     Line Height
+    ========================= */
+
+    --lh-slogan: 1.3;
+
+    --lh-h1-hero: 1.1;
+    --lh-h2-section: 1.15;
+    --lh-h3-subsection: 1.2;
+    --lh-h4: 1.2;
+    --lh-h5: 1.25;
+    --lh-h6: 1.25;
+
+    --lh-body: 1.6;
+    --lh-body-large: 1.5;
+
+    --lh-button: 1.2;
+
 }
 
 
@@ -38,16 +82,73 @@ body {
 ========================================= */
 
 h1 {
-    font-family: 'DynaPuff', cursive;
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h1-hero);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-h1-hero);
 }
 
-h1,
-h2,
-h3,
-h4,
+h2 {
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h2-section);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-h2-section);
+}
+
+h3 {
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h3-subsection);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-h3-subsection);
+}
+
+h4 {
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-h4);
+}
+
 h5 {
-    font-family: var(--font-title);
-    line-height: 1.2;
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h5);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-h5);
+}
+
+h6 {
+    font-family: "DynaPuff", sans-serif;
+    font-size: var(--fs-h6);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-h6);
+}
+
+p {
+    font-family: "Nunito", sans-serif;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
+}
+
+.body-large {
+    font-family: "Nunito", sans-serif;
+    font-size: var(--fs-body-large);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body-large);
+}
+
+button {
+    font-family: "Nunito", sans-serif;
+    font-size: var(--fs-button);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-button);
+}
+
+.slogan {
+    font-family: "Gochi Hand", cursive;
+    font-size: var(--fs-slogan);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-slogan);
 }
 
 /* =========================================
