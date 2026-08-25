@@ -66,7 +66,7 @@ body {
     /* background: #555; */
     margin: 0;
     font-family: var(--font-body);
-    background-image: url("../img/Background.png");
+    background-image: url("../img/background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -155,6 +155,20 @@ button {
     font-weight: var(--fw-regular);
     line-height: var(--lh-slogan);
 }
+
+
+/* =========================================
+   index logo img
+========================================= */
+.logo {
+    width: 300px;
+    height: auto;
+    display: block;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: 0 auto;
+}
+
 
 /* =========================================
    Avatar Container
@@ -266,6 +280,7 @@ button {
 }
 
 
+
 /* =========================================
    tablet responsive
 ========================================= */
@@ -285,9 +300,9 @@ button {
 ========================================= */
 
 @media(max-width: 768px) {
-    /* body {
-        background: rgb(0, 255, 72);
-    } */
+    body {
+        background-image: url("../img/phone-bg.png");
+    }
 
     /* .content {
         padding: 10px 16px;
