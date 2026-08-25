@@ -6,30 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Animal - WonderPaws Foundry</title>
     <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/choose_animal.css">
     <link rel="icon" type="image/svg+xml" href="SVG/favicons.svg">
 </head>
 
 <body>
-    <div class="content">
-        <a href="index.html"><button>🏠 Home</button></a>
-        <h1>Choose Your Animal</h1>
-        <p>Select the type of animal you want to breed:</p>
-        <div class="avatar-container">
+    <div class="ChooseAnimal">
+        <div class="content">
+            <!-- <h1>Choose Your Animal</h1>
+            <p>Select the type of animal you want to breed:</p> -->
+            <div id="ChooseAnimalbutton">
+                <a href="index.html"><button>🏠</button></a>
+                <button id="confirmBtn" type="button" onclick="confirmAnimal()">
+                    Confirm
+                </button>
+            </div>
+            <div class="avatar-container">
 
-            <div class="avatar-stage">
+                <div class="avatar-stage">
 
-                <img id="tailImg" alt="Tail">
+                    <img id="tailImg" alt="Tail">
 
-                <img id="earImg" alt="Ear">
+                    <img id="earImg" alt="Ear">
 
-                <img id="bodyImg" alt="Body">
+                    <img id="bodyImg" alt="Body">
 
-                <img id="eyeImg" alt="Eyes">
+                    <img id="eyeImg" alt="Eyes">
 
+                </div>
             </div>
         </div>
-        <button onclick="chooseAnimal('cat')">🐱 Cat</button>
-        <button onclick="chooseAnimal('dog')">🐶 Dog</button>
+    </div>
+    <div class="animal-selection">
+        <div class="content">
+            <!-- <button onclick="chooseAnimal('cat')">🐱 Cat</button>
+            <button onclick="chooseAnimal('dog')">🐶 Dog</button> -->
+            <button id="catBtn" type="button" onclick="selectAnimal('cat')">
+                Cat
+            </button>
+
+
+            <button id="dogBtn" type="button" onclick="selectAnimal('dog')">
+                Dog
+            </button>
+        </div>
     </div>
 
     <script src="JS/avatar.js?v=dev" defer></script>
