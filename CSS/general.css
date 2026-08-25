@@ -85,22 +85,15 @@ body {
 }
 
 body {
-    /* background: #555; */
     min-height: 100vh;
     margin: 0;
     font-family: var(--font-body);
-    background-image: url("../img/Background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
 }
 
 .content {
     max-width: 1200px;
     /* 1140 */
     margin: 0 auto;
-    /* background: white; */
     padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem);
     box-sizing: border-box;
 }
@@ -174,10 +167,17 @@ p {
 
 button {
     font-family: "Nunito", sans-serif;
+    border: none;
     font-size: var(--fs-button);
     font-weight: var(--fw-extra-bold);
     line-height: var(--lh-button);
     letter-spacing: 0.1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 80px;
+    box-shadow: 0px 3px 2.8px rgba(0, 0, 0, 0.3);
+    /* justify-content: center; */
 }
 
 .slogan {
@@ -190,18 +190,14 @@ button {
 /* =========================================
    Button Styles
 ========================================= */
+
+/* start button */
 #startButton {
     background-color: var(--color-button);
     color: var(--color-button-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
     padding:
         clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(35px, 4vw, 50px);
-    border-radius: 80px;
     gap: clamp(35px, 4vw, 50px);
-    box-shadow: 0px 3px 2.8px rgba(0, 0, 0, 0.3);
     transition:
         background-color 0.2s ease,
         transform 0.2s ease;
@@ -218,6 +214,46 @@ button {
     width: clamp(40px, 5vw, 50px);
     height: clamp(40px, 5vw, 50px);
 }
+
+/* Back & next button */
+#backBtn,
+#nextBtn {
+    padding: 10px 25px;
+    gap: clamp(10px, 4vw, 15px);
+    border: var(--color-button) solid 3px;
+}
+
+#backBtn {
+    background-color: var(--color-background);
+    color: var(--color-button);
+}
+
+#backButtonIcon {
+    color: var(--color-button);
+}
+
+#nextBtn {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+}
+
+#nextButtonIcon {
+    color: var(--color-background);
+}
+
+#backBtn:hover,
+#nextBtn:hover {
+    border: var(--color-button-hover) solid 3px;
+    color: var(--color-button-hover);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+#nextBtn:hover {
+    background-color: var(--color-button-hover);
+    color: var(--color-background);
+}
+
 
 /* =========================================
    Avatar Container
@@ -383,9 +419,6 @@ button {
         height: clamp(40px, 5vw, 50px);
     }
 
-    body {
-        background-image: url("../img/phone-bg.png");
-    }
 }
 
 /* =========================================

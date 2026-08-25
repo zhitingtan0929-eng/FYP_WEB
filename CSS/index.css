@@ -1,3 +1,12 @@
+body {
+    min-height: 100vh;
+    background-image: url("../img/Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 /* =========================================
    content layout
 ========================================= */
@@ -32,4 +41,14 @@
 .logo {
     width: clamp(280px, 60vw, 420px);
     height: auto;
+}
+
+
+/* =========================================
+   phone responsive
+========================================= */
+@media(max-width: 768px) {
+    body {
+        background-image: url("../img/phone-bg.png");
+    }
 }
