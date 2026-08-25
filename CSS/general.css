@@ -300,9 +300,9 @@ button {
 ========================================= */
 
 @media(max-width: 768px) {
-    body {
+    /* body {
         background-image: url("../img/phone-bg.png");
-    }
+    } */
 
     /* .content {
         padding: 10px 16px;
