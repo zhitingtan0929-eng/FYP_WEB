@@ -66,7 +66,7 @@ body {
     /* background: #555; */
     margin: 0;
     font-family: var(--font-body);
-    background-image: url("../img/background.png");
+    background-image: url("../img/Background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
