@@ -318,9 +318,9 @@ button {
 ========================================= */
 
 @media(max-width: 768px) {
-    /* body {
+    body {
         background-image: url("../img/phone-bg.png");
-    } */
+    }
 
     /* .content {
         padding: 10px 16px;
@@ -330,8 +330,8 @@ button {
 /* =========================================
    phone background responsive
 ========================================= */
-@media(max-width: 480px) {
+/* @media(max-width: 480px) {
     body {
-        background-image: url("../img/ph-Background.png");
+        background-image: url("../img/phone-bg.png");
     }
-}
+} */
