@@ -63,16 +63,21 @@
 
 
 body {
-    background: #555;
+    /* background: #555; */
     margin: 0;
     font-family: var(--font-body);
+    background-image: url("../img/Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .content {
     max-width: 1200px;
     /* 1140 */
     margin: 0 auto;
-    background: white;
+    /* background: white; */
     padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem);
     box-sizing: border-box;
 }
@@ -266,9 +271,9 @@ button {
 ========================================= */
 
 @media(max-width: 1024px) {
-    body {
+    /* body {
         background: rgb(255, 0, 183);
-    }
+    } */
 
     /* .content {
         padding: 10px 20px;
@@ -280,9 +285,9 @@ button {
 ========================================= */
 
 @media(max-width: 768px) {
-    body {
+    /* body {
         background: rgb(0, 255, 72);
-    }
+    } */
 
     /* .content {
         padding: 10px 16px;
