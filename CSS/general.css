@@ -37,9 +37,9 @@
 
     --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
 
-    --fs-body-large: clamp(1.125rem, 0.5vw + 0.95rem, 1.25rem);
+    --fs-body-large: clamp(1rem, 0.5vw + 0.95rem, 1.25rem);
 
-    --fs-button: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
+    --fs-button: clamp(1.25rem, 1vw + 0.875rem, 1.625rem);
 
 
     /* =========================
@@ -50,6 +50,8 @@
     --fw-medium: 500;
     --fw-semibold: 600;
     --fw-bold: 700;
+    --fw-extra-bold: 800;
+    --fw-black: 900;
 
 
     /* =========================
@@ -163,8 +165,9 @@ p {
 button {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-button);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-extra-bold);
     line-height: var(--lh-button);
+    letter-spacing: 0.1em;
 }
 
 .slogan {
@@ -174,19 +177,32 @@ button {
     line-height: var(--lh-slogan);
 }
 
-
 /* =========================================
-   index logo img
+   Button Styles
 ========================================= */
-.logo {
-    width: 300px;
-    height: auto;
-    display: block;
-    /* align-items: center; */
-    /* justify-content: center; */
-    margin: 0 auto;
+#startButton {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 7px 7px 7px 50px;
+    border-radius: 50px;
+    gap: 30px;
+    box-shadow: 0px 3px 2.8px rgba(0, 0, 0, 0.3);
 }
 
+#startButton:hover {
+    background-color: var(--color-button-hover);
+    color: var(--color-background);
+    cursor: pointer;
+}
+
+.StartIcon {
+    width: 40px;
+    height: 40px;
+}
 
 /* =========================================
    Avatar Container
