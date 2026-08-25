@@ -6,69 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat - WonderPaws Foundry</title>
     <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/question.css">
     <link rel="icon" type="image/svg+xml" href="SVG/favicons.svg">
 </head>
 
 <body class="cat">
     <div class="content">
-        <button id="homeBtn">🏠Home</button>
-        <h1 id="title"></h1>
-        <p id="question"></p>
+        <div>
+            <button id="homeBtn" class="backHome">
+                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+                    <rect x="1.62281" y="1.62281" width="70.7544" height="70.7544" rx="35.3772" fill="#FFF9F1"
+                        stroke="currentColor" stroke-width="3.24561" />
+                    <path d="M36 49L24 37L36 25M25.6667 37H50" stroke="currentColor" stroke-width="6.12259"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <h1 id="title"></h1>
+            <p id="question"></p>
 
-        <div class="avatar-container">
+            <div class="avatar-container">
 
-            <div class="avatar-stage">
+                <div class="avatar-stage">
 
-                <img id="tailImg" alt="Tail">
+                    <img id="tailImg" alt="Tail">
 
-                <img id="earImg" alt="Ear">
+                    <img id="earImg" alt="Ear">
 
-                <img id="bodyImg" alt="Body">
+                    <img id="bodyImg" alt="Body">
 
-                <img id="eyeImg" alt="Eyes">
+                    <img id="eyeImg" alt="Eyes">
+
+                </div>
 
             </div>
-
         </div>
 
-        <button id="btn0"></button><br><br>
-        <button id="btn1"></button><br><br>
-        <button id="btn2"></button><br><br>
-        <button id="btn3"></button><br><br>
+        <div>
+            <button id="btn0"></button><br><br>
+            <button id="btn1"></button><br><br>
+            <button id="btn2"></button><br><br>
+            <button id="btn3"></button><br><br>
 
-        <button id="backBtn">
-            <svg id="backButtonIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
-                fill="none">
-                <path
-                    d="M20.8367 16.2741L20.862 16.3156C23.2567 20.2549 19.7006 22.8769 17.4139 22.1966C15.1775 21.5313 12.9504 20.5686 10.8338 17.7877C9.41283 15.9207 9.63511 13.871 10.3896 11.9442C11.5808 8.90179 13.0682 8.25927 16.2091 6.83584C20.6586 4.81932 22.9011 10.4117 20.9987 12.6198C19.6012 14.2421 19.9314 14.7852 20.8367 16.2741Z"
-                    fill="currentColor" />
-                <ellipse cx="10.9233" cy="23.8841" rx="3.0178" ry="3.51652" transform="rotate(-116.948 10.9233 23.8841)"
-                    fill="currentColor" />
-                <ellipse cx="4.80202" cy="18.9556" rx="3.26328" ry="4.05741"
-                    transform="rotate(-101.471 4.80202 18.9556)" fill="currentColor" />
-                <ellipse cx="4.53414" cy="10.7317" rx="3.26328" ry="4.05741"
-                    transform="rotate(-80.6396 4.53414 10.7317)" fill="currentColor" />
-                <ellipse cx="9.50959" cy="4.80819" rx="3.26328" ry="4.05741"
-                    transform="rotate(-61.3762 9.50959 4.80819)" fill="currentColor" />
-            </svg>
-            Back
-        </button>
-        <button id="nextBtn">Next
-            <svg id="nextButtonIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
-                fill="none">
-                <path
-                    d="M4.10474 16.2741L4.07954 16.3156C1.68478 20.2549 5.24093 22.8769 7.5276 22.1966C9.76404 21.5313 11.9911 20.5686 14.1077 17.7877C15.5287 15.9207 15.3064 13.871 14.5519 11.9442C13.3607 8.90179 11.8733 8.25927 8.73243 6.83584C4.2829 4.81932 2.0404 10.4117 3.94274 12.6198C5.34033 14.2421 5.01007 14.7852 4.10474 16.2741Z"
-                    fill="currentColor" />
-                <ellipse cx="3.0178" cy="3.51652" rx="3.0178" ry="3.51652"
-                    transform="matrix(0.453188 -0.891415 -0.891415 -0.453188 15.7852 28.1679)" fill="currentColor" />
-                <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
-                    transform="matrix(0.198867 -0.980026 -0.980026 -0.198867 23.4669 22.9606)" fill="currentColor" />
-                <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
-                    transform="matrix(-0.162645 -0.986685 -0.986685 0.162645 24.9405 13.2917)" fill="currentColor" />
-                <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
-                    transform="matrix(-0.479057 -0.877784 -0.877784 0.479057 20.5567 5.72892)" fill="currentColor" />
-            </svg>
-        </button>
+            <button id="backBtn">
+                <svg id="backButtonIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
+                    fill="none">
+                    <path
+                        d="M20.8367 16.2741L20.862 16.3156C23.2567 20.2549 19.7006 22.8769 17.4139 22.1966C15.1775 21.5313 12.9504 20.5686 10.8338 17.7877C9.41283 15.9207 9.63511 13.871 10.3896 11.9442C11.5808 8.90179 13.0682 8.25927 16.2091 6.83584C20.6586 4.81932 22.9011 10.4117 20.9987 12.6198C19.6012 14.2421 19.9314 14.7852 20.8367 16.2741Z"
+                        fill="currentColor" />
+                    <ellipse cx="10.9233" cy="23.8841" rx="3.0178" ry="3.51652"
+                        transform="rotate(-116.948 10.9233 23.8841)" fill="currentColor" />
+                    <ellipse cx="4.80202" cy="18.9556" rx="3.26328" ry="4.05741"
+                        transform="rotate(-101.471 4.80202 18.9556)" fill="currentColor" />
+                    <ellipse cx="4.53414" cy="10.7317" rx="3.26328" ry="4.05741"
+                        transform="rotate(-80.6396 4.53414 10.7317)" fill="currentColor" />
+                    <ellipse cx="9.50959" cy="4.80819" rx="3.26328" ry="4.05741"
+                        transform="rotate(-61.3762 9.50959 4.80819)" fill="currentColor" />
+                </svg>
+                Back
+            </button>
+            <button id="nextBtn">Next
+                <svg id="nextButtonIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29"
+                    fill="none">
+                    <path
+                        d="M4.10474 16.2741L4.07954 16.3156C1.68478 20.2549 5.24093 22.8769 7.5276 22.1966C9.76404 21.5313 11.9911 20.5686 14.1077 17.7877C15.5287 15.9207 15.3064 13.871 14.5519 11.9442C13.3607 8.90179 11.8733 8.25927 8.73243 6.83584C4.2829 4.81932 2.0404 10.4117 3.94274 12.6198C5.34033 14.2421 5.01007 14.7852 4.10474 16.2741Z"
+                        fill="currentColor" />
+                    <ellipse cx="3.0178" cy="3.51652" rx="3.0178" ry="3.51652"
+                        transform="matrix(0.453188 -0.891415 -0.891415 -0.453188 15.7852 28.1679)"
+                        fill="currentColor" />
+                    <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
+                        transform="matrix(0.198867 -0.980026 -0.980026 -0.198867 23.4669 22.9606)"
+                        fill="currentColor" />
+                    <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
+                        transform="matrix(-0.162645 -0.986685 -0.986685 0.162645 24.9405 13.2917)"
+                        fill="currentColor" />
+                    <ellipse cx="3.26328" cy="4.05741" rx="3.26328" ry="4.05741"
+                        transform="matrix(-0.479057 -0.877784 -0.877784 0.479057 20.5567 5.72892)"
+                        fill="currentColor" />
+                </svg>
+            </button>
+        </div>
     </div>
 
     <!--link to JavaScript file-->

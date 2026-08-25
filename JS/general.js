@@ -85,7 +85,7 @@ function loadQuestion(questionArray) {
     else {
 
         backBtn.style.display =
-            "inline-block";
+            "";
 
     }
 

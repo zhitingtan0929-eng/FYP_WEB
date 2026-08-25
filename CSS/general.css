@@ -206,8 +206,6 @@ button {
 #startButton:hover {
     background-color: var(--color-button-hover);
     color: var(--color-background);
-    cursor: pointer;
-    transform: translateY(-2px);
 }
 
 .StartIcon {
@@ -217,7 +215,8 @@ button {
 
 /* Back & next button */
 #backBtn,
-#nextBtn {
+#nextBtn,
+#confirmBtn {
     padding: 10px 25px;
     gap: clamp(10px, 4vw, 15px);
     border: var(--color-button) solid 3px;
@@ -228,32 +227,50 @@ button {
     color: var(--color-button);
 }
 
-#backButtonIcon {
-    color: var(--color-button);
-}
-
-#nextBtn {
+#nextBtn,
+#confirmBtn {
     background-color: var(--color-button);
     color: var(--color-button-text);
 }
 
-#nextButtonIcon {
-    color: var(--color-background);
-}
-
 #backBtn:hover,
-#nextBtn:hover {
+#nextBtn:hover,
+#confirmBtn:hover {
     border: var(--color-button-hover) solid 3px;
     color: var(--color-button-hover);
-    cursor: pointer;
-    transform: translateY(-2px);
 }
 
-#nextBtn:hover {
+#nextBtn:hover,
+#confirmBtn:hover {
     background-color: var(--color-button-hover);
     color: var(--color-background);
 }
 
+.backHome {
+    width: 68px;
+    height: 68px;
+
+    padding: 0;
+    margin: 0;
+
+    /* border: none; */
+    /* outline: none; */
+
+    color: var(--color-button);
+}
+
+.backHome:hover {
+    color: var(--color-button-hover);
+}
+
+#startButton:hover,
+#backBtn:hover,
+#nextBtn:hover,
+#confirmBtn:hover,
+.backHome:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
 
 /* =========================================
    Avatar Container

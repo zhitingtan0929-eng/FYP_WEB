@@ -24,35 +24,6 @@
     justify-content: space-between;
 }
 
-
-/* =========================================
-   Avatar Container
-========================================= */
-
-.avatar-container {
-
-    width: 350px;
-    height: 350px;
-    overflow: hidden;
-}
-
-
-/* =========================================
-   Avatar Stage
-========================================= */
-
-.avatar-stage {
-
-    position: relative;
-
-    width: 350px;
-    height: 350px;
-
-    overflow: hidden;
-
-}
-
-
 /* =========================================
    FACTORY CONTENT
 ========================================= */
