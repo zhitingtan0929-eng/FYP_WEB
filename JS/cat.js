@@ -11,40 +11,58 @@ const catQuestion = [
             {
                 name: "Slender Body",
                 imageID: "body1",
+                buttonImage: "../img/cat/body/body1.png",
                 risk: "Low",
                 //score: 0,
-                problems: []
+                problems: [],
+                problemImage: "",
+                breed: "Abyssinian / Oriental Shorthair",
+                link: ""
             },
             {
                 name: "Cobby Body",
                 imageID: "body2",
+                buttonImage: "../img/cat/body/body2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Weight gain",
+                    "Overweight tendency",
                     "Reduced agility"
-                ]
+                ],
+                problemImage: "../img/cat/problems/body/body2-problem.png",
+                breed: "British Shorthair",
+                link: "https://pubmed.ncbi.nlm.nih.gov/28716190/"
             },
             {
                 name: "Heavy Boned",
                 imageID: "body3",
+                buttonImage: "../img/cat/body/body3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
+                    "Hip dysplasia",
                     "Reduced mobility",
                     "Joint stress"
-                ]
+                ],
+                problemImage: "../img/cat/problems/body/body3-problem.png",
+                breed: "Maine Coon",
+                link: "https://www.catster.com/cat-health-care/maine-coons-and-hip-dysplasia/"
             },
             {
-                name: "Dwarf / Short-legged",
+                name: "Short-legged",
                 imageID: "body4",
+                buttonImage: "../img/cat/body/body4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Back problems",
-                    "Joint pain",
-                    "Reduced mobility"
-                ]
+                    "Osteoarthritis",
+                    "Lordosis",
+                    "Reduced mobility",
+                    "Abnormal posture"
+                ],
+                problemImage: "../img/cat/problems/body/body4-problem.png",
+                breed: "Munchkin",
+                link: "https://scienceforanimalwelfare.org/species/cat/munchkin/limb-deformity/"
             }
         ]
     },
@@ -56,43 +74,57 @@ const catQuestion = [
         options: [
             // Question 2 - Eye Shape
             {
-                name: "Round / Almond Eyes",
+                name: "Round Eyes",
                 imageID: "eye1",
+                buttonImage: "../img/cat/eye/eye1.png",
                 risk: "Low",
                 //score: 0,
-                problems: []
-            },
-            {
-                name: "Large Round Eyes",
-                imageID: "eye2",
-                risk: "Medium",
-                //score: 1,
-                problems: [
-                    "Watery eyes",
-                    "Dry eyes",
-                    "Eye irritation"
-                ]
+                problems: [],
+                problemImage: "",
+                breed: "American Shorthair",
+                link: ""
             },
             {
                 name: "Deep-set Eyes",
-                imageID: "eye3",
+                imageID: "eye2",
+                buttonImage: "../img/cat/eye/eye2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Eye irritation",
-                    "Dry eyes"
-                ]
+                    "Entropion",
+                    "Excessive tearing",
+                    "Corneal irritation"
+                ],
+                problemImage: "../img/cat/problems/eye/eye2-problem.png",
+                breed: "Maine Coon",
+                link: "https://www.vetessential.com/entropion-in-cats-and-dogs/"
+            },
+            {
+                name: "Blue Eyes",
+                imageID: "eye3",
+                buttonImage: "../img/cat/eye/eye3.png",
+                risk: "Medium",
+                //score: 1,
+                problems: [
+                    "altered binocular vision"
+                ], problemImage: "../img/cat/problems/eye/eye3-problem.png",
+                breed: "Siamese",
+                link: "https://www.petmd.com/cat/general-health/cross-eyed-cats"
             },
             {
                 name: "Protruding Eyes",
                 imageID: "eye4",
+                buttonImage: "../img/cat/eye/eye4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Eye injury",
-                    "Dry eyes",
-                    "Vision problems"
-                ]
+                    "red eye",
+                    "corneal damage",
+                    "ulcer",
+                    "inflammation"
+                ], problemImage: "../img/cat/problems/eye/eye4-problem.png",
+                breed: "Persian / Himalayan",
+                link: "https://vcahospitals.com/all-animal-hospital/know-your-pet/ulcerative-keratitis-in-cats"
             }
         ]
     },
@@ -106,38 +138,54 @@ const catQuestion = [
             {
                 name: "Straight Ears",
                 imageID: "ear1",
+                buttonImage: "../img/cat/ear/ear1.png",
                 risk: "Low",
                 //score: 0,
-                problems: []
+                problems: [],
+                problemImage: "",
+                breed: "European Shorthair",
+                link: ""
             },
             {
                 name: "Large Upright Ears",
                 imageID: "ear2",
+                buttonImage: "../img/cat/ear/ear2.png",
                 risk: "Low",
                 //score: 0,
-                problems: []
+                problems: [],
+                breed: "Cornish Rex",
+                link: ""
             },
             {
-                name: "Small / Low-set Ears",
+                name: "Backward-curled Ears",
                 imageID: "ear3",
+                buttonImage: "../img/cat/ear/ear3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Ear infection",
-                    "Wax build-up"
-                ]
+                    "Narrow ear canals",
+                    "Wax build-up",
+                    "Otitis externa"
+                ],
+                problemImage: "../img/cat/problems/ear/ear3-problem.png",
+                breed: "Highland Lynx",
+                link: "https://catsmart.com.sg/getting-to-know-the-american-curl#:~:text=The%20American%20Curl%20is,ear%20infections"
             },
             {
                 name: "Folded Ears",
                 imageID: "ear4",
+                buttonImage: "../img/cat/ear/ear4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Genetic bone disease",
+                    "Osteochondrodysplasia",
                     "Joint pain",
-                    "Stiff joints",
-                    "Difficulty moving"
-                ]
+                    "Skeletal Deformity",
+                    "Reduced Mobility"
+                ],
+                problemImage: "../img/cat/problems/ear/ear4-problem.png",
+                breed: "Scottish Fold",
+                link: "https://thelittlecarnivore.com/en/blog/scottish-fold-cats-its-time-to-stop-the-breeding"
             }
         ]
     },
@@ -151,38 +199,53 @@ const catQuestion = [
             {
                 name: "Long Tail",
                 imageID: "tail1",
+                buttonImage: "../img/cat/tail/tail1.png",
                 risk: "Low",
                 //score: 0,
-                problems: []
+                problems: [],
+                problemImage: "",
+                breed: "Norwegian Forest Cat",
+                link: ""
             },
             {
                 name: "Short Tail",
                 imageID: "tail2",
+                buttonImage: "../img/cat/tail/tail2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
-                    "Spinal issues"
-                ]
+                    "Vertebral abnormalities"
+                ],
+                problemImage: "../img/cat/problems/tail/tail2-problem.png",
+                breed: "American Bobtail",
+                link: "https://www.bioguardlabs.com/breed-related-disease-american-bobtail/"
             },
             {
                 name: "Curled Tail",
                 imageID: "tail3",
-                risk: "Medium",
+                buttonImage: "../img/cat/tail/tail3.png",
+                risk: "Low",
                 //score: 1,
-                problems: [
-                    "Reduced tail movement"
-                ]
+                problems: [],
+                problemImage: "",
+                breed: "American Ringtail Cat",
+                link: ""
             },
             {
                 name: "Tailless / Stub Tail",
                 imageID: "tail4",
+                buttonImage: "../img/cat/tail/tail4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
-                    "Spinal problems",
-                    "Reduced hind leg strength",
-                    "Possible nerve issues"
-                ]
+                    "Manx syndrome",
+                    "Weak hind-leg movement",
+                    "Bladder & bowel problems",
+                    "Possible partial paralysis"
+                ],
+                problemImage: "",
+                breed: "Manx Cat",
+                link: "https://www.petful.com/cat-breeds/manx-syndrome/"
             }
         ]
     }

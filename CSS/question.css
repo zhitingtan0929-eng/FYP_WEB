@@ -11,8 +11,110 @@ body {
 
 .content {
     height: 100vh;
-    background-color: aliceblue;
     display: flex;
     flex-direction: row;
+    gap: 24px;
+}
+
+.preview,
+.choosePart {
+    width: 50vw;
+}
+
+.choosePart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
+}
+
+.choosePartbg {
+    background-color: var(--color-selection-bg);
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    border-radius: 60px;
+}
+
+.QuestionButtonLayout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconcontainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#bodyIcon,
+#eyeIcon,
+#earIcon,
+#tailIcon {
+    width: fit-content;
+}
+
+.Icon-c-select {
+    background-color: var(--color-text);
+}
+
+.Icon-c-Unselect {
+    background-color: var(--color-background);
+}
+
+.Icon-c {
+    width: 93px;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.partIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h5 {
+    margin: 10px;
+    color: var(--color-text);
+}
+
+#btn0,
+#btn1,
+#btn2,
+#btn3 {
+    box-shadow: none;
+}
+
+
+/* =========================================
+   phone responsive
+========================================= */
+
+@media(max-width: 768px) {
+    body {
+        background-image: none;
+    }
+
+    .preview {
+        background-image: url("../img/factoryBg.png");
+    }
+
+    .content {
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }

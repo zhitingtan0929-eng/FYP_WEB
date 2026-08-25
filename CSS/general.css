@@ -16,6 +16,7 @@
     --color-button-text: #FFF9F1;
     --color-button-hover: #FFC943;
     --color-accent: #FF9E42;
+    --color-selection-bg: #DAB3D0;
 
     /* =========================
      Font Size
@@ -37,7 +38,7 @@
 
     --fs-body: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
 
-    --fs-body-large: clamp(1rem, 0.5vw + 0.95rem, 1.25rem);
+    /* --fs-body-large: clamp(1rem, 0.5vw + 0.95rem, 1.25rem); */
 
     --fs-button: clamp(1.25rem, 1vw + 0.875rem, 1.625rem);
 
@@ -72,6 +73,7 @@
 
     --lh-button: 1.2;
 
+    --shadow: 0px 3px 2.8px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -131,14 +133,14 @@ h4 {
 }
 
 h5 {
-    font-family: "DynaPuff", sans-serif;
+    font-family: "Nunito", sans-serif;
     font-size: var(--fs-h5);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-extra-bold);
     line-height: var(--lh-h5);
 }
 
 h6 {
-    font-family: "DynaPuff", sans-serif;
+    font-family: "Nunito", sans-serif;
     font-size: var(--fs-h6);
     font-weight: var(--fw-medium);
     line-height: var(--lh-h6);
@@ -158,12 +160,12 @@ p {
     line-height: var(--lh-body);
 }
 
-.body-large {
+/* .body-large {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-body-large);
     font-weight: var(--fw-regular);
     line-height: var(--lh-body-large);
-}
+} */
 
 button {
     font-family: "Nunito", sans-serif;
@@ -176,7 +178,7 @@ button {
     flex-direction: row;
     align-items: center;
     border-radius: 80px;
-    box-shadow: 0px 3px 2.8px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow);
     /* justify-content: center; */
 }
 
@@ -247,8 +249,8 @@ button {
 }
 
 .backHome {
-    width: 68px;
-    height: 68px;
+    width: clamp(43px, 6vw, 57px);
+    height: clamp(43px, 6vw, 57px);
 
     padding: 0;
     margin: 0;
