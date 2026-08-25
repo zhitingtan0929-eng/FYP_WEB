@@ -7,6 +7,17 @@
     --font-slogan: 'Gochi Hand', cursive;
 
     /* =========================
+     Colors
+    ========================= */
+
+    --color-background: #FFF9F1;
+    --color-text: #6A524E;
+    --color-button: #874FFF;
+    --color-button-text: #FFF9F1;
+    --color-button-hover: #FFC943;
+    --color-accent: #FF9E42;
+
+    /* =========================
      Font Size
     ========================= */
 
@@ -129,6 +140,13 @@ h6 {
 }
 
 p {
+    font-family: "Nunito", sans-serif;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
+}
+
+.body {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-body);
     font-weight: var(--fw-regular);
@@ -314,6 +332,6 @@ button {
 ========================================= */
 @media(max-width: 480px) {
     body {
-        background-image: url("../img/phone-bg.png");
+        background-image: url("../img/ph-Background.png");
     }
 }
