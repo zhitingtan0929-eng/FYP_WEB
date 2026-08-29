@@ -22,7 +22,7 @@
      Font Size
     ========================= */
 
-    --fs-slogan: clamp(2rem, 4vw + 1rem, 3.5rem);
+    --fs-slogan: clamp(1.5rem, 5vw + 0.5rem, 2rem);
 
     --fs-h1-hero: clamp(2.25rem, 3vw + 1.25rem, 3.25rem);
 
@@ -107,7 +107,7 @@ body {
 h1 {
     font-family: "DynaPuff", sans-serif;
     font-size: var(--fs-h1-hero);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-bold);
     line-height: var(--lh-h1-hero);
 }
 
@@ -128,21 +128,21 @@ h3 {
 h4 {
     font-family: "DynaPuff", sans-serif;
     font-size: var(--fs-h4);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-h4);
 }
 
 h5 {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-h5);
-    font-weight: var(--fw-extra-bold);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-h5);
 }
 
 h6 {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-h6);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-h6);
 }
 
