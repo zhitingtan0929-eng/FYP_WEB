@@ -76,7 +76,7 @@ const catQuestion = [
             {
                 name: "Round Eyes",
                 imageID: "eye1",
-                buttonImage: "../img/cat/eye/eye1.png",
+                buttonImage: "../img/cat/button/eye/eye1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -87,7 +87,7 @@ const catQuestion = [
             {
                 name: "Deep-set Eyes",
                 imageID: "eye2",
-                buttonImage: "../img/cat/eye/eye2.png",
+                buttonImage: "../img/cat/button/eye/eye2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -102,7 +102,7 @@ const catQuestion = [
             {
                 name: "Blue Eyes",
                 imageID: "eye3",
-                buttonImage: "../img/cat/eye/eye3.png",
+                buttonImage: "../img/cat/button/eye/eye3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -114,7 +114,7 @@ const catQuestion = [
             {
                 name: "Protruding Eyes",
                 imageID: "eye4",
-                buttonImage: "../img/cat/eye/eye4.png",
+                buttonImage: "../img/cat/button/eye/eye4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -138,7 +138,7 @@ const catQuestion = [
             {
                 name: "Straight Ears",
                 imageID: "ear1",
-                buttonImage: "../img/cat/ear/ear1.png",
+                buttonImage: "../img/cat/button/ear/ear1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -149,7 +149,7 @@ const catQuestion = [
             {
                 name: "Large Upright Ears",
                 imageID: "ear2",
-                buttonImage: "../img/cat/ear/ear2.png",
+                buttonImage: "../img/cat/button/ear/ear2.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -159,7 +159,7 @@ const catQuestion = [
             {
                 name: "Backward-curled Ears",
                 imageID: "ear3",
-                buttonImage: "../img/cat/ear/ear3.png",
+                buttonImage: "../img/cat/button/ear/ear3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -174,7 +174,7 @@ const catQuestion = [
             {
                 name: "Folded Ears",
                 imageID: "ear4",
-                buttonImage: "../img/cat/ear/ear4.png",
+                buttonImage: "../img/cat/button/ear/ear4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -199,7 +199,7 @@ const catQuestion = [
             {
                 name: "Long Tail",
                 imageID: "tail1",
-                buttonImage: "../img/cat/tail/tail1.png",
+                buttonImage: "../img/cat/button/tail/tail1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -210,7 +210,7 @@ const catQuestion = [
             {
                 name: "Short Tail",
                 imageID: "tail2",
-                buttonImage: "../img/cat/tail/tail2.png",
+                buttonImage: "../img/cat/button/tail/tail2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -223,7 +223,7 @@ const catQuestion = [
             {
                 name: "Curled Tail",
                 imageID: "tail3",
-                buttonImage: "../img/cat/tail/tail3.png",
+                buttonImage: "../img/cat/button/tail/tail3.png",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -234,7 +234,7 @@ const catQuestion = [
             {
                 name: "Tailless / Stub Tail",
                 imageID: "tail4",
-                buttonImage: "../img/cat/tail/tail4.png",
+                buttonImage: "../img/cat/button/tail/tail4.png",
                 risk: "High",
                 //score: 2,
                 problems: [

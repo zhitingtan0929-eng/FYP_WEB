@@ -112,12 +112,12 @@ function loadQuestion(questionArray) {
     // Title
     // ===============================
 
-    document.getElementById("title").innerHTML =
-        questionArray[currentQuestion].title;
+    // document.getElementById("title").innerHTML =
+    //     questionArray[currentQuestion].title;
 
 
-    document.getElementById("question").innerHTML =
-        questionArray[currentQuestion].question;
+    // document.getElementById("question").innerHTML =
+    //     questionArray[currentQuestion].question;
 
 
     // ===============================
