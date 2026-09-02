@@ -286,24 +286,25 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(0.625rem, 0.5vw + 0.625rem, 0.75rem);
     color: var(--color-text);
+    font-size: var(--fs-h5);
+    /* padding: clamp(0.625rem, 0.5vw + 0.625rem, 0.75rem); */
+    gap: clamp(1rem, 0.35vw + 0.9rem, 1.125rem);
 }
 
 .choose-btn-image {
     background-color: var(--button-image-bg);
     border-radius: 15px;
     padding: clamp(1.125rem, 0.75vw + 0.8rem, 1.375rem);
-    width: 10rem;
-    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .choose-btn-image img {
-    width: 100%;
-
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
 }
 
 .selected {

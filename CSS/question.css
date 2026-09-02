@@ -768,7 +768,7 @@ body.cat {
     /* =========================================
        Back / Next Buttons
     ========================================= */
-
+    /* 
     #backBtn,
     #nextBtn {
         height: 44px;
@@ -782,7 +782,7 @@ body.cat {
         gap: 8px;
 
         letter-spacing: 0.03em;
-    }
+    } */
 }
 
 

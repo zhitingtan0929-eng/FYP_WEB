@@ -11,7 +11,7 @@ const catQuestion = [
             {
                 name: "Slender Body",
                 imageID: "body1",
-                buttonImage: "../img/cat/body/body1.png",
+                buttonImage: "img/cat/body/body1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -22,21 +22,21 @@ const catQuestion = [
             {
                 name: "Cobby Body",
                 imageID: "body2",
-                buttonImage: "../img/cat/body/body2.png",
+                buttonImage: "img/cat/body/body2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
                     "Overweight tendency",
                     "Reduced agility"
                 ],
-                problemImage: "../img/cat/problems/body/body2-problem.png",
+                problemImage: "img/cat/problems/body/body2-problem.png",
                 breed: "British Shorthair",
                 link: "https://pubmed.ncbi.nlm.nih.gov/28716190/"
             },
             {
                 name: "Heavy Boned",
                 imageID: "body3",
-                buttonImage: "../img/cat/body/body3.png",
+                buttonImage: "img/cat/body/body3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -44,14 +44,14 @@ const catQuestion = [
                     "Reduced mobility",
                     "Joint stress"
                 ],
-                problemImage: "../img/cat/problems/body/body3-problem.png",
+                problemImage: "img/cat/problems/body/body3-problem.png",
                 breed: "Maine Coon",
                 link: "https://www.catster.com/cat-health-care/maine-coons-and-hip-dysplasia/"
             },
             {
                 name: "Short-legged",
                 imageID: "body4",
-                buttonImage: "../img/cat/body/body4.png",
+                buttonImage: "img/cat/body/body4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -60,7 +60,7 @@ const catQuestion = [
                     "Reduced mobility",
                     "Abnormal posture"
                 ],
-                problemImage: "../img/cat/problems/body/body4-problem.png",
+                problemImage: "img/cat/problems/body/body4-problem.png",
                 breed: "Munchkin",
                 link: "https://scienceforanimalwelfare.org/species/cat/munchkin/limb-deformity/"
             }

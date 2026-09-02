@@ -227,7 +227,7 @@ const dogQuestion = [
                     "Spinal cord/neurological problems",
                     "hind-limb weakness"
                 ],
-                problemImage: "../img/dog/problems/tail/tail3-problem.png",
+                problemImage: "img/dog/problems/tail/tail3-problem.png",
                 breed: "pug / Boston Terrier",
                 link: "https://www.battersea.org.uk/what-we-do/animal-welfare-campaigning/tackling-harmful-trends/screw-tails"
             },

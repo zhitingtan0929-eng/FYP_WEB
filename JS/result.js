@@ -157,64 +157,167 @@ for (
     i++
 ) {
 
-    const card =
-        document.createElement(
-            "div"
-        );
+    const item = answer[i];
 
+    const card =
+        document.createElement("div");
 
     card.className =
         "result-card";
 
 
-    const problems =
-        answer[i].problems || [];
+    // =================================================
+    // Problems
+    // =================================================
 
+    const problems =
+        item.problems || [];
+
+
+    const problemList =
+        problems.length > 0
+            ? `
+                <ul>
+                    ${problems
+                .map(problem =>
+                    `<li>${problem}</li>`
+                )
+                .join("")}
+                </ul>
+              `
+            : `
+                <p class="no-problem">
+                    No major welfare concerns.
+                </p>
+              `;
+
+
+    // =================================================
+    // Problem Image
+    // =================================================
+
+    const problemImage =
+        item.problemImage
+            ? `
+                <img
+                    src="${item.problemImage}"
+                    alt="${item.name} health problem"
+                    class="problem-image"
+                >
+              `
+            : "";
+
+
+    // =================================================
+    // Breed
+    // =================================================
+
+    const breed =
+        item.breed
+            ? `
+                <div class="breed-info">
+                    <strong>Example Breed</strong>
+                    <span>${item.breed}</span>
+                </div>
+              `
+            : "";
+
+
+    // =================================================
+    // Learn More Button
+    // =================================================
+
+    const learnMore =
+        item.link
+            ? `
+                <a
+                    href="${item.link}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="learn-more-btn"
+                >
+                    LEARN MORE
+                    <span>✿</span>
+                </a>
+              `
+            : "";
+
+
+    // =================================================
+    // Card
+    // =================================================
 
     card.innerHTML = `
+
+        <!-- =========================
+             FRONT
+        ========================== -->
 
         <div class="card-front">
 
             <h3>
-                ${answer[i].part}
+                ${item.name}
             </h3>
 
-            <p>
-                ${answer[i].name}
-            </p>
+
+            <img
+                src="${item.buttonImage}"
+                alt="${item.name}"
+                class="selection-image"
+            >
+
+
+            <div class="hover-hint">
+
+                <span>
+                    HOVER<br>
+                    TO REVEAL
+                </span>
+
+                <span class="hand-icon">
+                    🖐
+                </span>
+
+            </div>
 
         </div>
 
 
+        <!-- =========================
+             BACK
+        ========================== -->
+
         <div class="card-back">
 
+            <div class="risk-badge ${item.risk.toLowerCase()}">
+
+                ${item.risk} Risk
+
+            </div>
+
+
+            ${problemImage}
+
+
             <h4>
-                ${answer[i].risk} Risk
+                Possible Health Problems
             </h4>
 
-            ${problems.length === 0
 
-            ?
+            ${problemList}
 
-            "<p>No major welfare concerns.</p>"
 
-            :
+            ${breed}
 
-            "<ul><li>" +
-            problems.join(
-                "</li><li>"
-            ) +
-            "</li></ul>"
-        }
+
+            ${learnMore}
 
         </div>
 
     `;
 
 
-    container.appendChild(
-        card
-    );
+    container.appendChild(card);
 
 }
 
