@@ -15,6 +15,7 @@
 .result-title {
     font-size: clamp(45px, 15vw, 100px);
     margin: 0;
+    text-align: center;
 }
 
 .result-cardTitle {
