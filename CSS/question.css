@@ -732,10 +732,10 @@ body.cat {
 
         border-radius: 12px;
 
-        font-size:
+        /* font-size:
             clamp(0.75rem,
                 3vw,
-                0.9rem);
+                0.9rem); */
 
         overflow: hidden;
     }
@@ -781,23 +781,7 @@ body.cat {
 
         gap: 8px;
 
-        font-size:
-            clamp(1rem,
-                4vw,
-                1.25rem);
-
         letter-spacing: 0.03em;
-    }
-
-
-    /* =========================================
-       Button Icons
-    ========================================= */
-
-    #backButtonIcon,
-    #nextButtonIcon {
-        width: 18px;
-        height: 21px;
     }
 }
 
@@ -1039,7 +1023,7 @@ body.cat {
        Cards
     ========================================= */
 
-    #btn0,
+    /* #btn0,
     #btn1,
     #btn2,
     #btn3 {
@@ -1065,7 +1049,7 @@ body.cat {
         box-shadow: none;
 
         overflow: hidden;
-    }
+    } */
 
 
     /* =========================================

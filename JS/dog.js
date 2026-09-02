@@ -11,7 +11,7 @@ const dogQuestion = [
             {
                 name: "Slim Build",
                 imageID: "body1",
-                buttonImage: "../img/dog/body/body1.png",
+                buttonImage: "img/dog/body/body1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -22,21 +22,21 @@ const dogQuestion = [
             {
                 name: "Square Build",
                 imageID: "body2",
-                buttonImage: "../img/dog/body/body2.png",
+                buttonImage: "img/dog/body/body2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
                     "Hip/Elbow disease",
                     "Osteoarthritis risk"
                 ],
-                problemImage: "../img/dog/problems/body/body2-problem.png",
+                problemImage: "img/dog/problems/body/body2-problem.png",
                 breed: "Rottweiler",
                 link: "https://heropethealth.com.au/blog/rottweiler-health-problems-prevention-and-care"
             },
             {
                 name: "Stocky Build",
                 imageID: "body3",
-                buttonImage: "../img/dog/body/body3.png",
+                buttonImage: "img/dog/body/body3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -44,14 +44,14 @@ const dogQuestion = [
                     "Hip dysplasia",
                     "Joint pain"
                 ],
-                problemImage: "../img/dog/problems/body/body3-problem.png",
+                problemImage: "img/dog/problems/body/body3-problem.png",
                 breed: "English Bulldog",
                 link: "https://pubmed.ncbi.nlm.nih.gov/11767921/"
             },
             {
                 name: "Compact Build",
                 imageID: "body4",
-                buttonImage: "../img/dog/body/body4.png",
+                buttonImage: "img/dog/body/body4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -60,7 +60,7 @@ const dogQuestion = [
                     "Exercise intolerance",
                     "Back / spinal problems"
                 ],
-                problemImage: "../img/dog/problems/body/body4-problem.png",
+                problemImage: "img/dog/problems/body/body4-problem.png",
                 breed: "Pug / Pekingese",
                 link: "https://healthtopics.vetmed.ucdavis.edu/health-topics/brachycephalic-short-nosed-dogs"
             }
@@ -76,7 +76,7 @@ const dogQuestion = [
             {
                 name: "Almond-shaped Eyes",
                 imageID: "eye1",
-                buttonImage: "../img/dog/eye/eye1.png",
+                buttonImage: "img/dog/button/eye/eye1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -87,7 +87,7 @@ const dogQuestion = [
             {
                 name: "Round Eyes",
                 imageID: "eye2",
-                buttonImage: "../img/dog/eye/eye2.png",
+                buttonImage: "img/dog/button/eye/eye2.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -98,7 +98,7 @@ const dogQuestion = [
             {
                 name: "Sunken eyes",
                 imageID: "eye3",
-                buttonImage: "../img/dog/eye/eye3.png",
+                buttonImage: "img/dog/button/eye/eye3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -106,14 +106,14 @@ const dogQuestion = [
                     "Corneal irritation",
                     "Corneal ulcer"
                 ],
-                problemImage: "../img/dog/problems/eye/eye3-problem.png",
+                problemImage: "img/dog/problems/eye/eye3-problem.png",
                 breed: "Shar-Pei / Chow Chow ",
                 link: "https://www.acvo.org/tips-treatments-tricks/entropion"
             },
             {
                 name: "Protruding Eyes",
                 imageID: "eye4",
-                buttonImage: "../img/dog/eye/eye4.png",
+                buttonImage: "img/dog/button/eye/eye4.png",
                 risk: "High",
                 //score: 1,
                 problems: [
@@ -122,7 +122,7 @@ const dogQuestion = [
                     "Eye trauma risk",
                     "Vision impairment"
                 ],
-                problemImage: "../img/dog/problems/eye/eye4-problem.png",
+                problemImage: "img/dog/problems/eye/eye4-problem.png",
                 breed: "Chihuahua / Pekingese",
                 link: "https://www.rvc.ac.uk/research/focus/brachycephaly/health-issues/ophthalmology"
             }
@@ -138,7 +138,7 @@ const dogQuestion = [
             {
                 name: "Prick Ears",
                 imageID: "ear1",
-                buttonImage: "../img/dog/ear/ear1.png",
+                buttonImage: "img/dog/button/ear/ear1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -149,7 +149,7 @@ const dogQuestion = [
             {
                 name: "Semi-Prick Ears",
                 imageID: "ear2",
-                buttonImage: "../img/dog/ear/ear2.png",
+                buttonImage: "img/dog/button/ear/ear2.png",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -160,28 +160,28 @@ const dogQuestion = [
             {
                 name: "Folded Ears",
                 imageID: "ear3",
-                buttonImage: "../img/dog/ear/ear3.png",
+                buttonImage: "img/dog/button/ear/ear3.png",
                 risk: "Medium",
                 //score: 2,
                 problems: [
                     "Reduced ventilation",
                     "Ear inflammation"
                 ],
-                problemImage: "../img/dog/problems/ear/ear3-problem.png",
+                problemImage: "img/dog/problems/ear/ear3-problem.png",
                 breed: "Vizsla / Beagle",
                 link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8422687/"
             },
             {
                 name: "Drop Ears",
                 imageID: "ear4",
-                buttonImage: "../img/dog/ear/ear4.png",
+                buttonImage: "img/dog/button/ear/ear4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
                     "Otitis externa",
                     "yeast/bacterial infection"
                 ],
-                problemImage: "../img/dog/problems/ear/ear4-problem.png",
+                problemImage: "img/dog/problems/ear/ear4-problem.png",
                 breed: "Cocker Spaniel / Basset hounds",
                 link: "https://www.acvs.org/small-animal/otitis-externa/"
             }
@@ -197,7 +197,7 @@ const dogQuestion = [
             {
                 name: "Otter Tail",
                 imageID: "tail1",
-                buttonImage: "../img/dog/tail/tail1.png",
+                buttonImage: "img/dog/button/tail/tail1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -208,7 +208,7 @@ const dogQuestion = [
             {
                 name: "Curled Tail",
                 imageID: "tail2",
-                buttonImage: "../img/dog/tail/tail2.png",
+                buttonImage: "img/dog/button/tail/tail2.png",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -219,7 +219,7 @@ const dogQuestion = [
             {
                 name: "Screw Tail",
                 imageID: "tail3",
-                buttonImage: "../img/dog/tail/tail3.png",
+                buttonImage: "img/dog/button/tail/tail3.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -234,14 +234,14 @@ const dogQuestion = [
             {
                 name: "Bobtail / Tailless",
                 imageID: "tail4",
-                buttonImage: "../img/dog/tail/tail4.png",
+                buttonImage: "img/dog/button/tail/tail4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
                     "Anorectal atresia",
                     " Multiple Spinal Defects"
                 ],
-                problemImage: "../img/dog/problems/tail/tail4-problem.png",
+                problemImage: "img/dog/problems/tail/tail4-problem.png",
                 breed: "Pembroke Welsh Corgi",
                 link: "https://pubmed.ncbi.nlm.nih.gov/17850278/"
             }

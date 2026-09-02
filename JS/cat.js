@@ -76,7 +76,7 @@ const catQuestion = [
             {
                 name: "Round Eyes",
                 imageID: "eye1",
-                buttonImage: "../img/cat/button/eye/eye1.png",
+                buttonImage: "img/cat/button/eye/eye1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -87,7 +87,7 @@ const catQuestion = [
             {
                 name: "Deep-set Eyes",
                 imageID: "eye2",
-                buttonImage: "../img/cat/button/eye/eye2.png",
+                buttonImage: "img/cat/button/eye/eye2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -95,26 +95,26 @@ const catQuestion = [
                     "Excessive tearing",
                     "Corneal irritation"
                 ],
-                problemImage: "../img/cat/problems/eye/eye2-problem.png",
+                problemImage: "img/cat/problems/eye/eye2-problem.png",
                 breed: "Maine Coon",
                 link: "https://www.vetessential.com/entropion-in-cats-and-dogs/"
             },
             {
                 name: "Blue Eyes",
                 imageID: "eye3",
-                buttonImage: "../img/cat/button/eye/eye3.png",
+                buttonImage: "img/cat/button/eye/eye3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
                     "altered binocular vision"
-                ], problemImage: "../img/cat/problems/eye/eye3-problem.png",
+                ], problemImage: "img/cat/problems/eye/eye3-problem.png",
                 breed: "Siamese",
                 link: "https://www.petmd.com/cat/general-health/cross-eyed-cats"
             },
             {
                 name: "Protruding Eyes",
                 imageID: "eye4",
-                buttonImage: "../img/cat/button/eye/eye4.png",
+                buttonImage: "img/cat/button/eye/eye4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -122,7 +122,7 @@ const catQuestion = [
                     "corneal damage",
                     "ulcer",
                     "inflammation"
-                ], problemImage: "../img/cat/problems/eye/eye4-problem.png",
+                ], problemImage: "img/cat/problems/eye/eye4-problem.png",
                 breed: "Persian / Himalayan",
                 link: "https://vcahospitals.com/all-animal-hospital/know-your-pet/ulcerative-keratitis-in-cats"
             }
@@ -138,7 +138,7 @@ const catQuestion = [
             {
                 name: "Straight Ears",
                 imageID: "ear1",
-                buttonImage: "../img/cat/button/ear/ear1.png",
+                buttonImage: "img/cat/button/ear/ear1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -149,7 +149,7 @@ const catQuestion = [
             {
                 name: "Large Upright Ears",
                 imageID: "ear2",
-                buttonImage: "../img/cat/button/ear/ear2.png",
+                buttonImage: "img/cat/button/ear/ear2.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -157,9 +157,9 @@ const catQuestion = [
                 link: ""
             },
             {
-                name: "Backward-curled Ears",
+                name: "Curled Ears",
                 imageID: "ear3",
-                buttonImage: "../img/cat/button/ear/ear3.png",
+                buttonImage: "img/cat/button/ear/ear3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -167,14 +167,14 @@ const catQuestion = [
                     "Wax build-up",
                     "Otitis externa"
                 ],
-                problemImage: "../img/cat/problems/ear/ear3-problem.png",
+                problemImage: "img/cat/problems/ear/ear3-problem.png",
                 breed: "Highland Lynx",
                 link: "https://catsmart.com.sg/getting-to-know-the-american-curl#:~:text=The%20American%20Curl%20is,ear%20infections"
             },
             {
                 name: "Folded Ears",
                 imageID: "ear4",
-                buttonImage: "../img/cat/button/ear/ear4.png",
+                buttonImage: "img/cat/button/ear/ear4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -183,7 +183,7 @@ const catQuestion = [
                     "Skeletal Deformity",
                     "Reduced Mobility"
                 ],
-                problemImage: "../img/cat/problems/ear/ear4-problem.png",
+                problemImage: "img/cat/problems/ear/ear4-problem.png",
                 breed: "Scottish Fold",
                 link: "https://thelittlecarnivore.com/en/blog/scottish-fold-cats-its-time-to-stop-the-breeding"
             }
@@ -199,7 +199,7 @@ const catQuestion = [
             {
                 name: "Long Tail",
                 imageID: "tail1",
-                buttonImage: "../img/cat/button/tail/tail1.png",
+                buttonImage: "img/cat/button/tail/tail1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -210,20 +210,20 @@ const catQuestion = [
             {
                 name: "Short Tail",
                 imageID: "tail2",
-                buttonImage: "../img/cat/button/tail/tail2.png",
+                buttonImage: "img/cat/button/tail/tail2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
                     "Vertebral abnormalities"
                 ],
-                problemImage: "../img/cat/problems/tail/tail2-problem.png",
+                problemImage: "img/cat/problems/tail/tail2-problem.png",
                 breed: "American Bobtail",
                 link: "https://www.bioguardlabs.com/breed-related-disease-american-bobtail/"
             },
             {
                 name: "Curled Tail",
                 imageID: "tail3",
-                buttonImage: "../img/cat/button/tail/tail3.png",
+                buttonImage: "img/cat/button/tail/tail3.png",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -232,9 +232,9 @@ const catQuestion = [
                 link: ""
             },
             {
-                name: "Tailless / Stub Tail",
+                name: "Stub Tail",
                 imageID: "tail4",
-                buttonImage: "../img/cat/button/tail/tail4.png",
+                buttonImage: "img/cat/button/tail/tail4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -243,7 +243,7 @@ const catQuestion = [
                     "Bladder & bowel problems",
                     "Possible partial paralysis"
                 ],
-                problemImage: "",
+                problemImage: "img/cat/problems/tail/tail4-problem.png",
                 breed: "Manx Cat",
                 link: "https://www.petful.com/cat-breeds/manx-syndrome/"
             }

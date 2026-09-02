@@ -261,6 +261,12 @@ function loadQuestion(questionArray) {
         image.src = option.buttonImage;
         image.alt = option.name;
 
+        const name =
+            button.querySelector(".option-name");
+
+        name.textContent =
+            option.name;
+
         button.onclick = async function () {
 
             // =================================================
