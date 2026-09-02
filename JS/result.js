@@ -53,29 +53,29 @@ const answer =
     );
 
 
-// ===============================
-// Result Title
-// ===============================
+// // ===============================
+// // Result Title
+// // ===============================
 
-const title =
-    document.getElementById(
-        "animal-title"
-    );
+// const title =
+//     document.getElementById(
+//         "animal-title"
+//     );
 
 
-if (animal === "cat") {
+// if (animal === "cat") {
 
-    title.innerHTML =
-        "🐱 Your Selected Cat";
+//     title.innerHTML =
+//         "🐱 Your Selected Cat";
 
-}
+// }
 
-else {
+// else {
 
-    title.innerHTML =
-        "🐶 Your Selected Dog";
+//     title.innerHTML =
+//         "🐶 Your Selected Dog";
 
-}
+// }
 
 
 // ===============================
@@ -109,21 +109,21 @@ let overallRisk;
 if (totalScore <= 2) {
 
     overallRisk =
-        "🟢 Low Risk";
+        "Healthy";
 
 }
 
 else if (totalScore <= 5) {
 
     overallRisk =
-        "🟡 Medium Risk";
+        "Middle Concerns";
 
 }
 
 else {
 
     overallRisk =
-        "🔴 High Risk";
+        "Requires Care";
 
 }
 

@@ -1,18 +1,33 @@
-/* table {
-    border-collapse: collapse;
-    width: 100%;
+/* =========================================
+   Ending Background
+========================================= */
+#endingBg {
+    background-image: url("../img/BadEnding.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-tr,
-th,
-td {
-    border: 1px solid black;
-    padding: 8px;
+.result-title {
+    font-size: clamp(80px, 15vw, 100px);
 }
 
-tr:nth-child(even) {
-    background-color: #d3d3d3;
-} */
+.result-cardTitle {
+    margin: 0;
+    text-align: center;
+}
+
+.keyword {
+    color: var(--keyword-color);
+}
+
+/* =========================================
+   result-card
+========================================= */
 
 #card-container {
     display: flex;
@@ -24,10 +39,11 @@ tr:nth-child(even) {
     gap: 100px;
 }
 
-/* 
-//===============================
-// result-card
-//=============================== */
+
+/* =========================================
+   result-card
+========================================= */
+
 .result-card {
     width: 200px;
     height: 250px;
@@ -64,4 +80,85 @@ tr:nth-child(even) {
 
 .result-card:hover .card-back {
     transform: rotateY(0deg);
+}
+
+/* =========================================
+   result-Button
+========================================= */
+#restartBtnBg {
+    display: flex;
+    background-image: url("../img/ResartBg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: end;
+    align-items: center;
+    height: 33rem;
+    padding: 0px clamp(80px, 15vw, 116px);
+}
+
+/* .MakeOtherImg {
+    width: 50%;
+    height: 100%;
+} */
+
+#restartBtnContainer {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   footer
+========================================= */
+
+.AllRights-container {
+    background-color: var(--footer-Allrights-bg);
+    color: var(--color-background);
+}
+
+.AllRights {
+    padding: clamp(1.125rem, 0.75vw + 0.8rem, 1.375rem) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    background-image: url("../img/Footerbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 21rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: clamp(130px, 15vw, 150px);
+    margin-bottom: clamp(1.125rem, 0.75vw + 0.8rem, 1.375rem);
+}
+
+.footer-text {
+    color: var(--color-background);
+}
+
+/* =========================================
+   phone responsive
+========================================= */
+
+@media(max-width: 768px) {
+    #restartBtnContainer {
+        width: 100%;
+
+    }
 }

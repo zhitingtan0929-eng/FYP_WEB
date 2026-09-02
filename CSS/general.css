@@ -17,6 +17,9 @@
     --color-button-hover: #FFC943;
     --color-accent: #FF9E42;
     --color-selection-bg: #DAB3D0;
+    --border-color: #D8D0C3;
+    --footer-Allrights-bg: #7760A4;
+    --keyword-color: #8D76B9;
 
     /* =========================
      Font Size
@@ -66,7 +69,7 @@
     --lh-h3-subsection: 1.2;
     --lh-h4: 1.2;
     --lh-h5: 1.25;
-    --lh-h6: 1.25;
+    /* --lh-h6: 1.25; */
 
     --lh-body: 1.6;
     --lh-body-large: 1.5;
@@ -90,6 +93,8 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-background);
 }
 
 .content {
@@ -143,7 +148,8 @@ h6 {
     font-family: "Nunito", sans-serif;
     font-size: var(--fs-h6);
     font-weight: var(--fw-semibold);
-    line-height: var(--lh-h6);
+    /* line-height: var(--lh-h6); */
+    margin: 0;
 }
 
 p {
@@ -194,7 +200,8 @@ button {
 ========================================= */
 
 /* start button */
-#startButton {
+#startButton,
+#restartBtn {
     background-color: var(--color-button);
     color: var(--color-button-text);
     padding:
@@ -205,7 +212,8 @@ button {
         transform 0.2s ease;
 }
 
-#startButton:hover {
+#startButton:hover,
+#restartBtn:hover {
     background-color: var(--color-button-hover);
     color: var(--color-background);
 }
@@ -265,6 +273,15 @@ button {
     color: var(--color-button-hover);
 }
 
+#catBtn,
+#dogBtn {
+    background-color: var(--color-background);
+    color: var(--color-button);
+    padding: 10px 25px;
+    gap: clamp(10px, 4vw, 15px);
+    border: var(--color-button) solid 3px;
+}
+
 #startButton:hover,
 #backBtn:hover,
 #nextBtn:hover,
@@ -273,6 +290,7 @@ button {
     cursor: pointer;
     transform: translateY(-2px);
 }
+
 
 /* =========================================
    Avatar Container

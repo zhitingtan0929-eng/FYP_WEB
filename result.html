@@ -11,48 +11,61 @@
 </head>
 
 <body>
-    <div class="content">
-        <a href="index.html"><button>🏠 Home</button></a>
-        <h1 id="animal-title"></h1>
-        <h2>Overall Welfare Risk</h2>
-        <p id="overall-risk"></p>
+    <!-- IMG -->
+    <div id="endingBg">
+        <div class="content">
+            <h1 class="result-title" id="overall-risk">Requires Care</h1>
+            <div class="avatar-container">
+                <div class="avatar-stage">
 
-        <!-- IMG -->
-        <div class="avatar-container">
+                    <img id="tailImg" alt="Tail">
 
-            <div class="avatar-stage">
+                    <img id="earImg" alt="Ear">
 
-                <img id="tailImg" alt="Tail">
+                    <img id="bodyImg" alt="Body">
 
-                <img id="earImg" alt="Ear">
+                    <img id="eyeImg" alt="Eyes">
 
-                <img id="bodyImg" alt="Body">
-
-                <img id="eyeImg" alt="Eyes">
-
+                </div>
             </div>
-
         </div>
+    </div>
 
-        <div id="selected-animal"></div>
-        <h3>Selected Features</h3>
+    <div class="content">
+        <!-- <h1 id="animal-title"></h1> -->
+        <!-- <p id="overall-risk"></p> -->
+        <!-- <h3>Selected Features</h3> -->
         <!-- <div id="animal-image"></div> -->
+        <h1 class="result-cardTitle">WHAT YOU <span class="keyword">CHOSE</span></h1>
+        <h5 class="result-cardTitle">Four choices. Four features. What comes with them?</h5>
         <div id="card-container"></div>
-        <!-- <table>
-            <thead>
-                <tr>
-                    <th>Part</th>
-                    <th>Your Selection</th>
-                    <th>Possible Health Problems</th>
-                </tr>
-            </thead>
 
-            <tbody id="result-table">
+        <div id="restartBtnBg">
+            <!-- <img src="img/MakeOtherImg.png" alt="Make Another Friend" class="MakeOtherImg"> -->
+            <div id="restartBtnContainer">
+                <h2>Would you make the same choice again ?</h2>
+                <button id="restartBtn">
+                    Meet Another Friend
+                    <img src="img/StartButtonIcon.png" alt="Button Icon" class="StartIcon">
+                </button>
+            </div>
+        </div>
+    </div>
 
-            </tbody>
+    <div class="footer">
+        <div class="content">
+            <div class="footer-content">
+                <img src="img/FooterLogo.png" alt="Logo" class="logo">
+                <h6 class="footer-text">zhitingtan0929@gmail.com</h6>
+                <h6 class="footer-text">+0126886227</h6>
+            </div>
+        </div>
+    </div>
 
-        </table> -->
-        <button id="restartBtn">Restart</button>
+    <div class="AllRights-container">
+        <div class="content AllRights">
+            <h6 class="footer-text">© 2026 Wonder Paws. All rights reserved.</h6>
+        </div>
     </div>
 
     <!--link to JavaScript file-->
