@@ -57,6 +57,108 @@ function shuffle(array) {
 
 }
 
+// ===============================
+// Part Icon Navigation
+// ===============================
+
+function updatePartIcons(currentPart) {
+
+    const partData = {
+
+        Body: {
+            container: "bodyIconContainer",
+            icon: "bodyIcon"
+        },
+
+        Eyes: {
+            container: "eyeIconContainer",
+            icon: "eyeIcon"
+        },
+
+        Ears: {
+            container: "earIconContainer",
+            icon: "earIcon"
+        },
+
+        Tail: {
+            container: "tailIconContainer",
+            icon: "tailIcon"
+        }
+
+    };
+
+
+    Object.keys(partData).forEach(part => {
+
+        const container =
+            document.getElementById(
+                partData[part].container
+            );
+
+        const icon =
+            document.getElementById(
+                partData[part].icon
+            );
+
+
+        if (!container || !icon) return;
+
+
+        const isSelected =
+            part === currentPart;
+
+
+        // ===============================
+        // Container Background
+        // ===============================
+
+        container.classList.toggle(
+            "Icon-c-select",
+            isSelected
+        );
+
+        container.classList.toggle(
+            "Icon-c-Unselect",
+            !isSelected
+        );
+
+
+        // ===============================
+        // SVG Main Colour
+        // ===============================
+
+        icon.style.color =
+            isSelected
+                ? "var(--color-background)"
+                : "var(--color-text)";
+
+
+        // ===============================
+        // Eyes Circle
+        // ===============================
+
+        if (part === "Eyes") {
+
+            const circleColor =
+                isSelected
+                    ? "var(--color-text)"
+                    : "var(--color-background)";
+
+
+            icon
+                .querySelectorAll("circle")
+                .forEach(circle => {
+
+                    circle.style.fill =
+                        circleColor;
+
+                });
+
+        }
+
+    });
+
+}
 
 // ===============================
 // Load Question
@@ -70,6 +172,13 @@ function loadQuestion(questionArray) {
 
     selectedOption = null;
 
+    // ===============================
+    // Update Part Icons
+    // ===============================
+
+    updatePartIcons(
+        questionArray[currentQuestion].part
+    );
 
     // ===============================
     // Back Button
@@ -147,9 +256,10 @@ function loadQuestion(questionArray) {
             options[i];
 
 
-        button.innerHTML =
-            option.name;
+        const image = button.querySelector(".animal-icon");
 
+        image.src = option.buttonImage;
+        image.alt = option.name;
 
         button.onclick = async function () {
 
@@ -301,25 +411,49 @@ function nextQuestion(
     selectedOption
 ) {
 
+    // answer[currentQuestion] = {
+
+    //     part:
+    //         questionArray[currentQuestion].part,
+
+    //     name:
+    //         selectedOption.name,
+
+    //     imageID:
+    //         selectedOption.imageID,
+
+    //     buttonImage:
+    //         selectedOption.buttonImage,
+
+    //     risk:
+    //         selectedOption.risk,
+
+    //     problems:
+    //         selectedOption.problems,
+
+    //     problemImage:
+    //         selectedOption.problemImage,
+
+    //     breed:
+    //         selectedOption.breed,
+
+    //     link:
+    //         selectedOption.link
+
+    // };
+
+    // ===============================
+    // Save Current Answer
+    // ===============================
+
     answer[currentQuestion] = {
 
+        ...selectedOption,
+
         part:
-            questionArray[currentQuestion].part,
-
-        name:
-            selectedOption.name,
-
-        imageID:
-            selectedOption.imageID,
-
-        risk:
-            selectedOption.risk,
-
-        problems:
-            selectedOption.problems
+            questionArray[currentQuestion].part
 
     };
-
 
     currentQuestion++;
 

@@ -259,6 +259,10 @@ body.cat {
    SVG Icon
 ========================================= */
 
+#bodyIcon {
+    color: var(--color-background);
+}
+
 #bodyIcon,
 #eyeIcon,
 #earIcon,
@@ -267,6 +271,7 @@ body.cat {
     max-width: 70%;
     max-height: 70%;
     height: auto;
+    color: var(--color-text);
 }
 
 

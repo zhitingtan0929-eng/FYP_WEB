@@ -79,41 +79,44 @@ const answer =
 
 
 // ===============================
-// Calculate Score
-// ===============================
-
-let totalScore = 0;
-
-
-for (
-    let i = 0;
-    i < answer.length;
-    i++
-) {
-
-    totalScore +=
-        riskScore[
-        answer[i].risk
-        ];
-
-}
-
-
-// ===============================
 // Overall Risk
 // ===============================
 
 let overallRisk;
 
 
-if (totalScore <= 2) {
+// ===============================
+// Check High Risk
+// ===============================
+
+const hasHighRisk =
+    answer.some(
+        item => item.risk === "High"
+    );
+
+
+// ===============================
+// Check Medium Risk
+// ===============================
+
+const hasMediumRisk =
+    answer.some(
+        item => item.risk === "Medium"
+    );
+
+
+// ===============================
+// Determine Overall Risk
+// ===============================
+
+if (hasHighRisk) {
 
     overallRisk =
-        "Healthy";
+        "Requires Care";
 
 }
 
-else if (totalScore <= 5) {
+else if (hasMediumRisk) {
 
     overallRisk =
         "Middle Concerns";
@@ -123,10 +126,14 @@ else if (totalScore <= 5) {
 else {
 
     overallRisk =
-        "Requires Care";
+        "Healthy";
 
 }
 
+
+// ===============================
+// Display Overall Risk
+// ===============================
 
 document.getElementById(
     "overall-risk"
