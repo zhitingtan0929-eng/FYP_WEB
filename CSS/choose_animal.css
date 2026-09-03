@@ -1,6 +1,23 @@
+/* =========================================
+   Choose Animal Page
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   Main Background / Top Area
+========================================= */
+
 .ChooseAnimal {
     width: 100%;
-    height: 100vh;
+    height: 60vh;
+    min-height: 420px;
 
     background-image: url("../img/chooseCatDog.png");
     background-size: cover;
@@ -8,87 +25,713 @@
     background-position: center;
 
     position: relative;
+
+    z-index: 1;
 }
 
-.ChooseAnimal .content,
-.animal-selection .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#ChooseAnimalbutton {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
 /* =========================================
-   FACTORY CONTENT
+   Top Content
 ========================================= */
 
 .ChooseAnimal .content {
     width: 100%;
-    height: 60vh;
+    height: 100%;
 
-    /* display: flex; */
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem);
+
+    display: flex;
+
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
+
+    align-items: center;
+    justify-content: center;
 
     position: relative;
+
     z-index: 2;
 }
 
 
 /* =========================================
-   PANEL
+   Back / Confirm Buttons
+========================================= */
+
+#ChooseAnimalbutton {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    position: absolute;
+
+    top:
+        clamp(1rem, 2vw, 1.5rem);
+
+    left: 0;
+
+    padding:
+        0 clamp(1rem, 3vw, 3rem);
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   Back Home
+========================================= */
+
+#ChooseAnimalbutton .backHome {
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   Confirm Button
+========================================= */
+
+#confirmBtn {
+    flex-shrink: 0;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   Avatar
+========================================= */
+
+.ChooseAnimal .avatar-container {
+    width: min(32vw, 380px);
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+.ChooseAnimal .avatar-stage {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.ChooseAnimal .avatar-stage img {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transform-origin: center center;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   Avatar Layer
+========================================= */
+
+#tailImg {
+    z-index: 1;
+}
+
+#earImg {
+    z-index: 2;
+}
+
+#bodyImg {
+    z-index: 3;
+}
+
+#eyeImg {
+    z-index: 4;
+}
+
+
+/* =========================================
+   Animal Selection Panel
 ========================================= */
 
 .animal-selection {
     width: 100%;
     height: 40vh;
 
-    background-image: url("../img/panel.png");
+    min-height: 280px;
+
+    background-image: url("../img/panel-01.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
+    position: relative;
 
     z-index: 10;
-
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
 }
 
 
 /* =========================================
-   PANEL CONTENT
+   Animal Selection Content
 ========================================= */
 
 .animal-selection .content {
     width: 100%;
     height: 100%;
 
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+    max-width: 1200px;
 
-    gap: 30px;
+    margin: 0 auto;
+
+    padding:
+        clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 3rem);
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(20px, 4vw, 40px);
 }
 
+
 /* =========================================
-   phone responsive
+   Cat / Dog Buttons
 ========================================= */
-/* @media(max-width: 768px) {
-    .factory {
-        background-size: 180% 100%;
-        background-position: 50% 30%;
+
+.animal-selection .choose-btn {
+    width: min(30vw, 300px);
+    height: min(25vh, 230px);
+
+    min-height: 180px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: clamp(10px, 1vw, 18px);
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   Animal Image Container
+========================================= */
+
+.animal-selection .choose-btn-image {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   Animal Image
+========================================= */
+
+.animal-selection .choose-btn-image img {
+    width: clamp(70px, 8vw, 100px);
+    height: clamp(70px, 8vw, 100px);
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   Selected Animal
+========================================= */
+
+.animal-selection .choose-btn.selected {
+    border:
+        4px solid var(--color-button);
+}
+
+
+/* =========================================
+   Tablet
+   769px - 1024px
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .ChooseAnimal {
+        height: 58vh;
+
+        min-height: 380px;
+
+        background-position: center center;
     }
-} */
+
+
+    .ChooseAnimal .content {
+        padding:
+            16px 24px;
+    }
+
+
+    #ChooseAnimalbutton {
+        padding:
+            0 24px;
+    }
+
+
+    .ChooseAnimal .avatar-container {
+        width: min(38vw, 330px);
+    }
+
+
+    .animal-selection {
+        height: 42vh;
+        min-height: 270px;
+    }
+
+
+    .animal-selection .content {
+        padding:
+            16px 24px;
+
+        gap: 24px;
+    }
+
+
+    .animal-selection .choose-btn {
+        width: min(35vw, 270px);
+
+        height: 210px;
+
+        min-height: 160px;
+    }
+}
+
+
+/* =========================================
+   Mobile
+   <= 768px
+========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+
+        min-height: 100%;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+
+    /* =====================================
+       Top Area
+    ===================================== */
+
+    .ChooseAnimal {
+        width: 100%;
+
+        height: 52vh;
+
+        min-height: 360px;
+
+        background-size: cover;
+
+        background-position: center center;
+    }
+
+
+    .ChooseAnimal .content {
+        width: 100%;
+
+        height: 100%;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+
+    /* =====================================
+       Top Buttons
+    ===================================== */
+
+    #ChooseAnimalbutton {
+        width: 100%;
+
+        top: 16px;
+        left: 0;
+
+        padding:
+            0 16px;
+
+        align-items: center;
+    }
+
+
+    #ChooseAnimalbutton .backHome {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    #ChooseAnimalbutton .backHome svg {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    #confirmBtn {
+        min-height: 44px;
+
+        padding:
+            7px 14px 7px 18px;
+
+        gap: 8px;
+
+        font-size:
+            clamp(0.95rem,
+                4vw,
+                1.15rem);
+    }
+
+
+    #confirmBtn svg {
+        width: 20px;
+        height: 23px;
+    }
+
+
+    /* =====================================
+       Avatar
+    ===================================== */
+
+    .ChooseAnimal .avatar-container {
+        width: min(65vw, 270px);
+
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        margin-top: 20px;
+    }
+
+
+    .ChooseAnimal .avatar-stage {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* =====================================
+       Bottom Panel
+    ===================================== */
+
+    .animal-selection {
+        width: 100%;
+
+        height: auto;
+
+        min-height: 48vh;
+
+        background-size: cover;
+
+        background-position: center top;
+
+        position: relative;
+    }
+
+
+    /* =====================================
+       Panel Content
+    ===================================== */
+
+    .animal-selection .content {
+        width: 100%;
+
+        height: auto;
+
+        min-height: 48vh;
+
+        padding:
+            28px 16px 32px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 16px;
+    }
+
+
+    /* =====================================
+       Cat / Dog Buttons
+    ===================================== */
+
+    .animal-selection .choose-btn {
+        width: 100%;
+
+        max-width: 330px;
+
+        height: auto;
+
+        min-height: 150px;
+
+        padding: 14px;
+
+        flex-shrink: 0;
+
+        gap: 8px;
+
+        border-radius: 18px;
+
+        font-size:
+            clamp(1.05rem,
+                4vw,
+                1.3rem);
+    }
+
+
+    /* =====================================
+       Animal Image
+    ===================================== */
+
+    .animal-selection .choose-btn-image {
+        padding: 8px;
+
+        border-radius: 12px;
+    }
+
+
+    .animal-selection .choose-btn-image img {
+        width:
+            clamp(65px,
+                20vw,
+                90px) !important;
+
+        height:
+            clamp(65px,
+                20vw,
+                90px) !important;
+    }
+}
+
+
+/* =========================================
+   Small Mobile
+   <= 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+    .ChooseAnimal {
+        height: 48vh;
+
+        min-height: 320px;
+
+        background-position: center center;
+    }
+
+
+    #ChooseAnimalbutton {
+        top: 12px;
+
+        padding:
+            0 12px;
+    }
+
+
+    #ChooseAnimalbutton .backHome {
+        width: 43px;
+        height: 43px;
+    }
+
+
+    #ChooseAnimalbutton .backHome svg {
+        width: 43px;
+        height: 43px;
+    }
+
+
+    #confirmBtn {
+        min-height: 40px;
+
+        padding:
+            6px 10px 6px 14px;
+
+        gap: 6px;
+
+        font-size: 0.95rem;
+
+        letter-spacing: 0.05em;
+    }
+
+
+    #confirmBtn svg {
+        width: 18px;
+        height: 21px;
+    }
+
+
+    .ChooseAnimal .avatar-container {
+        width: min(62vw, 230px);
+
+        margin-top: 16px;
+    }
+
+
+    .animal-selection {
+        min-height: 52vh;
+    }
+
+
+    .animal-selection .content {
+        min-height: 52vh;
+
+        padding:
+            24px 12px 28px;
+
+        gap: 12px;
+    }
+
+
+    .animal-selection .choose-btn {
+        width: 100%;
+
+        max-width: 300px;
+
+        min-height: 140px;
+
+        padding: 10px;
+
+        border-radius: 16px;
+    }
+
+
+    .animal-selection .choose-btn-image {
+        padding: 6px;
+
+        border-radius: 10px;
+    }
+
+
+    .animal-selection .choose-btn-image img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+
+/* =========================================
+   Very Small Phone
+   <= 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    .ChooseAnimal {
+        height: 45vh;
+
+        min-height: 290px;
+    }
+
+
+    #ChooseAnimalbutton {
+        top: 10px;
+
+        padding:
+            0 10px;
+    }
+
+
+    #ChooseAnimalbutton .backHome,
+    #ChooseAnimalbutton .backHome svg {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    #confirmBtn {
+        min-height: 38px;
+
+        padding:
+            5px 8px 5px 12px;
+
+        font-size: 0.88rem;
+
+        gap: 5px;
+    }
+
+
+    #confirmBtn svg {
+        width: 17px;
+        height: 20px;
+    }
+
+
+    .ChooseAnimal .avatar-container {
+        width: 190px;
+    }
+
+
+    .animal-selection {
+        min-height: 55vh;
+    }
+
+
+    .animal-selection .content {
+        min-height: 55vh;
+
+        padding:
+            20px 10px 24px;
+
+        gap: 10px;
+    }
+
+
+    .animal-selection .choose-btn {
+        max-width: 270px;
+
+        min-height: 125px;
+
+        padding: 8px;
+
+        border-radius: 14px;
+    }
+
+
+    .animal-selection .choose-btn-image img {
+        width: 60px;
+        height: 60px;
+    }
+}
