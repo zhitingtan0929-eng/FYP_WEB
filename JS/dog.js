@@ -74,7 +74,7 @@ const dogQuestion = [
         options: [
             // Question 2 - Eye Shape
             {
-                name: "Almond-shaped Eyes",
+                name: "Round Eyes",
                 imageID: "eye1",
                 buttonImage: "img/dog/button/eye/eye1.png",
                 risk: "Low",
@@ -85,7 +85,7 @@ const dogQuestion = [
                 link: ""
             },
             {
-                name: "Round Eyes",
+                name: "Almond-shaped Eyes",
                 imageID: "eye2",
                 buttonImage: "img/dog/button/eye/eye2.png",
                 risk: "Low",
