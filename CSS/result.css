@@ -321,32 +321,46 @@
 
 .learn-more-btn:hover {
     transform: scale(1.03);
+    background-color: var(--color-button-hover);
+    border-color: var(--color-button-hover);
 }
 
 /* =========================================
    result-Button
 ========================================= */
 #restartBtnBg {
-    display: flex;
-    background-image: url("../img/ResartBg.png");
+    background-image: url(../img/MakeOtherOverlay.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: 0%;
+    display: flex;
+    background-color: var(--meetOtherBg);
+    border-radius: 50px;
     justify-content: end;
     align-items: center;
     height: 33rem;
     padding: 0px clamp(80px, 15vw, 116px);
+    margin: clamp(2.25rem, 3vw + 1.25rem, 3.25rem) 0;
 }
 
-/* .MakeOtherImg {
+
+.MakeOtherImg {
     width: 50%;
     height: 100%;
-} */
+}
 
 #restartBtnContainer {
-    width: 55%;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1.5rem, 1.5vw + 1rem, 2rem);
+}
+
+#restartBtn {
+    width: 380px;
+    justify-content: space-around;
 }
 
 /* =========================================
@@ -416,6 +430,7 @@
         /*top right bottom left*/
     }
 
+
     .hover-hint {
         width: 100%;
         display: flex;
@@ -433,6 +448,15 @@
     .learn-more-btn {
         width: clamp(15rem, 8vw + 10rem, 16rem);
     }
+
+    #restartBtnBg {
+        background-position-x: 20%;
+        padding: 0px clamp(50px, 15vw, 60px);
+    }
+
+    #restartBtn {
+        width: 390px;
+    }
 }
 
 /* =========================================
@@ -440,10 +464,6 @@
 ========================================= */
 
 @media(max-width: 768px) {
-    #restartBtnContainer {
-        width: 100%;
-    }
-
     .result-card {
         width: 100%;
         height: 400px;
@@ -465,5 +485,35 @@
         column-gap: 0px;
         row-gap: 20px;
         /*top right bottom left*/
+    }
+
+    /* =========================================
+    result-Button
+    ========================================= */
+
+    #restartBtnBg {
+        background-image: url(../img/PH-MakeOtherOverlay.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: 70%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: 40rem;
+        padding: clamp(50px, 15vw, 60px) clamp(2.25rem, 3vw + 1.25rem, 3.25rem);
+        margin: clamp(2.25rem, 3vw + 1.25rem, 3.25rem) 0;
+    }
+
+    #restartBtnContainer {
+        width: 100%;
+    }
+
+    #restartBtn {
+        width: 286px;
+    }
+
+    .footer {
+        background-position-x: 48%;
     }
 }

@@ -21,6 +21,7 @@
     --footer-Allrights-bg: #7760A4;
     --keyword-color: #8D76B9;
     --button-image-bg: #EBD3DB;
+    --meetOtherBg: #EEE3EE;
 
     /* =========================
      Font Size
@@ -206,20 +207,19 @@ button {
 ========================================= */
 
 /* start button */
-#startButton,
-#restartBtn {
+.Home-btn,
+.restartBtn {
     background-color: var(--color-button);
     color: var(--color-button-text);
     padding:
         clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(35px, 4vw, 50px);
     gap: clamp(35px, 4vw, 50px);
     transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s;
 }
 
-#startButton:hover,
-#restartBtn:hover {
+.Home-btn:hover,
+.restartBtn:hover {
     background-color: var(--color-button-hover);
     color: var(--color-background);
 }
@@ -317,7 +317,7 @@ button {
 }
 
 
-#startButton:hover,
+.Home-btn:hover,
 #backBtn:hover,
 #nextBtn:hover,
 .rightpaws-button:hover,
@@ -441,7 +441,7 @@ button {
     /* =========================================
         Button Styles
     ========================================= */
-    #startButton {
+    .Home-btn {
         padding:
             clamp(10px, 0.8vw, 12px) clamp(10px, 0.8vw, 12px) clamp(10px, 0.8vw, 12px) clamp(35px, 4vw, 50px);
     }
@@ -472,7 +472,7 @@ button {
     /* =========================================
         Button Styles
     ========================================= */
-    #startButton {
+    .Home-btn {
         padding:
             clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(7px, 0.8vw, 12px) clamp(35px, 4vw, 50px);
     }
