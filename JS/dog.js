@@ -29,7 +29,7 @@ const dogQuestion = [
                     "Hip/Elbow disease",
                     "Osteoarthritis risk"
                 ],
-                problemImage: "img/dog/problems/body/body2-problem.png",
+                problemImage: "img/dog/problems/body/body2-problem.jpg",
                 breed: "Rottweiler",
                 link: "https://heropethealth.com.au/blog/rottweiler-health-problems-prevention-and-care"
             },
@@ -44,7 +44,7 @@ const dogQuestion = [
                     "Hip dysplasia",
                     "Joint pain"
                 ],
-                problemImage: "img/dog/problems/body/body3-problem.png",
+                problemImage: "img/dog/problems/body/body3-problem.jpg",
                 breed: "English Bulldog",
                 link: "https://pubmed.ncbi.nlm.nih.gov/11767921/"
             },
@@ -60,7 +60,7 @@ const dogQuestion = [
                     "Exercise intolerance",
                     "Back / spinal problems"
                 ],
-                problemImage: "img/dog/problems/body/body4-problem.png",
+                problemImage: "img/dog/problems/body/body4-problem.jpg",
                 breed: "Pug / Pekingese",
                 link: "https://healthtopics.vetmed.ucdavis.edu/health-topics/brachycephalic-short-nosed-dogs"
             }
@@ -106,7 +106,7 @@ const dogQuestion = [
                     "Corneal irritation",
                     "Corneal ulcer"
                 ],
-                problemImage: "img/dog/problems/eye/eye3-problem.png",
+                problemImage: "img/dog/problems/eye/eye3-problem.jpg",
                 breed: "Shar-Pei / Chow Chow ",
                 link: "https://www.acvo.org/tips-treatments-tricks/entropion"
             },
@@ -122,7 +122,7 @@ const dogQuestion = [
                     "Eye trauma risk",
                     "Vision impairment"
                 ],
-                problemImage: "img/dog/problems/eye/eye4-problem.png",
+                problemImage: "img/dog/problems/eye/eye4-problem.jpg",
                 breed: "Chihuahua / Pekingese",
                 link: "https://www.rvc.ac.uk/research/focus/brachycephaly/health-issues/ophthalmology"
             }
@@ -167,7 +167,7 @@ const dogQuestion = [
                     "Reduced ventilation",
                     "Ear inflammation"
                 ],
-                problemImage: "img/dog/problems/ear/ear3-problem.png",
+                problemImage: "img/dog/problems/ear/ear3-problem.jpg",
                 breed: "Vizsla / Beagle",
                 link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8422687/"
             },
@@ -181,7 +181,7 @@ const dogQuestion = [
                     "Otitis externa",
                     "yeast/bacterial infection"
                 ],
-                problemImage: "img/dog/problems/ear/ear4-problem.png",
+                problemImage: "img/dog/problems/ear/ear4-problem.jpg",
                 breed: "Cocker Spaniel / Basset hounds",
                 link: "https://www.acvs.org/small-animal/otitis-externa/"
             }
@@ -227,7 +227,7 @@ const dogQuestion = [
                     "Spinal cord/neurological problems",
                     "hind-limb weakness"
                 ],
-                problemImage: "img/dog/problems/tail/tail3-problem.png",
+                problemImage: "img/dog/problems/tail/tail3-problem.jpg",
                 breed: "pug / Boston Terrier",
                 link: "https://www.battersea.org.uk/what-we-do/animal-welfare-campaigning/tackling-harmful-trends/screw-tails"
             },
@@ -241,7 +241,7 @@ const dogQuestion = [
                     "Anorectal atresia",
                     " Multiple Spinal Defects"
                 ],
-                problemImage: "img/dog/problems/tail/tail4-problem.png",
+                problemImage: "img/dog/problems/tail/tail4-problem.jpg",
                 breed: "Pembroke Welsh Corgi",
                 link: "https://pubmed.ncbi.nlm.nih.gov/17850278/"
             }

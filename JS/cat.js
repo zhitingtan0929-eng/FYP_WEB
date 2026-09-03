@@ -29,7 +29,7 @@ const catQuestion = [
                     "Overweight tendency",
                     "Reduced agility"
                 ],
-                problemImage: "img/cat/problems/body/body2-problem.png",
+                problemImage: "img/cat/problems/body/body2-problem.jpg",
                 breed: "British Shorthair",
                 link: "https://pubmed.ncbi.nlm.nih.gov/28716190/"
             },
@@ -44,7 +44,7 @@ const catQuestion = [
                     "Reduced mobility",
                     "Joint stress"
                 ],
-                problemImage: "img/cat/problems/body/body3-problem.png",
+                problemImage: "img/cat/problems/body/body3-problem.jpg",
                 breed: "Maine Coon",
                 link: "https://www.catster.com/cat-health-care/maine-coons-and-hip-dysplasia/"
             },
@@ -60,7 +60,7 @@ const catQuestion = [
                     "Reduced mobility",
                     "Abnormal posture"
                 ],
-                problemImage: "img/cat/problems/body/body4-problem.png",
+                problemImage: "img/cat/problems/body/body4-problem.jpg",
                 breed: "Munchkin",
                 link: "https://scienceforanimalwelfare.org/species/cat/munchkin/limb-deformity/"
             }
@@ -95,7 +95,7 @@ const catQuestion = [
                     "Excessive tearing",
                     "Corneal irritation"
                 ],
-                problemImage: "img/cat/problems/eye/eye2-problem.png",
+                problemImage: "img/cat/problems/eye/eye2-problem.jpg",
                 breed: "Maine Coon",
                 link: "https://www.vetessential.com/entropion-in-cats-and-dogs/"
             },
@@ -107,7 +107,7 @@ const catQuestion = [
                 //score: 1,
                 problems: [
                     "altered binocular vision"
-                ], problemImage: "img/cat/problems/eye/eye3-problem.png",
+                ], problemImage: "img/cat/problems/eye/eye3-problem.jpg",
                 breed: "Siamese",
                 link: "https://www.petmd.com/cat/general-health/cross-eyed-cats"
             },
@@ -122,7 +122,7 @@ const catQuestion = [
                     "corneal damage",
                     "ulcer",
                     "inflammation"
-                ], problemImage: "img/cat/problems/eye/eye4-problem.png",
+                ], problemImage: "img/cat/problems/eye/eye4-problem.jpg",
                 breed: "Persian / Himalayan",
                 link: "https://vcahospitals.com/all-animal-hospital/know-your-pet/ulcerative-keratitis-in-cats"
             }
@@ -167,7 +167,7 @@ const catQuestion = [
                     "Wax build-up",
                     "Otitis externa"
                 ],
-                problemImage: "img/cat/problems/ear/ear3-problem.png",
+                problemImage: "img/cat/problems/ear/ear3-problem.jpg",
                 breed: "Highland Lynx",
                 link: "https://catsmart.com.sg/getting-to-know-the-american-curl#:~:text=The%20American%20Curl%20is,ear%20infections"
             },
@@ -183,7 +183,7 @@ const catQuestion = [
                     "Skeletal Deformity",
                     "Reduced Mobility"
                 ],
-                problemImage: "img/cat/problems/ear/ear4-problem.png",
+                problemImage: "img/cat/problems/ear/ear4-problem.jpg",
                 breed: "Scottish Fold",
                 link: "https://thelittlecarnivore.com/en/blog/scottish-fold-cats-its-time-to-stop-the-breeding"
             }
@@ -216,7 +216,7 @@ const catQuestion = [
                 problems: [
                     "Vertebral abnormalities"
                 ],
-                problemImage: "img/cat/problems/tail/tail2-problem.png",
+                problemImage: "img/cat/problems/tail/tail2-problem.jpg",
                 breed: "American Bobtail",
                 link: "https://www.bioguardlabs.com/breed-related-disease-american-bobtail/"
             },
@@ -243,7 +243,7 @@ const catQuestion = [
                     "Bladder & bowel problems",
                     "Possible partial paralysis"
                 ],
-                problemImage: "img/cat/problems/tail/tail4-problem.png",
+                problemImage: "img/cat/problems/tail/tail4-problem.jpg",
                 breed: "Manx Cat",
                 link: "https://www.petful.com/cat-breeds/manx-syndrome/"
             }
