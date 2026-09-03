@@ -151,6 +151,38 @@ else {
 
 }
 
+// ===============================
+// Ending Background
+// ===============================
+
+const endingBg =
+    document.getElementById("endingBg");
+
+
+if (hasHighRisk) {
+
+    endingBg.classList.add(
+        "ending-high"
+    );
+
+}
+
+else if (hasMediumRisk) {
+
+    endingBg.classList.add(
+        "ending-medium"
+    );
+
+}
+
+else {
+
+    endingBg.classList.add(
+        "ending-low"
+    );
+
+}
+
 
 // ===============================
 // Display Overall Risk
