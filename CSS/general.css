@@ -115,6 +115,7 @@ h1 {
     font-size: var(--fs-h1-hero);
     font-weight: var(--fw-bold);
     line-height: var(--lh-h1-hero);
+    margin: 0;
 }
 
 h2 {
@@ -122,6 +123,7 @@ h2 {
     font-size: var(--fs-h2-section);
     font-weight: var(--fw-semibold);
     line-height: var(--lh-h2-section);
+    margin: 0;
 }
 
 h3 {
@@ -129,6 +131,7 @@ h3 {
     font-size: var(--fs-h3-subsection);
     font-weight: var(--fw-semibold);
     line-height: var(--lh-h3-subsection);
+    margin: 0;
 }
 
 h4 {
@@ -136,6 +139,7 @@ h4 {
     font-size: var(--fs-h4);
     font-weight: var(--fw-semibold);
     line-height: var(--lh-h4);
+    margin: 0;
 }
 
 h5 {
@@ -143,6 +147,7 @@ h5 {
     font-size: var(--fs-h5);
     font-weight: var(--fw-semibold);
     line-height: var(--lh-h5);
+    margin: 0;
 }
 
 h6 {
@@ -315,7 +320,7 @@ button {
 #startButton:hover,
 #backBtn:hover,
 #nextBtn:hover,
-#confirmBtn:hover,
+.rightpaws-button:hover,
 .backHome:hover {
     cursor: pointer;
     transform: translateY(-2px);
