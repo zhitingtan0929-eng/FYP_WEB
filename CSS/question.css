@@ -67,7 +67,9 @@ body.dog {
 ========================================= */
 
 .avatar-container {
-    width: min(30vw, 500px);
+    /* width: min(30vw, 500px); */
+    width: max(250px, min(40vw, 500px));
+    height: max(250px, min(40vw, 500px));
     aspect-ratio: 1 / 1;
 
     overflow: hidden;
@@ -475,6 +477,7 @@ body.dog {
 
     .avatar-container {
         width: min(35vw, 350px);
+        height: min(35vw, 350px);
     }
 
 
