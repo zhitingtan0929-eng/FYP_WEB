@@ -2,7 +2,8 @@
    Question Page
 ========================================= */
 
-body.cat {
+body.cat,
+body.dog {
     width: 100%;
     min-height: 100vh;
 
@@ -12,6 +13,10 @@ body.cat {
     background-position: center;
     background-attachment: fixed;
 
+    /*
+        Desktop:
+        Keep the page locked to one screen.
+    */
     overflow: hidden;
 }
 
@@ -26,6 +31,7 @@ body.cat {
 
     display: flex;
     flex-direction: row;
+
     gap: 24px;
 
     max-width: 1200px;
@@ -50,6 +56,7 @@ body.cat {
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 }
@@ -60,14 +67,14 @@ body.cat {
 ========================================= */
 
 .avatar-container {
-    width: min(30vw, 420px);
+    width: min(30vw, 500px);
     aspect-ratio: 1 / 1;
+
+    overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    overflow: hidden;
 }
 
 
@@ -144,6 +151,7 @@ body.cat {
     height: 100%;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 }
@@ -161,6 +169,7 @@ body.cat {
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
 
     background-color: var(--color-selection-bg);
@@ -168,20 +177,16 @@ body.cat {
     border-radius: 60px;
 
     /*
-        Top padding:
-        leave space for iconcontainer
-
-        Bottom padding:
-        leave space for bottom buttons
+        Space for:
+        - Top icons
+        - Cards
+        - Bottom buttons
     */
     padding:
         65px 30px 45px;
 
     /*
-        VERY IMPORTANT
-
-        Allows iconcontainer and
-        QuestionButtonLayout to
+        Icons and buttons can
         extend outside the panel.
     */
     overflow: visible;
@@ -190,23 +195,18 @@ body.cat {
 
 /* =========================================
    Part Navigation
-   Icon container
 ========================================= */
 
 .iconcontainer {
     position: absolute;
 
-    /*
-        Icon height ≈ 75px
-        Move up around half.
-    */
     top: -38px;
-
     left: 0;
 
     width: 100%;
 
     display: flex;
+
     justify-content: space-around;
     align-items: flex-start;
 
@@ -221,6 +221,7 @@ body.cat {
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
 }
 
@@ -234,6 +235,7 @@ body.cat {
     height: clamp(55px, 5vw, 75px);
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -259,19 +261,26 @@ body.cat {
    SVG Icon
 ========================================= */
 
-#bodyIcon {
-    color: var(--color-background);
-}
-
 #bodyIcon,
 #eyeIcon,
 #earIcon,
 #tailIcon {
     width: auto;
+
     max-width: 70%;
     max-height: 70%;
+
     height: auto;
+
     color: var(--color-text);
+}
+
+
+/*
+    Selected Body Icon
+*/
+#bodyIcon {
+    color: var(--color-background);
 }
 
 
@@ -308,8 +317,8 @@ body.cat {
     gap: clamp(12px, 1.2vw, 16px);
 
     /*
-        Automatically take all
-        available middle space.
+        Desktop:
+        Fill the available middle space.
     */
     flex: 1;
 
@@ -317,7 +326,7 @@ body.cat {
 }
 
 
-.buttonGrid>div {
+.buttonGrid>button {
     width: 100%;
     min-width: 0;
     min-height: 0;
@@ -328,10 +337,7 @@ body.cat {
    Selection Buttons
 ========================================= */
 
-/* #btn0,
-#btn1,
-#btn2,
-#btn3 {
+.choose-btn {
     width: 100%;
     height: 100%;
 
@@ -340,14 +346,65 @@ body.cat {
     padding: 12px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 
-    box-shadow: none;
+    color: var(--color-text);
 
     overflow: hidden;
-} */
+}
+
+
+/* =========================================
+   Selection Button Image
+========================================= */
+
+.choose-btn-image {
+    background-color: var(--button-image-bg);
+
+    border-radius: 15px;
+
+    padding:
+        clamp(1.125rem, 0.75vw + 0.8rem, 1.375rem);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.choose-btn-image img {
+    width: clamp(60px, 6vw, 96px);
+    height: clamp(60px, 6vw, 96px);
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   Option Name
+========================================= */
+
+.option-name {
+    text-align: center;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   Selected Card
+========================================= */
+
+.selected {
+    border: 4px solid var(--color-button);
+}
 
 
 /* =========================================
@@ -357,17 +414,13 @@ body.cat {
 .QuestionButtonLayout {
     position: absolute;
 
-    /*
-        Button height ≈ 50px
-        Move down around half.
-    */
     bottom: -25px;
-
     left: 0;
 
     width: 100%;
 
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
@@ -404,9 +457,9 @@ body.cat {
 
 @media (max-width: 1024px) {
 
-    /* -----------------------------------------
+    /* =========================================
        Main
-    ----------------------------------------- */
+    ========================================= */
 
     .content {
         gap: 16px;
@@ -416,9 +469,18 @@ body.cat {
     }
 
 
-    /* -----------------------------------------
+    /* =========================================
+       Preview
+    ========================================= */
+
+    .avatar-container {
+        width: min(35vw, 350px);
+    }
+
+
+    /* =========================================
        Choose Panel
-    ----------------------------------------- */
+    ========================================= */
 
     .choosePartbg {
         border-radius: 45px;
@@ -428,9 +490,9 @@ body.cat {
     }
 
 
-    /* -----------------------------------------
-       Icon
-    ----------------------------------------- */
+    /* =========================================
+       Icons
+    ========================================= */
 
     .iconcontainer {
         top: -30px;
@@ -459,21 +521,24 @@ body.cat {
     }
 
 
-    /* -----------------------------------------
+    /* =========================================
        Cards
-    ----------------------------------------- */
+    ========================================= */
 
-    #btn0,
-    #btn1,
-    #btn2,
-    #btn3 {
+    .choose-btn {
         padding: 8px;
     }
 
 
-    /* -----------------------------------------
+    .choose-btn-image img {
+        width: 70px;
+        height: 70px;
+    }
+
+
+    /* =========================================
        Bottom Buttons
-    ----------------------------------------- */
+    ========================================= */
 
     .QuestionButtonLayout {
         bottom: -23px;
@@ -495,12 +560,23 @@ body.cat {
        Body
     ========================================= */
 
-    body.cat {
-        background-image: none;
-
+    body.cat,
+    body.dog {
+        width: 100%;
         min-height: 100vh;
 
-        overflow: hidden;
+        /*
+            Remove desktop background.
+            Background is placed on preview.
+        */
+        background-image: none;
+
+        /*
+            IMPORTANT:
+            Allow vertical scrolling.
+        */
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
 
@@ -510,9 +586,14 @@ body.cat {
 
     .content {
         width: 100%;
-        height: 100vh;
-
         max-width: none;
+
+        /*
+            IMPORTANT:
+            Do NOT force 100vh.
+        */
+        min-height: 100vh;
+        height: auto;
 
         display: flex;
         flex-direction: column;
@@ -520,7 +601,6 @@ body.cat {
         gap: 0;
 
         padding: 0;
-
         margin: 0;
     }
 
@@ -531,11 +611,25 @@ body.cat {
 
     .preview {
         width: 100%;
-        height: 45vh;
 
-        min-height: 300px;
+        /*
+            Preview takes approximately
+            the upper 42% of the screen.
+        */
+        height: 42vh;
+
+        /*
+            Prevent avatar area from
+            becoming too small.
+        */
+        min-height: 260px;
 
         flex-shrink: 0;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
 
         background-image:
             url("../img/factoryBg.png");
@@ -543,9 +637,6 @@ body.cat {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-
-        justify-content: center;
-        align-items: center;
     }
 
 
@@ -554,8 +645,12 @@ body.cat {
     ========================================= */
 
     #homeBtn {
+        position: absolute;
+
         top: 18px;
         left: 18px;
+
+        z-index: 20;
     }
 
 
@@ -564,10 +659,23 @@ body.cat {
     ========================================= */
 
     .avatar-container {
-        width: min(65vw, 300px);
+        width: min(62vw, 260px);
+
         height: auto;
 
         aspect-ratio: 1 / 1;
+
+        overflow: hidden;
+    }
+
+
+    .avatar-stage {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
     }
 
 
@@ -577,315 +685,19 @@ body.cat {
 
     .choosePart {
         width: 100%;
-        height: 55vh;
-
-        min-height: 0;
-
-        flex-shrink: 0;
-
-        display: flex;
-
-        align-items: stretch;
-        justify-content: flex-start;
-    }
-
-
-    /* =========================================
-       Selection Background
-    ========================================= */
-
-    .choosePartbg {
-        width: 100%;
-        height: 100%;
 
         /*
-            Rounded top corners.
-            Bottom extends to screen edge.
+            IMPORTANT:
+            Allow the section to grow with
+            the content instead of forcing 55vh.
         */
-        border-radius:
-            0px;
-
-        /*
-            Leave space for:
-
-            Top:
-            iconcontainer
-
-            Bottom:
-            QuestionButtonLayout
-        */
-        padding:
-            48px 16px 35px;
-
-        justify-content: space-between;
-
-        overflow: visible;
-    }
-
-
-    /* =========================================
-       Part Navigation
-    ========================================= */
-
-    .iconcontainer {
-        /*
-            Keep absolute positioning
-            from desktop.
-
-            Move icon group up.
-        */
-        top: -28px;
-
-        left: 0;
-
-        width: 100%;
-
-        gap: 4px;
-
-        padding:
-            0 8px;
-    }
-
-
-    .partIcon {
-        min-width: 0;
-    }
-
-
-    /* =========================================
-       Icon Box
-    ========================================= */
-
-    .Icon-c {
-        width: clamp(50px, 16vw, 60px);
-        height: clamp(48px, 14vw, 55px);
-
-        border-radius: 10px;
-    }
-
-
-    #bodyIcon,
-    #eyeIcon,
-    #earIcon,
-    #tailIcon {
-        max-width: 65%;
-        max-height: 65%;
-    }
-
-
-    /* =========================================
-       Part Name
-    ========================================= */
-
-    .partIcon h5 {
-        margin-top: 5px;
-
-        font-size:
-            clamp(0.7rem,
-                3vw,
-                0.85rem);
-
-        line-height: 1;
-
-        white-space: nowrap;
-    }
-
-
-    /* =========================================
-       Selection Cards
-    ========================================= */
-
-    .buttonGrid {
-        width: 100%;
-
-        gap: 8px;
-
-        /*
-            Automatically fill
-            available space.
-        */
-        flex: 1;
-
-        min-height: 0;
-    }
-
-
-    .buttonGrid>div {
-        min-height: 0;
-    }
-
-
-    /* =========================================
-       Card Buttons
-    ========================================= */
-
-    #btn0,
-    #btn1,
-    #btn2,
-    #btn3 {
-        width: 100%;
-        height: 100%;
-
-        min-height: 0;
-
-        padding: 6px;
-
-        border-radius: 12px;
-
-        /* font-size:
-            clamp(0.75rem,
-                3vw,
-                0.9rem); */
-
-        overflow: hidden;
-    }
-
-
-    /* =========================================
-       Back / Next Layout
-    ========================================= */
-
-    .QuestionButtonLayout {
-        /*
-            Keep absolute positioning.
-
-            Button height ≈ 44px
-            Move down around half.
-        */
-        bottom: -22px;
-
-        left: 0;
-
-        width: 100%;
-
-        gap: 12px;
-
-        padding:
-            0 18px;
-    }
-
-
-    /* =========================================
-       Back / Next Buttons
-    ========================================= */
-    /* 
-    #backBtn,
-    #nextBtn {
-        height: 44px;
-        min-height: 44px;
-
-        max-width: none;
-
-        padding:
-            5px 12px;
-
-        gap: 8px;
-
-        letter-spacing: 0.03em;
-    } */
-}
-
-
-/* =========================================
-   Small Mobile
-   <= 480px
-========================================= */
-/* =========================================
-   Mobile
-   <= 768px
-========================================= */
-
-@media (max-width: 768px) {
-
-    /* =========================================
-       Body
-    ========================================= */
-
-    body.cat {
-        background-image: none;
-        min-height: 100vh;
-        overflow: hidden;
-    }
-
-
-    /* =========================================
-       Main Layout
-    ========================================= */
-
-    .content {
-        width: 100%;
-        height: 100vh;
-
-        max-width: none;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 0;
-
-        padding: 0;
-        margin: 0;
-    }
-
-
-    /* =========================================
-       Preview
-    ========================================= */
-
-    .preview {
-        width: 100%;
-        height: 45vh;
-
-        min-height: 300px;
-
-        flex-shrink: 0;
-
-        background-image: url("../img/factoryBg.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    /* =========================================
-       Home Button
-    ========================================= */
-
-    #homeBtn {
-        top: 18px;
-        left: 18px;
-    }
-
-
-    /* =========================================
-       Avatar
-    ========================================= */
-
-    .avatar-container {
-        width: min(65vw, 300px);
+        min-height: 58vh;
         height: auto;
 
-        aspect-ratio: 1 / 1;
-    }
-
-
-    /* =========================================
-       Choose Part
-    ========================================= */
-
-    .choosePart {
-        width: 100%;
-        height: 55vh;
-
-        min-height: 0;
-
         flex-shrink: 0;
 
         display: flex;
+
         align-items: stretch;
         justify-content: flex-start;
     }
@@ -899,32 +711,46 @@ body.cat {
         position: relative;
 
         width: 100%;
-        height: 100%;
 
-        border-radius: 0px;
+        /*
+            Allow content to determine height.
+        */
+        height: auto;
+        min-height: 100%;
+
+        border-radius: 0;
 
         padding:
-            14px 16px 12px;
+            14px 16px 16px;
 
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
 
-        overflow: hidden;
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        /*
+            Allow content to extend if necessary.
+        */
+        overflow: visible;
     }
 
 
     /* =========================================
        Part Navigation
-       Back INSIDE panel
     ========================================= */
 
     .iconcontainer {
+        /*
+            IMPORTANT:
+            Put icons back into normal flow.
+        */
         position: static;
 
         width: 100%;
 
         display: flex;
+
         justify-content: space-around;
         align-items: flex-start;
 
@@ -944,7 +770,9 @@ body.cat {
         min-width: 0;
 
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
     }
 
@@ -954,10 +782,19 @@ body.cat {
     ========================================= */
 
     .Icon-c {
-        width: clamp(50px, 16vw, 60px);
-        height: clamp(48px, 14vw, 55px);
+        width:
+            clamp(50px,
+                16vw,
+                60px);
+
+        height:
+            clamp(48px,
+                14vw,
+                55px);
 
         border-radius: 10px;
+
+        flex-shrink: 0;
     }
 
 
@@ -975,7 +812,8 @@ body.cat {
     ========================================= */
 
     .partIcon h5 {
-        margin: 5px 0 0;
+        margin:
+            5px 0 0;
 
         font-size:
             clamp(0.7rem,
@@ -1001,72 +839,120 @@ body.cat {
             repeat(2, minmax(0, 1fr));
 
         grid-template-rows:
-            repeat(2, minmax(0, 1fr));
+            repeat(2,
+                minmax(120px, auto));
 
         gap: 8px;
 
-        flex: 1;
+        /*
+            IMPORTANT:
+            Do not let flexbox shrink the cards.
+        */
+        flex: none;
 
         min-height: 0;
+
+        margin-top: 14px;
+        margin-bottom: 16px;
     }
 
 
-    .buttonGrid>div {
+    .buttonGrid>button {
         width: 100%;
 
         min-width: 0;
-        min-height: 0;
+
+        min-height: 120px;
     }
 
 
     /* =========================================
-       Cards
+       Selection Card
     ========================================= */
 
-    /* #btn0,
-    #btn1,
-    #btn2,
-    #btn3 {
+    .choose-btn {
         width: 100%;
         height: 100%;
 
-        min-height: 0;
+        min-height: 120px;
 
-        padding: 6px;
+        padding: 8px;
 
         border-radius: 12px;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        font-size:
-            clamp(0.75rem,
-                3vw,
-                0.9rem);
-
-        box-shadow: none;
+        gap: 8px;
 
         overflow: hidden;
-    } */
+    }
 
 
     /* =========================================
-       Back / Next
-       Back INSIDE panel
+       Card Image Container
+    ========================================= */
+
+    .choose-btn-image {
+        padding: 8px;
+
+        border-radius: 12px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* =========================================
+       Card Image
+    ========================================= */
+
+    .choose-btn-image img {
+        width:
+            clamp(55px,
+                18vw,
+                80px);
+
+        height:
+            clamp(55px,
+                18vw,
+                80px);
+
+        object-fit: contain;
+    }
+
+
+    /* =========================================
+       Card Text
+    ========================================= */
+
+    .option-name {
+        font-size:
+            clamp(0.8rem,
+                3.2vw,
+                1rem);
+
+        line-height: 1.1;
+
+        text-align: center;
+    }
+
+
+    /* =========================================
+       Back / Next Layout
     ========================================= */
 
     .QuestionButtonLayout {
+        /*
+            IMPORTANT:
+            Return to normal document flow.
+        */
         position: static;
 
         width: 100%;
 
         display: flex;
+
         justify-content: space-between;
         align-items: center;
 
-        gap: 12px;
+        gap: 10px;
 
         padding: 0;
 
@@ -1077,7 +963,7 @@ body.cat {
 
 
     /* =========================================
-       Buttons
+       Back / Next Buttons
     ========================================= */
 
     #backBtn,
@@ -1086,10 +972,10 @@ body.cat {
 
         width: 100%;
 
+        max-width: none;
+
         height: 44px;
         min-height: 44px;
-
-        max-width: none;
 
         padding:
             5px 12px;
@@ -1099,9 +985,9 @@ body.cat {
         justify-content: center;
 
         font-size:
-            clamp(1rem,
+            clamp(0.95rem,
                 4vw,
-                1.25rem);
+                1.15rem);
 
         letter-spacing: 0.03em;
     }
@@ -1118,10 +1004,7 @@ body.cat {
     }
 }
 
-/* =========================================
-   Very Small Phone
-   <= 360px
-========================================= */
+
 /* =========================================
    Small Mobile
    <= 480px
@@ -1129,71 +1012,123 @@ body.cat {
 
 @media (max-width: 480px) {
 
+    /* =========================================
+       Preview
+    ========================================= */
+
     .preview {
-        height: 45vh;
-        min-height: 300px;
+        height: 40vh;
+
+        min-height: 240px;
     }
 
+
+    /* =========================================
+       Avatar
+    ========================================= */
 
     .avatar-container {
-        width: min(62vw, 260px);
+        width: min(60vw, 230px);
     }
 
 
+    /* =========================================
+       Choose Part
+    ========================================= */
+
     .choosePart {
-        height: 55vh;
+        min-height: 60vh;
     }
 
 
     .choosePartbg {
         padding:
-            12px 16px 10px;
+            12px 12px 14px;
     }
 
 
-    /* Icons stay INSIDE */
-    .iconcontainer {
-        position: static;
+    /* =========================================
+       Icons
+    ========================================= */
 
+    .iconcontainer {
         gap: 4px;
     }
 
 
     .Icon-c {
-        width: clamp(50px, 16vw, 60px);
-        height: clamp(48px, 14vw, 55px);
+        width:
+            clamp(48px,
+                15vw,
+                56px);
+
+        height:
+            clamp(46px,
+                14vw,
+                52px);
     }
 
 
     .partIcon h5 {
         font-size:
-            clamp(0.7rem,
+            clamp(0.68rem,
                 3vw,
-                0.85rem);
+                0.8rem);
     }
 
 
-    /* Cards */
+    /* =========================================
+       Cards
+    ========================================= */
 
     .buttonGrid {
         gap: 7px;
+
+        grid-template-rows:
+            repeat(2,
+                minmax(105px, auto));
     }
 
 
-    #btn0,
-    #btn1,
-    #btn2,
-    #btn3 {
+    .buttonGrid>button,
+    .choose-btn {
+        min-height: 105px;
+    }
+
+
+    .choose-btn {
+        padding: 6px;
+
+        border-radius: 10px;
+
+        gap: 6px;
+    }
+
+
+    .choose-btn-image {
+        padding: 6px;
+
         border-radius: 10px;
     }
 
 
-    /* Buttons stay INSIDE */
+    .choose-btn-image img {
+        width: 58px;
+        height: 58px;
+    }
+
+
+    .option-name {
+        font-size: 0.8rem;
+    }
+
+
+    /* =========================================
+       Bottom Buttons
+    ========================================= */
 
     .QuestionButtonLayout {
-        position: static;
-
-        gap: 10px;
+        gap: 8px;
     }
 
 
@@ -1203,7 +1138,7 @@ body.cat {
         min-height: 42px;
 
         padding:
-            5px 12px;
+            5px 10px;
 
         font-size: 1rem;
     }
@@ -1213,5 +1148,119 @@ body.cat {
     #nextButtonIcon {
         width: 17px;
         height: 20px;
+    }
+}
+
+
+/* =========================================
+   Very Small Phone
+   <= 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    /* =========================================
+       Preview
+    ========================================= */
+
+    .preview {
+        height: 38vh;
+
+        min-height: 225px;
+    }
+
+
+    .avatar-container {
+        width: 190px;
+    }
+
+
+    /* =========================================
+       Choose Part
+    ========================================= */
+
+    .choosePart {
+        min-height: 62vh;
+    }
+
+
+    .choosePartbg {
+        padding:
+            10px 10px 12px;
+    }
+
+
+    /* =========================================
+       Icons
+    ========================================= */
+
+    .Icon-c {
+        width: 46px;
+        height: 44px;
+
+        border-radius: 8px;
+    }
+
+
+    .partIcon h5 {
+        margin-top: 4px;
+
+        font-size: 0.68rem;
+    }
+
+
+    /* =========================================
+       Cards
+    ========================================= */
+
+    .buttonGrid {
+        gap: 6px;
+
+        margin-top: 10px;
+        margin-bottom: 12px;
+
+        grid-template-rows:
+            repeat(2,
+                minmax(95px, auto));
+    }
+
+
+    .buttonGrid>button,
+    .choose-btn {
+        min-height: 95px;
+    }
+
+
+    .choose-btn-image img {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .option-name {
+        font-size: 0.75rem;
+    }
+
+
+    /* =========================================
+       Bottom Buttons
+    ========================================= */
+
+    #backBtn,
+    #nextBtn {
+        height: 40px;
+        min-height: 40px;
+
+        padding:
+            4px 8px;
+
+        font-size: 0.9rem;
+    }
+
+
+    #backButtonIcon,
+    #nextButtonIcon {
+        width: 16px;
+        height: 19px;
     }
 }

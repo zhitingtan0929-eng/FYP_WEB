@@ -11,7 +11,7 @@ const dogQuestion = [
             {
                 name: "Slim Build",
                 imageID: "body1",
-                buttonImage: "img/dog/body/body1.png",
+                buttonImage: "img/dog/button/body/body1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -22,7 +22,7 @@ const dogQuestion = [
             {
                 name: "Square Build",
                 imageID: "body2",
-                buttonImage: "img/dog/body/body2.png",
+                buttonImage: "img/dog/button/body/body2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -36,7 +36,7 @@ const dogQuestion = [
             {
                 name: "Stocky Build",
                 imageID: "body3",
-                buttonImage: "img/dog/body/body3.png",
+                buttonImage: "img/dog/button/body/body3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -51,7 +51,7 @@ const dogQuestion = [
             {
                 name: "Compact Build",
                 imageID: "body4",
-                buttonImage: "img/dog/body/body4.png",
+                buttonImage: "img/dog/button/body/body4.png",
                 risk: "High",
                 //score: 2,
                 problems: [

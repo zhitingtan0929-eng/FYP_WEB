@@ -11,7 +11,7 @@ const catQuestion = [
             {
                 name: "Slender Body",
                 imageID: "body1",
-                buttonImage: "img/cat/body/body1.png",
+                buttonImage: "img/cat/button/body/body1.png",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -22,7 +22,7 @@ const catQuestion = [
             {
                 name: "Cobby Body",
                 imageID: "body2",
-                buttonImage: "img/cat/body/body2.png",
+                buttonImage: "img/cat/button/body/body2.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -36,7 +36,7 @@ const catQuestion = [
             {
                 name: "Heavy Boned",
                 imageID: "body3",
-                buttonImage: "img/cat/body/body3.png",
+                buttonImage: "img/cat/button/body/body3.png",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -51,7 +51,7 @@ const catQuestion = [
             {
                 name: "Short-legged",
                 imageID: "body4",
-                buttonImage: "img/cat/body/body4.png",
+                buttonImage: "img/cat/button/body/body4.png",
                 risk: "High",
                 //score: 2,
                 problems: [
