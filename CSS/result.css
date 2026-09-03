@@ -19,11 +19,11 @@
 ========================================= */
 
 #endingBg.ending-high {
-    background-image: url("../img/BadEnding.png");
+    background-image: url("../img/badEndingBg.png");
 }
 
 #endingBg.ending-medium {
-    background-image: url("../img/GoodEndingBg.png");
+    background-image: url("../img/middleEndingBg.png");
 }
 
 #endingBg.ending-low {
