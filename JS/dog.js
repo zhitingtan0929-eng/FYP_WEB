@@ -11,7 +11,7 @@ const dogQuestion = [
             {
                 name: "Slim Build",
                 imageID: "body1",
-                buttonImage: "img/dog/button/body/body1.png",
+                buttonImage: "img/dog/button/body/body1.webp",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -22,7 +22,7 @@ const dogQuestion = [
             {
                 name: "Square Build",
                 imageID: "body2",
-                buttonImage: "img/dog/button/body/body2.png",
+                buttonImage: "img/dog/button/body/body2.webp",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -36,7 +36,7 @@ const dogQuestion = [
             {
                 name: "Stocky Build",
                 imageID: "body3",
-                buttonImage: "img/dog/button/body/body3.png",
+                buttonImage: "img/dog/button/body/body3.webp",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -51,7 +51,7 @@ const dogQuestion = [
             {
                 name: "Compact Build",
                 imageID: "body4",
-                buttonImage: "img/dog/button/body/body4.png",
+                buttonImage: "img/dog/button/body/body4.webp",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -76,7 +76,7 @@ const dogQuestion = [
             {
                 name: "Round Eyes",
                 imageID: "eye1",
-                buttonImage: "img/dog/button/eye/eye1.png",
+                buttonImage: "img/dog/button/eye/eye1.webp",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -87,7 +87,7 @@ const dogQuestion = [
             {
                 name: "Almond-shaped Eyes",
                 imageID: "eye2",
-                buttonImage: "img/dog/button/eye/eye2.png",
+                buttonImage: "img/dog/button/eye/eye2.webp",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -98,7 +98,7 @@ const dogQuestion = [
             {
                 name: "Sunken eyes",
                 imageID: "eye3",
-                buttonImage: "img/dog/button/eye/eye3.png",
+                buttonImage: "img/dog/button/eye/eye3.webp",
                 risk: "Medium",
                 //score: 1,
                 problems: [
@@ -113,7 +113,7 @@ const dogQuestion = [
             {
                 name: "Protruding Eyes",
                 imageID: "eye4",
-                buttonImage: "img/dog/button/eye/eye4.png",
+                buttonImage: "img/dog/button/eye/eye4.webp",
                 risk: "High",
                 //score: 1,
                 problems: [
@@ -138,7 +138,7 @@ const dogQuestion = [
             {
                 name: "Prick Ears",
                 imageID: "ear1",
-                buttonImage: "img/dog/button/ear/ear1.png",
+                buttonImage: "img/dog/button/ear/ear1.webp",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -149,7 +149,7 @@ const dogQuestion = [
             {
                 name: "Semi-Prick Ears",
                 imageID: "ear2",
-                buttonImage: "img/dog/button/ear/ear2.png",
+                buttonImage: "img/dog/button/ear/ear2.webp",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -160,7 +160,7 @@ const dogQuestion = [
             {
                 name: "Folded Ears",
                 imageID: "ear3",
-                buttonImage: "img/dog/button/ear/ear3.png",
+                buttonImage: "img/dog/button/ear/ear3.webp",
                 risk: "Medium",
                 //score: 2,
                 problems: [
@@ -174,7 +174,7 @@ const dogQuestion = [
             {
                 name: "Drop Ears",
                 imageID: "ear4",
-                buttonImage: "img/dog/button/ear/ear4.png",
+                buttonImage: "img/dog/button/ear/ear4.webp",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -197,7 +197,7 @@ const dogQuestion = [
             {
                 name: "Otter Tail",
                 imageID: "tail1",
-                buttonImage: "img/dog/button/tail/tail1.png",
+                buttonImage: "img/dog/button/tail/tail1.webp",
                 risk: "Low",
                 //score: 0,
                 problems: [],
@@ -208,7 +208,7 @@ const dogQuestion = [
             {
                 name: "Curled Tail",
                 imageID: "tail2",
-                buttonImage: "img/dog/button/tail/tail2.png",
+                buttonImage: "img/dog/button/tail/tail2.webp",
                 risk: "Low",
                 //score: 1,
                 problems: [],
@@ -219,7 +219,7 @@ const dogQuestion = [
             {
                 name: "Screw Tail",
                 imageID: "tail3",
-                buttonImage: "img/dog/button/tail/tail3.png",
+                buttonImage: "img/dog/button/tail/tail3.webp",
                 risk: "High",
                 //score: 2,
                 problems: [
@@ -234,7 +234,7 @@ const dogQuestion = [
             {
                 name: "Bobtail / Tailless",
                 imageID: "tail4",
-                buttonImage: "img/dog/button/tail/tail4.png",
+                buttonImage: "img/dog/button/tail/tail4.webp",
                 risk: "High",
                 //score: 2,
                 problems: [
