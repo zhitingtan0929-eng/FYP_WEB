@@ -73,7 +73,7 @@ async function preloadAllAvatarImages(animal) {
         for (let i = 1; i <= 4; i++) {
 
             const src =
-                `img/${animal}/${part.folder}/${part.prefix}${i}.png`;
+                `img/${animal}/${part.folder}/${part.prefix}${i}.webp`;
 
 
             const img =
@@ -361,7 +361,7 @@ function getAvatarImagePath(
             return (
                 path.body +
                 imageID +
-                ".png"
+                ".webp"
             );
 
 
@@ -370,7 +370,7 @@ function getAvatarImagePath(
             return (
                 path.eye +
                 imageID +
-                ".png"
+                ".webp"
             );
 
 
@@ -379,7 +379,7 @@ function getAvatarImagePath(
             return (
                 path.ear +
                 imageID +
-                ".png"
+                ".webp"
             );
 
 
@@ -388,7 +388,7 @@ function getAvatarImagePath(
             return (
                 path.tail +
                 imageID +
-                ".png"
+                ".webp"
             );
 
 
@@ -598,7 +598,7 @@ async function updateAvatar(
 
 
     const src =
-        `img/${animal}/${folder}/${imageID}.png`;
+        `img/${animal}/${folder}/${imageID}.webp`;
 
 
     // =================================================
