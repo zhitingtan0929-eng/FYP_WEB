@@ -52,6 +52,18 @@ const answer =
         savedAnswer
     );
 
+const requiredParts = ["Body", "Eyes", "Ears", "Tail"];
+
+const isComplete = requiredParts.every(part =>
+    answer.some(item => item && item.part === part)
+);
+
+if (!isComplete) {
+    alert("Your pet customization is incomplete.");
+
+    window.location.href =
+        animal === "cat" ? "cat.html" : "dog.html";
+}
 
 // // ===============================
 // // Result Title

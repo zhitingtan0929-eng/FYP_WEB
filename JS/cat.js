@@ -15,7 +15,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/cat/problems/body/body1-problem.webp",
                 breed: "Abyssinian / Oriental Shorthair",
                 link: ""
             },
@@ -80,7 +80,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/cat/problems/eye/eye1-problem.webp",
                 breed: "American Shorthair",
                 link: ""
             },
@@ -142,7 +142,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/cat/problems/ear/ear1-problem.webp",
                 breed: "European Shorthair",
                 link: ""
             },
@@ -153,6 +153,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
+                problemImage: "img/cat/problems/ear/ear2-problem.webp",
                 breed: "Cornish Rex",
                 link: ""
             },
@@ -203,7 +204,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/cat/problems/tail/tail1-problem.webp",
                 breed: "Norwegian Forest Cat",
                 link: ""
             },
@@ -227,7 +228,7 @@ const catQuestion = [
                 risk: "Low",
                 //score: 1,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/cat/problems/tail/tail3-problem.webp",
                 breed: "American Ringtail Cat",
                 link: ""
             },
@@ -282,6 +283,26 @@ window.onload = async function () {
     // =================================================
 
     loadQuestion(catQuestion);
+
+    // ===============================
+    // Part Icon Navigation
+    // ===============================
+
+    const partIcons = document.querySelectorAll(".partIcon");
+
+    partIcons.forEach(icon => {
+
+        icon.addEventListener("click", function () {
+
+            const partName = this.dataset.part;
+
+            console.log("Clicked part:", partName);
+
+            goToPart(partName);
+
+        });
+
+    });
 
 
     // =================================================

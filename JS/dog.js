@@ -15,7 +15,7 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/dog/problems/body/body1-problem.webp",
                 breed: "Greyhound / Whippet",
                 link: ""
             },
@@ -80,8 +80,8 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
-                breed: "",
+                problemImage: "img/dog/problems/eye/eye1-problem.webp",
+                breed: "Beagle / Cocker Spaniel",
                 link: ""
             },
             {
@@ -91,8 +91,8 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
-                breed: "",
+                problemImage: "img/dog/problems/eye/eye2-problem.webp",
+                breed: "Shiba Inu / Border Collie",
                 link: ""
             },
             {
@@ -142,8 +142,8 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
-                breed: "",
+                problemImage: "img/dog/problems/ear/ear1-problem.webp",
+                breed: "German Shepherd / Siberian Husky",
                 link: ""
             },
             {
@@ -153,8 +153,8 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 1,
                 problems: [],
-                problemImage: "",
-                breed: "",
+                problemImage: "img/dog/problems/ear/ear2-problem.webp",
+                breed: "Border Collie / Shetland Sheepdog",
                 link: ""
             },
             {
@@ -201,7 +201,7 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 0,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/dog/problems/tail/tail1-problem.webp",
                 breed: "Labrador Retriever",
                 link: ""
             },
@@ -212,7 +212,7 @@ const dogQuestion = [
                 risk: "Low",
                 //score: 1,
                 problems: [],
-                problemImage: "",
+                problemImage: "img/dog/problems/tail/tail2-problem.webp",
                 breed: "Shiba Inu",
                 link: ""
             },
@@ -320,6 +320,26 @@ window.onload = async function () {
     // =================================================
 
     loadQuestion(dogQuestion);
+
+    // ===============================
+    // Part Icon Navigation
+    // ===============================
+
+    const partIcons = document.querySelectorAll(".partIcon");
+
+    partIcons.forEach(icon => {
+
+        icon.addEventListener("click", function () {
+
+            const partName = this.dataset.part;
+
+            console.log("Clicked part:", partName);
+
+            goToPart(partName);
+
+        });
+
+    });
 
 
     // =================================================

@@ -160,6 +160,87 @@ function updatePartIcons(currentPart) {
 
 }
 
+
+// ===============================
+// Part Icon Click Navigation
+// ===============================
+
+// Save current selection before switching
+function saveCurrentAnswer() {
+
+    if (
+        !currentQuestionArray ||
+        selectedOption === null
+    ) {
+        return;
+    }
+
+    answer[currentQuestion] = {
+        ...selectedOption,
+        part: currentQuestionArray[currentQuestion].part
+    };
+}
+
+
+// Switch directly to selected part
+
+function goToPart(partName) {
+
+    if (!currentQuestionArray) return;
+
+    const targetIndex =
+        currentQuestionArray.findIndex(
+            question =>
+                question.part.toLowerCase() ===
+                partName.toLowerCase()
+        );
+
+    if (targetIndex === -1) return;
+
+    changeStage(targetIndex);
+}
+
+// // Add click event to each part icon
+// document.querySelectorAll(".partIcon").forEach(icon => {
+
+//     icon.addEventListener("click", function () {
+
+//         const partName = this.dataset.part;
+
+//         goToPart(partName);
+
+//     });
+
+// });
+
+
+
+// ===============================
+// Shared Stage Navigation
+// ===============================
+
+function changeStage(targetIndex) {
+
+    if (!currentQuestionArray) return;
+
+    // Prevent invalid stage index
+    if (
+        targetIndex < 0 ||
+        targetIndex >= currentQuestionArray.length
+    ) {
+        return;
+    }
+
+    // Save current stage before switching
+    saveCurrentAnswer();
+
+    // Update the one shared stage index
+    currentQuestion = targetIndex;
+
+    // Refresh question, icon and selection together
+    loadQuestion(currentQuestionArray);
+}
+
 // ===============================
 // Load Question
 // ===============================
@@ -346,35 +427,20 @@ function loadQuestion(questionArray) {
     // Restore Previous Answer
     // ===============================
 
-    if (answer[currentQuestion]) {
+    // 如果之前选过，就恢复之前的选择；否则使用原始选项中的第一个
+    const targetOption =
+        answer[currentQuestion] ||
+        questionArray[currentQuestion].options[0];
 
-        const previousAnswer =
-            answer[currentQuestion];
+    // 在随机排列后的选项中找到对应的选项
+    const selectedIndex = options.findIndex(
+        option => option.imageID === targetOption.imageID
+    );
 
-
-        selectedOption =
-            previousAnswer;
-
-
-        // Find matching option
-        const selectedIndex =
-            options.findIndex(
-                option =>
-                    option.imageID ===
-                    previousAnswer.imageID
-            );
-
-
-        if (selectedIndex !== -1) {
-
-            document
-                .getElementById(
-                    "btn" + selectedIndex
-                )
-                .classList.add("selected");
-
-        }
-
+    if (selectedIndex !== -1) {
+        // 触发选项本身的点击逻辑
+        // 自动更新 selectedOption、选中样式和 Avatar
+        document.getElementById("btn" + selectedIndex).click();
     }
 
 }
@@ -412,84 +478,48 @@ nextBtn.onclick = function () {
 // Next Question
 // ===============================
 
-function nextQuestion(
-    questionArray,
-    selectedOption
-) {
 
-    // answer[currentQuestion] = {
-
-    //     part:
-    //         questionArray[currentQuestion].part,
-
-    //     name:
-    //         selectedOption.name,
-
-    //     imageID:
-    //         selectedOption.imageID,
-
-    //     buttonImage:
-    //         selectedOption.buttonImage,
-
-    //     risk:
-    //         selectedOption.risk,
-
-    //     problems:
-    //         selectedOption.problems,
-
-    //     problemImage:
-    //         selectedOption.problemImage,
-
-    //     breed:
-    //         selectedOption.breed,
-
-    //     link:
-    //         selectedOption.link
-
-    // };
-
-    // ===============================
-    // Save Current Answer
-    // ===============================
-
+function nextQuestion(questionArray, selectedOption) {
+    // Save current selection
     answer[currentQuestion] = {
-
         ...selectedOption,
-
-        part:
-            questionArray[currentQuestion].part
-
+        part: questionArray[currentQuestion].part
     };
 
-    currentQuestion++;
+    // If this is the last stage, fill all unanswered parts with defaults
+    if (currentQuestion === questionArray.length - 1) {
 
+        questionArray.forEach((question, index) => {
 
-    if (
-        currentQuestion <
-        questionArray.length
-    ) {
+            const part = question.part;
 
-        loadQuestion(
-            questionArray
-        );
+            // Check whether this part already has an answer
+            const existingAnswer = answer.find(
+                item => item && item.part === part
+            );
 
-    }
+            // If unanswered, use the first original option as default
+            if (!existingAnswer) {
 
-    else {
+                answer[index] = {
+                    ...question.options[0],
+                    part: part
+                };
+            }
+        });
 
+        // Save completed answers
         localStorage.setItem(
-
             currentAnimal + "Answer",
-
             JSON.stringify(answer)
-
         );
 
-
-        window.location.href =
-            "result.html";
-
+        window.location.href = "result.html";
+        return;
     }
+
+    // Always move to the next stage in sequence
+    changeStage(currentQuestion + 1);
 
 }
 
@@ -497,25 +527,14 @@ function nextQuestion(
 // Previous Question
 // ===============================
 
+
 function previousQuestion(questionArray) {
 
-    if (currentQuestion <= 0) {
+    if (currentQuestion <= 0) return;
 
-        return;
-
-    }
-
-
-    currentQuestion--;
-
-
-    loadQuestion(
-        questionArray
-    );
-
+    changeStage(currentQuestion - 1);
 
     restoreAvatar();
-
 }
 
 
