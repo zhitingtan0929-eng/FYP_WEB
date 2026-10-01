@@ -12,6 +12,8 @@ const currentAnimal =
 
 let currentQuestion = 0;
 
+let avatarUpdateToken = 0;
+
 let answer = [];
 
 let selectedOption = null;
@@ -223,7 +225,6 @@ function changeStage(targetIndex) {
 
     if (!currentQuestionArray) return;
 
-    // Prevent invalid stage index
     if (
         targetIndex < 0 ||
         targetIndex >= currentQuestionArray.length
@@ -231,16 +232,15 @@ function changeStage(targetIndex) {
         return;
     }
 
-    // Save current stage before switching
     saveCurrentAnswer();
 
-    // Update the one shared stage index
+    // Invalidate pending avatar updates
+    avatarUpdateToken++;
+
     currentQuestion = targetIndex;
 
-    // Refresh question, icon and selection together
     loadQuestion(currentQuestionArray);
 }
-
 // ===============================
 // Load Question
 // ===============================
@@ -348,76 +348,76 @@ function loadQuestion(questionArray) {
         name.textContent =
             option.name;
 
+
+
         button.onclick = async function () {
 
-            // =================================================
-            // Remove Previous Selection
-            // =================================================
+            // Capture current stage and selection
+            const clickedPart =
+                questionArray[currentQuestion].part;
 
-            for (
-                let j = 0;
-                j < options.length;
-                j++
-            ) {
+            const clickedOption = option;
 
+            const clickedQuestionIndex = currentQuestion;
+
+            // Create latest update token
+            const updateToken = ++avatarUpdateToken;
+
+            // Clear previous highlights
+            for (let j = 0; j < options.length; j++) {
                 document
                     .getElementById("btn" + j)
                     .classList.remove("selected");
-
             }
 
-
-            // =================================================
-            // Highlight
-            // =================================================
-
+            // Highlight current selection
             button.classList.add("selected");
 
+            // Save current selection
+            selectedOption = clickedOption;
 
-            // =================================================
-            // Save Selection
-            // =================================================
-
-            selectedOption =
-                option;
-
-
-            // =================================================
-            // Update Avatar Image
-            // =================================================
-
+            // Update image
             await updateAvatar(
-
                 currentAnimal,
-
-                questionArray[currentQuestion].part,
-
-                selectedOption
-
+                clickedPart,
+                clickedOption,
+                updateToken
             );
 
+            // Stop if another update has started
+            if (
+                updateToken !== avatarUpdateToken ||
+                clickedQuestionIndex !== currentQuestion
+            ) {
+                return;
+            }
 
-            // Body
-            const body =
-                questionArray[currentQuestion].part === "Body"
-                    ? selectedOption.imageID
-                    : (
-                        answer.find(
-                            a => a.part === "Body"
-                        )?.imageID || "body1"
-                    );
+            // Find current body
+            const bodyAnswer =
+                clickedPart === "Body"
+                    ? clickedOption
+                    : answer.find(item => item?.part === "Body");
 
-            // Ear
-            const ear =
-                questionArray[currentQuestion].part === "Ears"
-                    ? selectedOption.imageID
-                    : getCurrentEar();
+            const bodyID =
+                bodyAnswer?.imageID || "body1";
 
+            // Find current ear
+            const earAnswer =
+                clickedPart === "Ears"
+                    ? clickedOption
+                    : answer.find(item => item?.part === "Ears");
+
+            const earID =
+                earAnswer?.imageID || "ear1";
+
+            // Apply position using the same token
             await applyAvatarPosition(
                 currentAnimal,
-                body,
-                ear
+                bodyID,
+                earID,
+                updateToken
             );
+
         };
 
     }

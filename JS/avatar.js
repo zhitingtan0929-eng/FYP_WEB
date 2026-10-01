@@ -488,6 +488,7 @@ function loadImage(
 }
 
 
+
 // =====================================================
 // Update Avatar
 // =====================================================
@@ -495,166 +496,75 @@ function loadImage(
 async function updateAvatar(
     animal,
     part,
-    option
+    option,
+    updateToken = null
 ) {
 
-    const imageID =
-        option.imageID;
+    const imageID = option.imageID;
 
     if (!imageID) {
-
-        console.warn(
-            "No imageID:",
-            animal,
-            part
-        );
-
+        console.warn("No imageID:", animal, part);
         return;
-
     }
 
-
-    let imgElement;
-
-
-    // =================================================
-    // Select Image Element
-    // =================================================
-
-    switch (part) {
-
-        case "Body":
-
-            imgElement =
-                document.getElementById("bodyImg");
-
-            break;
-
-
-        case "Eyes":
-
-            imgElement =
-                document.getElementById("eyeImg");
-
-            break;
-
-
-        case "Ears":
-
-            imgElement =
-                document.getElementById("earImg");
-
-            break;
-
-
-        case "Tail":
-
-            imgElement =
-                document.getElementById("tailImg");
-
-            break;
-
-    }
-
+    const imgElement = getAvatarImage(part);
 
     if (!imgElement) {
-
-        console.error(
-            "Image element not found:",
-            part
-        );
-
+        console.error("Image element not found:", part);
         return;
-
     }
 
+    const src = getAvatarImagePath(
+        animal,
+        part,
+        imageID
+    );
 
-    // =================================================
-    // Image Path
-    // =================================================
+    const cachedImage = preloadAvatarImage(src);
 
-    let folder;
-
-
-    switch (part) {
-
-        case "Body":
-            folder = "body";
-            break;
-
-        case "Eyes":
-            folder = "eye";
-            break;
-
-        case "Ears":
-            folder = "ear";
-            break;
-
-        case "Tail":
-            folder = "tail";
-            break;
-
+    // Wait for the cached image to finish loading
+    if (!cachedImage.complete) {
+        await new Promise(resolve => {
+            cachedImage.addEventListener("load", resolve, { once: true });
+            cachedImage.addEventListener("error", resolve, { once: true });
+        });
     }
 
-
-    const src =
-        `img/${animal}/${folder}/${imageID}.webp`;
-
-
-    // =================================================
-    // Preload / Cache
-    // =================================================
-
-    const cachedImage =
-        preloadAvatarImage(src);
-
-
-    // =================================================
-    // If Already Loaded
-    // =================================================
-
-    if (cachedImage.complete) {
-
-        imgElement.src =
-            cachedImage.src;
-
+    // Ignore failed images
+    if (!cachedImage.naturalWidth) {
+        console.error("Image failed to load:", src);
         return;
-
     }
 
+    // Ignore outdated requests before applying image
+    if (
+        updateToken !== null &&
+        updateToken !== avatarUpdateToken
+    ) {
+        return;
+    }
 
-    // =================================================
-    // Wait First Load
-    // =================================================
+    imgElement.src = cachedImage.src;
 
-    await new Promise(
-        resolve => {
-
-            cachedImage.onload =
-                resolve;
-
-            cachedImage.onerror =
-                resolve;
-
+    // Wait for the displayed image to decode
+    if (imgElement.decode) {
+        try {
+            await imgElement.decode();
+        } catch (error) {
+            console.warn("Image decode warning:", error);
         }
-    );
+    }
 
+    // Check again after decoding
+    if (
+        updateToken !== null &&
+        updateToken !== avatarUpdateToken
+    ) {
+        return;
+    }
 
-    // =================================================
-    // Apply
-    // =================================================
-
-    imgElement.src =
-        cachedImage.src;
-
-
-    console.log(
-        "✅ IMAGE LOADED:",
-        src
-    );
-
+    console.log("✅ Avatar updated:", part, imageID);
 }
-
 
 // =====================================================
 // Reset Avatar Position
@@ -716,6 +626,7 @@ function resetAvatarPosition() {
 }
 
 
+
 // =====================================================
 // Apply Avatar Position
 // =====================================================
@@ -723,199 +634,100 @@ function resetAvatarPosition() {
 async function applyAvatarPosition(
     animal,
     bodyID,
-    earID = "ear1"
+    earID = "ear1",
+    updateToken = null
 ) {
 
-    // Make sure config is loaded
+    // Load config if needed
     if (!avatarConfig) {
-
         try {
-
             await loadAvatarConfig();
-
-        }
-
-        catch (error) {
-
-            console.error(
-                "Cannot apply avatar position."
-            );
-
+        } catch (error) {
+            console.error("Cannot apply avatar position.");
             return;
-
         }
-
     }
 
+    // Stop outdated updates
+    if (
+        updateToken !== null &&
+        updateToken !== avatarUpdateToken
+    ) {
+        return;
+    }
 
-    // =================================================
-    // Get Config
-    // =================================================
-
-    const config =
-        avatarConfig?.[animal]?.[bodyID];
-
+    // Get body config
+    const config = avatarConfig?.[animal]?.[bodyID];
 
     if (!config) {
-
         console.warn(
             "Position config not found:",
             animal,
             bodyID
         );
-
         return;
-
     }
 
+    const eyeImg = document.getElementById("eyeImg");
+    const earImg = document.getElementById("earImg");
+    const tailImg = document.getElementById("tailImg");
+    const bodyImg = document.getElementById("bodyImg");
 
-    // =================================================
-    // Get Images
-    // =================================================
-
-    const eyeImg =
-        document.getElementById("eyeImg");
-
-    const earImg =
-        document.getElementById("earImg");
-
-    const tailImg =
-        document.getElementById("tailImg");
-
-
-    if (
-        !eyeImg ||
-        !earImg ||
-        !tailImg
-    ) {
-
-        console.warn(
-            "Avatar elements not found."
-        );
-
+    if (!eyeImg || !earImg || !tailImg) {
+        console.warn("Avatar elements not found.");
         return;
-
     }
 
-
-    // =================================================
-    // Reset
-    // =================================================
-
+    // Reset positions
     resetAvatarPosition();
 
-
-    // =================================================
-    // Eye
-    // =================================================
-
+    // Eye position
     if (config.eye) {
-
-        eyeImg.style.left =
-            `${config.eye.x ?? 0}%`;
-
-        eyeImg.style.top =
-            `${config.eye.y ?? 0}%`;
-
-        eyeImg.style.transform =
-            `scale(${config.eye.scale ?? 1})`;
-
+        eyeImg.style.left = `${config.eye.x ?? 0}%`;
+        eyeImg.style.top = `${config.eye.y ?? 0}%`;
+        eyeImg.style.transform = `scale(${config.eye.scale ?? 1})`;
     }
 
-
-    // =================================================
-    // Ear
-    // =================================================
-
+    // Ear position
     if (config.ear) {
-
-        earImg.style.left =
-            `${config.ear.x ?? 0}%`;
-
-        earImg.style.top =
-            `${config.ear.y ?? 0}%`;
-
-        earImg.style.transform =
-            `scale(${config.ear.scale ?? 1})`;
-
+        earImg.style.left = `${config.ear.x ?? 0}%`;
+        earImg.style.top = `${config.ear.y ?? 0}%`;
+        earImg.style.transform = `scale(${config.ear.scale ?? 1})`;
     }
 
-
-    // =================================================
-    // Tail
-    // =================================================
-
+    // Tail position
     if (config.tail) {
-
-        tailImg.style.left =
-            `${config.tail.x ?? 0}%`;
-
-        tailImg.style.top =
-            `${config.tail.y ?? 0}%`;
-
-        tailImg.style.transform =
-            `scale(${config.tail.scale ?? 1})`;
-
+        tailImg.style.left = `${config.tail.x ?? 0}%`;
+        tailImg.style.top = `${config.tail.y ?? 0}%`;
+        tailImg.style.transform = `scale(${config.tail.scale ?? 1})`;
     }
 
-    // =================================================
-    // Update Draw Order
-    // =================================================
+    // Check again before applying draw order
+    if (
+        updateToken !== null &&
+        updateToken !== avatarUpdateToken
+    ) {
+        return;
+    }
 
-    const bodyImg =
-        document.getElementById("bodyImg");
+    // Draw order
+    if (bodyImg) bodyImg.style.zIndex = 2;
+    if (tailImg) tailImg.style.zIndex = 1;
+    if (eyeImg) eyeImg.style.zIndex = 4;
 
-
-    // Default Layer
-
-    if (bodyImg)
-        bodyImg.style.zIndex = 2;
-
-    if (tailImg)
-        tailImg.style.zIndex = 1;
-
-    if (eyeImg)
-        eyeImg.style.zIndex = 4;
-
-
-
-    // =================================================
-    // Read Ear Draw Order From catEar / dogEar
-    // =================================================
-
-    // use current selected ear
-
-    const currentEar =
-        earID;
-
-
-
+    // Ear draw order
     const earConfig =
-        avatarConfig
-        ?.[animal + "Ear"]
-        ?.[currentEar];
+        avatarConfig?.[animal + "Ear"]?.[earID];
 
-
-
-    if (earConfig?.front) {
-
-        earImg.style.zIndex = 3;
-
-    }
-    else {
-
-        earImg.style.zIndex = 1;
-
-    }
-
+    earImg.style.zIndex =
+        earConfig?.front ? 3 : 1;
 
     console.log(
         "✅ Applied Avatar Position:",
         animal,
         bodyID,
-        config
+        earID
     );
-
 }
 
 
